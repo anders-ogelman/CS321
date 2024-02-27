@@ -1,6 +1,5 @@
 public class Workflow {
 
-	
 	private int wfid;
 	private String step;
 	private int objid;
@@ -10,8 +9,9 @@ public class Workflow {
 		this.step = step;
 		this.objid = objid;
 	}
-	
+
 	public boolean addWFItem(String step, int objid) {
+		System.out.println("testing upload");
 		return true;
 	}
 
