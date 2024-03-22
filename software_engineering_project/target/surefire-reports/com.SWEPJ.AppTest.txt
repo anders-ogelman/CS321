@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.SWEPJ.AppTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.026 s <<< FAILURE! - in com.SWEPJ.AppTest
+shouldAnswerWithFalse(com.SWEPJ.AppTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.AppTest.shouldAnswerWithFalse(AppTest.java:20)
+
