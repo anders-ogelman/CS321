@@ -5,6 +5,7 @@ package com.business;
  *
  */
 public class Form {
+    private Boolean fail[];
     private int PID, relatedPID;
     private String DOB, firstName, middleName, lastName, relation;
 
@@ -17,6 +18,10 @@ public class Form {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
+        fail = new Boolean[7];
+        for (int i = 0; i < 7; i++) {
+            fail[i] = false;
+        }
     }
 
     public String getFirstName() {
@@ -47,32 +52,79 @@ public class Form {
         return DOB;
     }
 
-    public void setDOB(String DOB) {
+    public Boolean setDOB(String DOB) {
+        String temp = this.DOB;
         this.DOB = DOB;
+        if (isValid())
+            return true;
+        this.DOB = temp;
+        return false;
     }
 
-    public void setFirstName(String firstName) {
+    public Boolean setFirstName(String firstName) {
+        String temp = this.firstName;
         this.firstName = firstName;
+        if (isValid())
+            return true;
+        this.firstName = temp;
+        return false;
     }
 
-    public void setLastName(String lastName) {
+    public Boolean setLastName(String lastName) {
+        String temp = this.lastName;
         this.lastName = lastName;
+        if (isValid())
+            return true;
+        this.lastName = temp;
+        return false;
     }
 
-    public void setMiddleName(String middleName) {
+    public Boolean setMiddleName(String middleName) {
+        String temp = this.middleName;
         this.middleName = middleName;
+        if (isValid())
+            return true;
+        this.middleName = temp;
+        return false;
     }
 
-    public void setPID(int PID) {
+    public Boolean setPID(int PID) {
+        int temp = this.PID;
         this.PID = PID;
+        if (isValid())
+            return true;
+        this.PID = temp;
+        return false;
     }
 
-    public void setRelatedPID(int relatedPID) {
+    public Boolean setRelatedPID(int relatedPID) {
+        int temp = this.relatedPID;
         this.relatedPID = relatedPID;
+        if (isValid())
+            return true;
+        this.relatedPID = temp;
+        return false;
     }
 
-    public void setRelation(String relation) {
+    public Boolean setRelation(String relation) {
+        String temp = this.relation;
         this.relation = relation;
+        if (isValid())
+            return true;
+        this.relation = temp;
+        return false;
+    }
+
+    public Boolean isValid() {
+        // check PID, if fails index = 0
+        if (String.valueOf(PID).length() != 9) {
+            fail[0] = true;
+        }
+        // check relatedPID
+        if (String.valueOf(relatedPID).length() != 9) {
+            fail[1] = true;
+        }
+        return true;
     }
 
 }
