@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.business.FileTest" time="0.041" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.FormTest" time="0" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\Business\business_objs\target\test-classes;c:\Users\jaden\OneDrive\Documents\GitHub\CS321\Business\business_objs\target\classes;C:\Users\jaden\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\jaden\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.class.path" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\test-classes;c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\classes;C:\Users\jaden\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\jaden\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11-win.jar;"/>
     <property name="java.vm.vendor" value="OpenLogic"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\OpenLogic\jdk-17.0.10.7-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire11019586160515551036\surefirebooter13499151589898923295.jar C:\Users\jaden\AppData\Local\Temp\surefire11019586160515551036 2024-03-21T22-19-35_963-jvmRun1 surefire14405368379271071027tmp surefire_013258287345519290679tmp"/>
+    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire2869771422168193226\surefirebooter15752046546067419814.jar C:\Users\jaden\AppData\Local\Temp\surefire2869771422168193226 2024-03-22T14-17-18_903-jvmRun1 surefire1605844047790172204tmp surefire_08289425946780175108tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\Business\business_objs\target\test-classes;c:\Users\jaden\OneDrive\Documents\GitHub\CS321\Business\business_objs\target\classes;C:\Users\jaden\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\jaden\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="surefire.test.class.path" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\test-classes;c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\classes;C:\Users\jaden\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\jaden\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\jaden"/>
     <property name="user.language" value="en"/>
@@ -25,12 +25,12 @@
     <property name="java.version.date" value="2024-01-16"/>
     <property name="java.home" value="C:\Program Files\OpenLogic\jdk-17.0.10.7-hotspot"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\Business\business_objs"/>
+    <property name="basedir" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire11019586160515551036\surefirebooter13499151589898923295.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire2869771422168193226\surefirebooter15752046546067419814.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.10+7-adhoc..jdk17u"/>
@@ -45,7 +45,7 @@
     <property name="java.vendor.url.bug" value="https://techsupport.roguewave.com/"/>
     <property name="java.io.tmpdir" value="C:\Users\jaden\AppData\Local\Temp\"/>
     <property name="java.version" value="17.0.10"/>
-    <property name="user.dir" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\Business\business_objs"/>
+    <property name="user.dir" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
@@ -57,5 +57,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testInitalize" classname="com.business.FileTest" time="0"/>
+  <testcase name="testInitalizeMiddleName" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testSetFirstName" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testInitalizeLastName" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testSetLastName" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testInitalizeDOB" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testInitalizePID" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testInitalizeRelation" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testSetRelation" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testInitalizeFirstName" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testSetMiddleName" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testSetDOB" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testSetPID" classname="com.SWEPJ.FormTest" time="0"/>
 </testsuite>

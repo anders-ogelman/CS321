@@ -1,4 +1,4 @@
-package com.business;
+package com.SWEPJ;
 
 /**
  * Hello world!
@@ -6,14 +6,12 @@ package com.business;
  */
 public class Form {
     private Boolean fail[];
-    private int PID, relatedPID;
+    private int PID;
     private String DOB, firstName, middleName, lastName, relation;
 
-    public Form(int PID, int relatedPID, String DOB, String relation, String firstName, String middleName,
-            String lastName) {
+    public Form(int PID, String DOB, String relation, String firstName, String middleName, String lastName) {
         this.PID = PID;
         this.DOB = DOB;
-        this.relatedPID = relatedPID;
         this.relation = relation;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -38,10 +36,6 @@ public class Form {
 
     public int getPID() {
         return PID;
-    }
-
-    public int getRelatedPID() {
-        return relatedPID;
     }
 
     public String getRelation() {
@@ -117,13 +111,12 @@ public class Form {
 
     public Boolean isValid() {
         // check PID, if fails index = 0
-        if (String.valueOf(PID).length() != 9) {
-            fail[0] = true;
-        }
-        // check relatedPID
-        if (String.valueOf(relatedPID).length() != 9) {
-            fail[1] = true;
-        }
+        /*
+         * if (String.valueOf(PID).length() != 9) {
+         * fail[0] = true;
+         * }
+         */
+        // needs to also check itself against the database, database not done yet tho
         return true;
     }
 

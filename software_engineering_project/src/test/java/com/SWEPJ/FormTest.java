@@ -1,4 +1,4 @@
-package com.business;
+package com.SWEPJ;
 
 import static org.junit.Assert.assertTrue;
 
@@ -16,20 +16,12 @@ public class FormTest {
 
     @Before
     public void setup() {
-        form = new Form(1, 2, "1/1/1111", "mother", "First", "Middle", "Last");
+        form = new Form(1, "1/1/1111", "mother", "First", "Middle", "Last");
     }
 
     @Test
     public void testInitalizePID() {
         if (form.getPID() == 1)
-            assertTrue(true);
-        else
-            assertTrue(false);
-    }
-
-    @Test
-    public void testInitalizeRelatedPID() {
-        if (form.getRelatedPID() == 2)
             assertTrue(true);
         else
             assertTrue(false);
@@ -79,15 +71,6 @@ public class FormTest {
     public void testSetPID() {
         form.setPID(2);
         if (form.getPID() == 2)
-            assertTrue(true);
-        else
-            assertTrue(false);
-    }
-
-    @Test
-    public void testSetRelatedPID() {
-        form.setRelatedPID(3);
-        if (form.getRelatedPID() == 3)
             assertTrue(true);
         else
             assertTrue(false);
