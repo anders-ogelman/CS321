@@ -91,15 +91,6 @@ public class Form {
         return false;
     }
 
-    public Boolean setRelatedPID(int relatedPID) {
-        int temp = this.relatedPID;
-        this.relatedPID = relatedPID;
-        if (isValid())
-            return true;
-        this.relatedPID = temp;
-        return false;
-    }
-
     public Boolean setRelation(String relation) {
         String temp = this.relation;
         this.relation = relation;
@@ -111,11 +102,11 @@ public class Form {
 
     public Boolean isValid() {
         // check PID, if fails index = 0
-        /*
-         * if (String.valueOf(PID).length() != 9) {
-         * fail[0] = true;
-         * }
-         */
+
+        if (String.valueOf(PID).length() != 9) {
+            fail[0] = true;
+        }
+
         // needs to also check itself against the database, database not done yet tho
         return true;
     }
