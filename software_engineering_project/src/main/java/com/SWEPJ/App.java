@@ -48,6 +48,7 @@ public class App extends Application {
             public void handle(ActionEvent event) {
                 System.out.println("testing Entry");
                 Entry entry = new Entry();
+                entry.start();
 
             }
         });
@@ -56,6 +57,7 @@ public class App extends Application {
             public void handle(ActionEvent event) {
                 System.out.println("testing Review");
                 Review review = new Review();
+                review.start();
 
             }
         });
@@ -64,7 +66,7 @@ public class App extends Application {
             public void handle(ActionEvent event) {
                 System.out.println("testing Approve");
                 Approve approve = new Approve();
-
+                approve.start();
             }
         });
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.FormTest" time="0.001" tests="14" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.WorkflowTest" time="0" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,18 +57,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testInitalizeMiddleName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetFirstName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeLastName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetLastName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeEmail" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeDOB" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizePID" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeRelation" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetRelation" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeFirstName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetMiddleName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetDOB" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetPID" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetEmail" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testInitalizePID" classname="com.SWEPJ.WorkflowTest" time="0"/>
 </testsuite>

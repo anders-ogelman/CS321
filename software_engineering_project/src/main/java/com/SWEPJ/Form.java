@@ -6,20 +6,22 @@ package com.SWEPJ;
  */
 public class Form {
     private Boolean fail[];
-    private int PID;
-    private String DOB, firstName, middleName, lastName, relation;
+    private long PID;
+    private String DOB, firstName, middleName, lastName, relation, email;
 
-    public Form(int PID, String DOB, String relation, String firstName, String middleName, String lastName) {
+    public Form(long PID, String DOB, String relation, String firstName, String middleName, String lastName,
+            String email) {
         this.PID = PID;
         this.DOB = DOB;
         this.relation = relation;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
+        this.email = email;
         fail = new Boolean[7];
-        for (int i = 0; i < 7; i++) {
-            fail[i] = false;
-        }
+        for (int i = 0; i < 7; i++)
+            fail[i] = false; // PID DOB relation firstName middleName lastName email
+        isValid();// Will require user classes to manually check fail[] array
     }
 
     public String getFirstName() {
@@ -34,7 +36,7 @@ public class Form {
         return middleName;
     }
 
-    public int getPID() {
+    public long getPID() {
         return PID;
     }
 
@@ -44,6 +46,14 @@ public class Form {
 
     public String getDOB() {
         return DOB;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Boolean[] getFail() {
+        return fail;
     }
 
     public Boolean setDOB(String DOB) {
@@ -82,8 +92,8 @@ public class Form {
         return false;
     }
 
-    public Boolean setPID(int PID) {
-        int temp = this.PID;
+    public Boolean setPID(long PID) {
+        long temp = this.PID;
         this.PID = PID;
         if (isValid())
             return true;
@@ -100,11 +110,86 @@ public class Form {
         return false;
     }
 
-    public Boolean isValid() {
-        // check PID, if fails index = 0
+    public boolean setEmail(String email) {
+        String temp = this.email;
+        this.email = email;
+        if (isValid())
+            return true;
+        this.email = temp;
+        return false;
+    }
 
+    public Boolean isValid() {
+        // reset fail array
+        for (int i = 0; i < 7; i++)
+            fail[i] = false;
+
+        // checks for PID
         if (String.valueOf(PID).length() != 9) {
             fail[0] = true;
+        }
+
+        // checks for DOB
+        /* */
+        String[] birthdate = DOB.split("/", 3);
+        int month = Integer.parseInt(birthdate[0]);
+        int day = Integer.parseInt(birthdate[1]);
+        int year = Integer.parseInt(birthdate[2]);
+
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                if (day > 31 || day < 1)
+                    fail[1] = true;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (day > 30 || day < 1)
+                    fail[1] = true;
+                break;
+            case 2:
+                if (year % 4 == 0) {
+                    if (day > 29 || day < 1)
+                        fail[1] = true;
+                } else {
+                    if (day > 28 || day < 1)
+                        fail[1] = true;
+                }
+                break;
+            default:
+                fail[1] = true;
+                break;
+        }
+        if (year < 1900 || year > 2023)
+            fail[1] = true;
+
+        // checks for relation
+        if (relation.length() > 35 || relation.length() < 1)
+            fail[2] = true;
+
+        // checks for firstName
+        if (firstName.length() > 35 || firstName.length() < 1)
+            fail[3] = true;
+
+        // checks for middleName
+        if (middleName.length() > 35)
+            fail[4] = true;
+
+        // checks for lastName
+        if (lastName.length() > 35 || lastName.length() < 1)
+            fail[5] = true;
+
+        // check if any field failed
+        for (int i = 0; i < 7; i++) {
+            if (fail[i] == true)
+                return false;
         }
 
         // needs to also check itself against the database, database not done yet tho

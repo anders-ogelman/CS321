@@ -16,12 +16,13 @@ public class FormTest {
 
     @Before
     public void setup() {
-        form = new Form(1, "1/1/1111", "mother", "First", "Middle", "Last");
+        long PID = 111111111;
+        form = new Form(PID, "1/1/2000", "mother", "First", "Middle", "Last", "test@gmail.com");
     }
 
     @Test
     public void testInitalizePID() {
-        if (form.getPID() == 1)
+        if (form.getPID() == 111111111)
             assertTrue(true);
         else
             assertTrue(false);
@@ -29,7 +30,7 @@ public class FormTest {
 
     @Test
     public void testInitalizeDOB() {
-        if (form.getDOB().equals("1/1/1111"))
+        if (form.getDOB().equals("1/1/2000"))
             assertTrue(true);
         else
             assertTrue(false);
@@ -68,9 +69,18 @@ public class FormTest {
     }
 
     @Test
+    public void testInitalizeEmail() {
+        if (form.getEmail().equals("test@gmail.com"))
+            assertTrue(true);
+        else
+            assertTrue(false);
+    }
+
+    @Test
     public void testSetPID() {
-        form.setPID(2);
-        if (form.getPID() == 2)
+        long test = 222222222;
+        form.setPID(test);
+        if (form.getPID() == 222222222)
             assertTrue(true);
         else
             assertTrue(false);
@@ -78,8 +88,8 @@ public class FormTest {
 
     @Test
     public void testSetDOB() {
-        form.setDOB("2/2/2222");
-        if (form.getDOB().equals("2/2/2222"))
+        form.setDOB("2/2/2000");
+        if (form.getDOB().equals("2/2/2000"))
             assertTrue(true);
         else
             assertTrue(false);
@@ -120,5 +130,16 @@ public class FormTest {
         else
             assertTrue(false);
     }
+
+    @Test
+    public void testSetEmail() {
+        form.setEmail("tester@gmail.com");
+        if (form.getEmail().equals("tester@gmail.com"))
+            assertTrue(true);
+        else
+            assertTrue(false);
+    }
+
+    
 
 }
