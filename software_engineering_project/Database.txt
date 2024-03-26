@@ -1,8 +1,5 @@
-0 //entry_lock
-0 //review_lock
-0 //approve_lock
 ~
-PID = 1
+PID = 111111111
 RELATIONS = [2 mother, 3 father]
 DOB = 1/1/1990
 DOD = NULL
@@ -10,7 +7,7 @@ FIRSTNAME = Jill
 MIDDLENAME = NULL
 LASTNAME = Doe
 ~
-PID = 2
+PID = 222222222
 RELATIONS = []
 DOB = 1/1/1970
 DOD = 12/30/2012
@@ -18,7 +15,7 @@ FIRSTNAME = Jane
 MIDDLENAME = NULL
 LASTNAME = Doe
 ~
-PID = 3
+PID = 333333333
 RELATIONS = []
 DOB = 1/1/1970
 DOD = NULL
