@@ -9,12 +9,13 @@ public class DatabaseManager {
     private static String lock1str = "1db.lock";
     private static String lock2str = "2db.lock";
 
-    // 0 = called by entry (in case entry needs to read)
+    // 0 = called by entry (unused but lock still used in writing)
     // 1 = called by review
     // 2 = called by approve
     // ret null if error
+    // ret form if read
     @SuppressWarnings("resource")
-    public static Form read(int db, long PID) {
+    public static Form fetch(int db, long PID) {
         try {
             File database = new File(fileName);
             File lock0 = new File(lock0str);
@@ -24,18 +25,6 @@ public class DatabaseManager {
             int test = 0;
             // MULTITHREAD FILE LOCK
             switch (db) {
-                case 0:
-                    do {
-                        test = 0;
-                        while (lock1.exists() || lock2.exists()) {
-                            Thread.sleep(1000);
-                        }
-                        lock0.createNewFile();
-                        if (lock1.exists() || lock2.exists())
-                            test = 1;
-                        lock0.delete();
-                    } while (test == 1);
-                    break;
                 case 1:
                     do {
                         test = 0;
@@ -81,7 +70,9 @@ public class DatabaseManager {
     // 1 = called by review
     // 2 = called by approve
     // ret false if error
-    public static boolean save(int db) {
+    // ret true if worked
+    @SuppressWarnings("resource")
+    public static boolean update(int db) {
         try {
             File database = new File(fileName);
             File lock0 = new File(lock0str);

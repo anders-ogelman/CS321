@@ -17,7 +17,7 @@ public class FormTest {
     @Before
     public void setup() {
         long PID = 111111111;
-        form = new Form(PID, "1/1/2000", "mother", "First", "Middle", "Last", "test@gmail.com");
+        form = new Form(PID, "1/1/2000", "null", "mother", "First", "Middle", "Last", "test@gmail.com");
     }
 
     @Test
@@ -139,7 +139,5 @@ public class FormTest {
         else
             assertTrue(false);
     }
-
-    
 
 }

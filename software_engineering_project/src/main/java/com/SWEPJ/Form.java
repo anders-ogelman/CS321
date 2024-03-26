@@ -7,12 +7,13 @@ package com.SWEPJ;
 public class Form {
     private Boolean fail[];
     private long PID;
-    private String DOB, firstName, middleName, lastName, relation, email;
+    private String DOB, DOD, firstName, middleName, lastName, relation, email;
 
-    public Form(long PID, String DOB, String relation, String firstName, String middleName, String lastName,
+    public Form(long PID, String DOB, String DOD, String relation, String firstName, String middleName, String lastName,
             String email) {
         this.PID = PID;
         this.DOB = DOB;
+        this.DOD = DOD;
         this.relation = relation;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -22,6 +23,10 @@ public class Form {
         for (int i = 0; i < 7; i++)
             fail[i] = false; // PID DOB relation firstName middleName lastName email
         isValid();// Will require user classes to manually check fail[] array
+    }
+
+    public String getDOD() {
+        return DOD;
     }
 
     public String getFirstName() {
@@ -80,6 +85,15 @@ public class Form {
         if (isValid())
             return true;
         this.lastName = temp;
+        return false;
+    }
+
+    public Boolean setDOD(String DOD) {
+        String temp = this.DOD;
+        this.DOD = DOD;
+        if (isValid())
+            return true;
+        this.DOD = temp;
         return false;
     }
 
