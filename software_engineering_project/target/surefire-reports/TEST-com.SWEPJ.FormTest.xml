@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.FormTest" time="0.068" tests="38" errors="0" skipped="10" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.FormTest" time="0.072" tests="38" errors="0" skipped="10" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\OpenLogic\jdk-17.0.10.7-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire10313473858356064504\surefirebooter6685362563628061760.jar C:\Users\jaden\AppData\Local\Temp\surefire10313473858356064504 2024-03-27T22-48-52_519-jvmRun1 surefire4413525826696498375tmp surefire_06797708523161881609tmp"/>
+    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire5126423489134923687\surefirebooter18043079151612694702.jar C:\Users\jaden\AppData\Local\Temp\surefire5126423489134923687 2024-03-27T23-25-19_040-jvmRun1 surefire6630136363648457746tmp surefire_03766315950788081208tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\test-classes;c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\classes;C:\Users\jaden\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\jaden\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire10313473858356064504\surefirebooter6685362563628061760.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire5126423489134923687\surefirebooter18043079151612694702.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.10+7-adhoc..jdk17u"/>
@@ -70,12 +70,12 @@
   <testcase name="testSetDODNull" classname="com.SWEPJ.FormTest" time="0.001"/>
   <testcase name="testInitalizeFail" classname="com.SWEPJ.FormTest" time="0"/>
   <testcase name="testInitalizeLastName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetLastName" classname="com.SWEPJ.FormTest" time="0.001"/>
+  <testcase name="testSetLastName" classname="com.SWEPJ.FormTest" time="0"/>
   <testcase name="testConfictingDOD" classname="com.SWEPJ.FormTest" time="0">
     <skipped/>
   </testcase>
   <testcase name="testWrongPID1" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongPID2" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testWrongPID2" classname="com.SWEPJ.FormTest" time="0.001"/>
   <testcase name="testWrongEmailinvalid1" classname="com.SWEPJ.FormTest" time="0">
     <skipped/>
   </testcase>
@@ -83,8 +83,8 @@
     <skipped/>
   </testcase>
   <testcase name="testInitalizeEmail" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongFirstNameShort" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongDOBYear" classname="com.SWEPJ.FormTest" time="0.001"/>
+  <testcase name="testWrongFirstNameShort" classname="com.SWEPJ.FormTest" time="0.001"/>
+  <testcase name="testWrongDOBYear" classname="com.SWEPJ.FormTest" time="0"/>
   <testcase name="testWrongDODYear" classname="com.SWEPJ.FormTest" time="0">
     <skipped/>
   </testcase>
@@ -94,8 +94,8 @@
   <testcase name="testInitalizeRelation" classname="com.SWEPJ.FormTest" time="0"/>
   <testcase name="testSetRelation" classname="com.SWEPJ.FormTest" time="0"/>
   <testcase name="testWrongFirstNameLong" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongLastNameShort" classname="com.SWEPJ.FormTest" time="0.001"/>
-  <testcase name="testWrongDOBMonth" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testWrongLastNameShort" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testWrongDOBMonth" classname="com.SWEPJ.FormTest" time="0.001"/>
   <testcase name="testWrongDODMonth" classname="com.SWEPJ.FormTest" time="0">
     <skipped/>
   </testcase>
@@ -104,9 +104,9 @@
   <testcase name="testWrongRelationLong" classname="com.SWEPJ.FormTest" time="0">
     <skipped/>
   </testcase>
-  <testcase name="testSetDOB" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testSetDOB" classname="com.SWEPJ.FormTest" time="0.001"/>
   <testcase name="testSetDOD" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetPID" classname="com.SWEPJ.FormTest" time="0"/>
+  <testcase name="testSetPID" classname="com.SWEPJ.FormTest" time="0.001"/>
   <testcase name="testWrongLastNameLong" classname="com.SWEPJ.FormTest" time="0"/>
   <testcase name="testWrongEmailLong" classname="com.SWEPJ.FormTest" time="0">
     <skipped/>
@@ -114,5 +114,5 @@
   <testcase name="testWrongRelationShort" classname="com.SWEPJ.FormTest" time="0">
     <skipped/>
   </testcase>
-  <testcase name="testSetEmail" classname="com.SWEPJ.FormTest" time="0.001"/>
+  <testcase name="testSetEmail" classname="com.SWEPJ.FormTest" time="0"/>
 </testsuite>

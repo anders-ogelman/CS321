@@ -32,9 +32,10 @@ public class DatabaseManager {
                             Thread.sleep(1000);
                         }
                         lock1.createNewFile();
-                        if (lock0.exists() || lock2.exists())
+                        if (lock0.exists() || lock2.exists()) {
                             test = 1;
-                        lock1.delete();
+                            lock1.delete();
+                        }
                     } while (test == 1);
                     break;
                 case 2:
@@ -44,9 +45,10 @@ public class DatabaseManager {
                             Thread.sleep(1000);
                         }
                         lock2.createNewFile();
-                        if (lock1.exists() || lock0.exists())
+                        if (lock1.exists() || lock0.exists()) {
                             test = 1;
-                        lock2.delete();
+                            lock2.delete();
+                        }
                     } while (test == 1);
                     break;
                 default:
@@ -89,9 +91,10 @@ public class DatabaseManager {
                             Thread.sleep(1000);
                         }
                         lock0.createNewFile();
-                        if (lock1.exists() || lock2.exists())
+                        if (lock1.exists() || lock2.exists()) {
                             test = 1;
-                        lock0.delete();
+                            lock0.delete();
+                        }
                     } while (test == 1);
                     break;
                 case 1:
@@ -101,9 +104,10 @@ public class DatabaseManager {
                             Thread.sleep(1000);
                         }
                         lock1.createNewFile();
-                        if (lock0.exists() || lock2.exists())
+                        if (lock0.exists() || lock2.exists()) {
                             test = 1;
-                        lock1.delete();
+                            lock1.delete();
+                        }
                     } while (test == 1);
                     break;
                 case 2:
@@ -113,9 +117,10 @@ public class DatabaseManager {
                             Thread.sleep(1000);
                         }
                         lock2.createNewFile();
-                        if (lock1.exists() || lock0.exists())
+                        if (lock1.exists() || lock0.exists()) {
                             test = 1;
-                        lock2.delete();
+                            lock2.delete();
+                        }
                     } while (test == 1);
                     break;
                 default:
