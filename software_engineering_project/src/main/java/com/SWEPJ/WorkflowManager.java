@@ -15,7 +15,7 @@ public class WorkflowManager {
     // ret null if error
     // returns the next form to process
     @SuppressWarnings("resource")
-    public static Form info(int wf) {
+    public static Form[] info(int wf) {
         try {
             File database = new File(fileName);
             File lock0 = new File(lock0str);
@@ -73,7 +73,7 @@ public class WorkflowManager {
     // 2 = called by approve
     // ret false if error
     @SuppressWarnings("resource")
-    public static boolean update(int db, Form form, int action) {
+    public static boolean update(int wf, Form form, int action) {
         try {
             File database = new File(fileName);
             File lock0 = new File(lock0str);
@@ -82,7 +82,7 @@ public class WorkflowManager {
             Scanner s = new Scanner(database);
             int test = 0;
             // MULTITHREAD FILE LOCK
-            switch (db) {
+            switch (wf) {
                 case 0:
                     do {
                         test = 0;
@@ -126,10 +126,10 @@ public class WorkflowManager {
                     throw new Exception("Invalid access number");
 
             }
-            File currLock = new File(Integer.toString(db) + ".lock");
-            while (s.hasNextLine()) {
-                System.out.println(s.nextLine()); // WRITE SAVING CODE HERE
-            }
+            File currLock = new File(Integer.toString(wf) + ".lock");
+            // while (s.hasNextLine()) {
+            // System.out.println(s.nextLine()); // WRITE SAVING CODE HERE
+            // }
             s.close();
             currLock.delete();
             return true;

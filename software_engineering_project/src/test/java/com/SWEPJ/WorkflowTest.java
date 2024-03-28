@@ -133,7 +133,7 @@ public class WorkflowTest {
     @Test
     public void testEntryPush() {
         long PID = 111111111;
-        long[] related = { 222222222 };
+        long[] related = { 444444444 };
         String[] relation = { "tester" };
         Form tester = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "last", "email@address.com",
                 related);
@@ -141,7 +141,103 @@ public class WorkflowTest {
         File workflow = new File("Workflow.txt");
         try {
             Scanner s = new Scanner(workflow);
-            // continue here
+            s.nextLine();
+            String updatedWF = s.nextLine();
+            s.close();
+            assertTrue(result
+                    && updatedWF.equals("REVIEWER_TASKS = [111111111/father, 111111111/mother, 1111111111/tester]"));
+        } catch (Exception e) {
+            assertTrue(false);
+        }
+    }
+
+    @Ignore
+    @Test
+    public void testReviewPush() {
+        long PID = 111111111;
+        long[] related = { 444444444 };
+        String[] relation = { "tester" };
+        Form tester = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "last", "email@address.com",
+                related);
+        Boolean result = WorkflowManager.update(1, tester, 1);
+        File workflow = new File("Workflow.txt");
+        try {
+            Scanner s = new Scanner(workflow);
+            s.nextLine();
+            s.nextLine();
+            String updatedWF = s.nextLine();
+            s.close();
+            assertTrue(result
+                    && updatedWF.equals("APPROVER_TASKS = [111111111/father, 111111111/mother, 1111111111/tester]"));
+        } catch (Exception e) {
+            assertTrue(false);
+        }
+    }
+
+    @Ignore
+    @Test
+    public void testReviewPull() {
+        long PID = 111111111;
+        long[] related = { 444444444 };
+        String[] relation = { "tester" };
+        Form tester = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "last", "email@address.com",
+                related);
+        Boolean result = WorkflowManager.update(2, tester, -1);
+        File workflow = new File("Workflow.txt");
+        try {
+            Scanner s = new Scanner(workflow);
+            s.nextLine();
+            s.nextLine();
+            String updatedWF = s.nextLine();
+            s.close();
+            assertTrue(result
+                    && updatedWF.equals("REVIEWER_TASKS = [111111111/father, 111111111/mother]"));
+        } catch (Exception e) {
+            assertTrue(false);
+        }
+    }
+
+    @Ignore
+    @Test
+    public void testApprovePush() {
+        long PID = 111111111;
+        long[] related = { 444444444 };
+        String[] relation = { "tester" };
+        Form tester = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "last", "email@address.com",
+                related);
+        Boolean result = WorkflowManager.update(2, tester, 1);
+        File workflow = new File("Workflow.txt");
+        try {
+            Scanner s = new Scanner(workflow);
+            s.nextLine();
+            s.nextLine();
+            String updatedWF = s.nextLine();
+            s.close();
+            assertTrue(result
+                    && updatedWF.equals("APPROVER_TASKS = [111111111/father, 111111111/mother]"));
+        } catch (Exception e) {
+            assertTrue(false);
+        }
+    }
+
+    @Ignore
+    @Test
+    public void testApprovePull() {
+        long PID = 111111111;
+        long[] related = { 444444444 };
+        String[] relation = { "tester" };
+        Form tester = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "last", "email@address.com",
+                related);
+        Boolean result = WorkflowManager.update(2, tester, -1);
+        File workflow = new File("Workflow.txt");
+        try {
+            Scanner s = new Scanner(workflow);
+            s.nextLine();
+            s.nextLine();
+            String updatedWF = s.nextLine();
+            s.close();
+            assertTrue(result
+                    && updatedWF.equals("REVIEWER_TASKS = [111111111/father, 111111111/mother, 1111111111/tester]"));
         } catch (Exception e) {
             assertTrue(false);
         }
@@ -160,7 +256,7 @@ public class WorkflowTest {
                     currLock.delete();
             }
         } catch (Exception e) {
-            System.err.println("manual database replacement required");
+            System.err.println("manual workflow replacement required");
         }
     }
 

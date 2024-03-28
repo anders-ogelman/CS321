@@ -30,6 +30,19 @@ public class DatabaseManager {
             // MULTITHREAD FILE LOCK
             if (skip == false) {
                 switch (db) {
+                    case 0:
+                        do {
+                            test = 0;
+                            while (lock1.exists() || lock2.exists()) {
+                                Thread.sleep(1000);
+                            }
+                            lock0.createNewFile();
+                            if (lock1.exists() || lock2.exists()) {
+                                test = 1;
+                                lock0.delete();
+                            }
+                        } while (test == 1);
+                        break;
                     case 1:
                         do {
                             test = 0;
@@ -146,5 +159,4 @@ public class DatabaseManager {
             return false;
         }
     }
-
 }

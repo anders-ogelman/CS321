@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.SWEPJ.FormTest
 -------------------------------------------------------------------------------
-Tests run: 37, Failures: 0, Errors: 0, Skipped: 9, Time elapsed: 0.001 s - in com.SWEPJ.FormTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 9, Time elapsed: 0 s - in com.SWEPJ.FormTest
