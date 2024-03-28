@@ -7,10 +7,14 @@ package com.SWEPJ;
 public class Form {
     private Boolean fail[];
     private long PID;
-    private String DOB, DOD, firstName, middleName, lastName, relation, email;
+    private long[] relatedPID;
+    private String DOB, DOD, firstName, middleName, lastName, email;
+    private String[] relation;
 
-    public Form(long PID, String DOB, String DOD, String relation, String firstName, String middleName, String lastName,
-            String email) {
+    public Form(long PID, String DOB, String DOD, String[] relation, String firstName, String middleName,
+            String lastName,
+
+            String email, long[] relatedPID) {
         this.PID = PID;
         this.DOB = DOB;
         this.DOD = DOD;
@@ -19,14 +23,19 @@ public class Form {
         this.middleName = middleName;
         this.lastName = lastName;
         this.email = email;
-        fail = new Boolean[8];
-        for (int i = 0; i < 8; i++)
+        this.relatedPID = relatedPID;
+        fail = new Boolean[9];
+        for (int i = 0; i < 9; i++)
             fail[i] = false; // PID DOB relation firstName middleName lastName email
         isValid();// Will require user classes to manually check fail[] array
     }
 
     public String getDOD() {
         return DOD;
+    }
+
+    public long[] getRelatedPID() {
+        return relatedPID;
     }
 
     public String getFirstName() {
@@ -45,7 +54,7 @@ public class Form {
         return PID;
     }
 
-    public String getRelation() {
+    public String[] getRelation() {
         return relation;
     }
 
@@ -115,8 +124,17 @@ public class Form {
         return false;
     }
 
-    public Boolean setRelation(String relation) {
-        String temp = this.relation;
+    public Boolean setRelatedPID(long[] relatedPID) {
+        long[] temp = this.relatedPID;
+        this.relatedPID = relatedPID;
+        if (isValid())
+            return true;
+        this.relatedPID = temp;
+        return false;
+    }
+
+    public Boolean setRelation(String[] relation) {
+        String[] temp = this.relation;
         this.relation = relation;
         if (isValid())
             return true;
@@ -133,6 +151,7 @@ public class Form {
         return false;
     }
 
+    // WIP
     public Boolean isValid() {
         // reset fail array
         for (int i = 0; i < 8; i++)
@@ -185,8 +204,8 @@ public class Form {
             fail[1] = true;
 
         // checks for relation
-        if (relation.length() > 35 || relation.length() < 1)
-            fail[3] = true;
+        // if (relation.length() > 35 || relation.length() < 1)
+        // fail[3] = true;
 
         // checks for firstName
         if (firstName.length() > 35 || firstName.length() < 1)
@@ -205,8 +224,6 @@ public class Form {
             if (fail[i] == true)
                 return false;
         }
-
-        // needs to also check itself against the database, database not done yet tho
         return true;
     }
 

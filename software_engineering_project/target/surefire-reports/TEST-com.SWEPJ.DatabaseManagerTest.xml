@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.FormTest" time="0" tests="37" errors="0" skipped="9" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.DatabaseManagerTest" time="0.032" tests="3" errors="0" skipped="3" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,59 +57,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testWrongDOBDay" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongDODDay" classname="com.SWEPJ.FormTest" time="0">
+  <testcase name="testSingleAccess" classname="com.SWEPJ.DatabaseManagerTest" time="0">
     <skipped/>
   </testcase>
-  <testcase name="testInitalizeMiddleName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongMiddleNameShortLong" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetFirstName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongEmailShort" classname="com.SWEPJ.FormTest" time="0">
+  <testcase name="testDualAccess" classname="com.SWEPJ.DatabaseManagerTest" time="0">
     <skipped/>
   </testcase>
-  <testcase name="testSetDODNull" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeFail" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeLastName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetLastName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testConfictingDOD" classname="com.SWEPJ.FormTest" time="0">
+  <testcase name="testUpdate" classname="com.SWEPJ.DatabaseManagerTest" time="0">
     <skipped/>
   </testcase>
-  <testcase name="testWrongPID1" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongPID2" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongEmailinvalid1" classname="com.SWEPJ.FormTest" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testWrongEmailinvalid2" classname="com.SWEPJ.FormTest" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testInitalizeEmail" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongFirstNameShort" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongDOBYear" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongDODYear" classname="com.SWEPJ.FormTest" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testInitalizeDOB" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeDOD" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizePID" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testInitalizeRelation" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetRelation" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongFirstNameLong" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongLastNameShort" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongDOBMonth" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongDODMonth" classname="com.SWEPJ.FormTest" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testInitalizeFirstName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetMiddleName" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongRelationLong" classname="com.SWEPJ.FormTest" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testSetDOB" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetDOD" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testSetPID" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongLastNameLong" classname="com.SWEPJ.FormTest" time="0"/>
-  <testcase name="testWrongEmailLong" classname="com.SWEPJ.FormTest" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testSetEmail" classname="com.SWEPJ.FormTest" time="0"/>
 </testsuite>

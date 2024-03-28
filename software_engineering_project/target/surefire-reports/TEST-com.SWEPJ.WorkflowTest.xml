@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.WorkflowTest" time="0" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.WorkflowTest" time="0.008" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\OpenLogic\jdk-17.0.10.7-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire5126423489134923687\surefirebooter18043079151612694702.jar C:\Users\jaden\AppData\Local\Temp\surefire5126423489134923687 2024-03-27T23-25-19_040-jvmRun1 surefire6630136363648457746tmp surefire_03766315950788081208tmp"/>
+    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire10511206268635070622\surefirebooter12672371362304688573.jar C:\Users\jaden\AppData\Local\Temp\surefire10511206268635070622 2024-03-28T02-14-08_604-jvmRun1 surefire8360158236204183287tmp surefire_02368333291331863604tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\test-classes;c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\classes;C:\Users\jaden\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\jaden\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire5126423489134923687\surefirebooter18043079151612694702.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire10511206268635070622\surefirebooter12672371362304688573.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.10+7-adhoc..jdk17u"/>

@@ -12,10 +12,14 @@ public class DatabaseManager {
     // 0 = called by entry (unused but lock still used in writing)
     // 1 = called by review
     // 2 = called by approve
+    // PID = pid of person who filled out form/person to lookup
+    // related = related immigrant to lookup, if only doing a lookup for one person,
+    // leave this field as an empty string
+    // skip is used internally and should always be set to false
     // ret null if error
-    // ret form if read
+    // ret form, and form of related if read
     @SuppressWarnings("resource")
-    public static Form fetch(int db, long PID) {
+    public static Form[] fetch(int db, long PID, String related, Boolean skip) {
         try {
             File database = new File(fileName);
             File lock0 = new File(lock0str);
@@ -24,36 +28,38 @@ public class DatabaseManager {
             Scanner s = new Scanner(database);
             int test = 0;
             // MULTITHREAD FILE LOCK
-            switch (db) {
-                case 1:
-                    do {
-                        test = 0;
-                        while (lock0.exists() || lock2.exists()) {
-                            Thread.sleep(1000);
-                        }
-                        lock1.createNewFile();
-                        if (lock0.exists() || lock2.exists()) {
-                            test = 1;
-                            lock1.delete();
-                        }
-                    } while (test == 1);
-                    break;
-                case 2:
-                    do {
-                        test = 0;
-                        while (lock1.exists() || lock0.exists()) {
-                            Thread.sleep(1000);
-                        }
-                        lock2.createNewFile();
-                        if (lock1.exists() || lock0.exists()) {
-                            test = 1;
-                            lock2.delete();
-                        }
-                    } while (test == 1);
-                    break;
-                default:
-                    throw new Exception("Invalid access number");
+            if (skip == false) {
+                switch (db) {
+                    case 1:
+                        do {
+                            test = 0;
+                            while (lock0.exists() || lock2.exists()) {
+                                Thread.sleep(1000);
+                            }
+                            lock1.createNewFile();
+                            if (lock0.exists() || lock2.exists()) {
+                                test = 1;
+                                lock1.delete();
+                            }
+                        } while (test == 1);
+                        break;
+                    case 2:
+                        do {
+                            test = 0;
+                            while (lock1.exists() || lock0.exists()) {
+                                Thread.sleep(1000);
+                            }
+                            lock2.createNewFile();
+                            if (lock1.exists() || lock0.exists()) {
+                                test = 1;
+                                lock2.delete();
+                            }
+                        } while (test == 1);
+                        break;
+                    default:
+                        throw new Exception("Invalid access number");
 
+                }
             }
             File currLock = new File(Integer.toString(db) + "db.lock");
             while (s.hasNextLine()) {
@@ -73,8 +79,9 @@ public class DatabaseManager {
     // 2 = called by approve
     // ret false if error
     // ret true if worked
+
     @SuppressWarnings("resource")
-    public static boolean update(int db) {
+    public static boolean update(int db, Form form) {
         try {
             File database = new File(fileName);
             File lock0 = new File(lock0str);

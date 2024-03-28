@@ -6,7 +6,6 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-//import org.junit.api.Disabled;
 
 /**
  * Unit test for simple App.
@@ -20,7 +19,9 @@ public class FormTest {
     @Before
     public void setup() {
         long PID = 111111111;
-        form = new Form(PID, "1/1/2000", "null", "mother", "First", "Middle", "Last", "test@gmail.com");
+        long[] relatedPID = { 222222222 };
+        String[] relation = { "mother" };
+        form = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "Last", "test@gmail.com", relatedPID);
     }
 
     @Test
@@ -45,7 +46,7 @@ public class FormTest {
 
     @Test
     public void testInitalizeRelation() {
-        assertTrue(form.getRelation().equals("mother"));
+        assertTrue(form.getRelation()[0].equals("mother"));
     }
 
     @Test
@@ -70,7 +71,7 @@ public class FormTest {
 
     @Test
     public void testInitalizeDOD() {
-        assertTrue(form.getDOD().equals("null"));
+        assertTrue(form.getDOD().equals("NULL"));
     }
 
     @Test
@@ -86,7 +87,8 @@ public class FormTest {
 
     @Test
     public void testSetRelation() {
-        assertTrue(form.setRelation("father") && form.getRelation().equals("father"));
+        String[] test = { "father" };
+        assertTrue(form.setRelation(test) && form.getRelation()[0].equals("father"));
     }
 
     @Test
@@ -116,8 +118,8 @@ public class FormTest {
 
     @Test
     public void testSetDODNull() {
-        form.setDOD("1/1/2001");
-        assertTrue(form.setDOD("null") && form.getDOD().equals("null"));
+        form.setDOD("NULL");
+        assertTrue(form.setDOD("NULL") && form.getDOD().equals("NULL"));
     }
 
     @Test
@@ -228,14 +230,6 @@ public class FormTest {
     @Test
     public void testWrongRelationLong() {
         boolean test = form.setRelation("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[2]));
-    }
-
-    @Ignore
-    @Test
-    public void testWrongRelationShort() {
-        boolean test = form.setRelation("");
         Boolean[] fail = form.getFail();
         assertFalse(test || (!fail[2]));
     }
