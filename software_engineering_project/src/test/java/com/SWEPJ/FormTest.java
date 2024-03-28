@@ -4,7 +4,9 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+//import org.junit.api.Disabled;
 
 /**
  * Unit test for simple App.
@@ -113,6 +115,12 @@ public class FormTest {
     }
 
     @Test
+    public void testSetDODNull() {
+        form.setDOD("1/1/2001");
+        assertTrue(form.setDOD("null") && form.getDOD().equals("null"));
+    }
+
+    @Test
     public void testWrongPID1() {
         long test = 1;
         boolean test1 = form.setPID(test);
@@ -143,10 +151,132 @@ public class FormTest {
     }
 
     @Test
-    public void testWrongDOByear() {
-        boolean test = form.setDOB("12/0/1899");
+    public void testWrongDOBYear() {
+        boolean test = form.setDOB("12/1/1899");
         Boolean[] fail = form.getFail();
         assertFalse(test || (!fail[1]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongDODMonth() {
+        boolean test = form.setDOD("13/1/2000");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[2]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongDODDay() {
+        boolean test = form.setDOD("12/0/2000");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[2]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongDODYear() {
+        boolean test = form.setDOD("12/1/1899");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[2]));
+    }
+
+    @Ignore
+    @Test
+    public void testConfictingDOD() {
+        boolean test = form.setDOD("12/1/1999");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[2]));
+    }
+
+    @Test
+    public void testWrongFirstNameLong() {
+        boolean test = form.setFirstName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[4]));
+    }
+
+    @Test
+    public void testWrongFirstNameShort() {
+        boolean test = form.setFirstName("");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[4]));
+    }
+
+    @Test
+    public void testWrongMiddleNameShortLong() {
+        boolean test = form.setMiddleName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[5]));
+    }
+
+    @Test
+    public void testWrongLastNameLong() {
+        boolean test = form.setLastName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[6]));
+    }
+
+    @Test
+    public void testWrongLastNameShort() {
+        boolean test = form.setLastName("");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[6]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongRelationLong() {
+        boolean test = form.setRelation("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[2]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongRelationShort() {
+        boolean test = form.setRelation("");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[2]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongEmailShort() {
+        boolean test = form.setEmail("");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[7]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongEmailLong() {
+        String sample = "";
+        for (int i = 0; i < 50; i++)
+            sample += "A";
+        sample += "@";
+        for (int i = 0; i < 51; i++)
+            sample += "A";
+        sample += ".com";
+        boolean test = form.setEmail(sample);
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[7]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongEmailinvalid1() {
+        boolean test = form.setEmail("AAA.com");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[7]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongEmailinvalid2() {
+        boolean test = form.setEmail("AAA@AAA");
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[7]));
     }
 
 }
