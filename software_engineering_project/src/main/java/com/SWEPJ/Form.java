@@ -19,8 +19,8 @@ public class Form {
         this.middleName = middleName;
         this.lastName = lastName;
         this.email = email;
-        fail = new Boolean[7];
-        for (int i = 0; i < 7; i++)
+        fail = new Boolean[8];
+        for (int i = 0; i < 8; i++)
             fail[i] = false; // PID DOB relation firstName middleName lastName email
         isValid();// Will require user classes to manually check fail[] array
     }
@@ -135,7 +135,7 @@ public class Form {
 
     public Boolean isValid() {
         // reset fail array
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 8; i++)
             fail[i] = false;
 
         // checks for PID
@@ -186,22 +186,22 @@ public class Form {
 
         // checks for relation
         if (relation.length() > 35 || relation.length() < 1)
-            fail[2] = true;
+            fail[3] = true;
 
         // checks for firstName
         if (firstName.length() > 35 || firstName.length() < 1)
-            fail[3] = true;
+            fail[4] = true;
 
         // checks for middleName
         if (middleName.length() > 35)
-            fail[4] = true;
+            fail[5] = true;
 
         // checks for lastName
         if (lastName.length() > 35 || lastName.length() < 1)
-            fail[5] = true;
+            fail[6] = true;
 
         // check if any field failed
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             if (fail[i] == true)
                 return false;
         }

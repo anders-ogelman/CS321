@@ -1,13 +1,14 @@
 package com.SWEPJ;
 
 public class Review extends Thread {
-    Review() {
+    Review() { // code written here is not concurrent and will hold up everyone elses code
     }
 
     public void run() {
-        System.out.println("Review working");
-        long PID = 111111111;
-        Form form = new Form(PID, "1/1/2000", "null", "mother", "First", "Middle", "Last", "test@gmail.com");
-        DatabaseManager.fetch(1, PID);
+        try {// thread.sleep requires try/catch, idk why lol
+            Thread.sleep(100000);// code written here is concurrent, even though my program will wait for 100
+                                 // seconds, yours will not
+        } catch (Exception e) {
+        }
     }
 }
