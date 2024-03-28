@@ -15,12 +15,14 @@ import java.nio.file.StandardCopyOption;
 
 public class DatabaseManagerTest {
 
+    // No need to check for wrong user input as isValid() in Form() already does
+    // this
     @Ignore
     @Test
     public void testDualAccess() {
         Form[] test = DatabaseManager.fetch(1, 1111111111, "father", false);
         Boolean[] fails = test[0].getFail();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 9; i++) {
             if (fails[i])
                 assertTrue(false);
         }
@@ -40,8 +42,10 @@ public class DatabaseManagerTest {
             assertTrue(false);
         if (!(test[0].getEmail().equals("jill@doe.com")))
             assertTrue(false);
+        if (test[0].getRelatedPID()[1] != 333333333)
+            assertTrue(false);
         fails = test[1].getFail();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 9; i++) {
             if (fails[i])
                 assertTrue(false);
         }
@@ -75,7 +79,7 @@ public class DatabaseManagerTest {
     public void testSingleAccess() {
         Form[] test = DatabaseManager.fetch(1, 222222222, "", false);
         Boolean[] fails = test[0].getFail();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 9; i++) {
             if (fails[i])
                 assertTrue(false);
         }
@@ -108,10 +112,37 @@ public class DatabaseManagerTest {
     @Test
     public void testUpdate() {
         long PID = 111111111;
-        // Form tester = new Form(PID, "1/1/2000", "NULL", "", "First", "Middle",
+        long[] related = { 222222222 };
+        String[] relation = { "tester" };
+        Form tester = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "last", "email@address.com",
+                related);
         // "Last", "test@gmail.com");
-        // DatabaseManager.update(1, tester);
-        // Form[] test = DatabaseManager.update(1, 1111111111, tester);
+        DatabaseManager.update(1, tester);
+        Form[] test = DatabaseManager.fetch(1, 1111111111, "", false);
+        Boolean[] fails = test[0].getFail();
+        for (int i = 0; i < 9; i++) {
+            if (fails[i])
+                assertTrue(false);
+        }
+        if (test[0].getPID() != 1111111111)
+            assertTrue(false);
+        if (!(test[0].getRelation()[0].equals("tester")))
+            assertTrue(false);
+        if (!(test[0].getDOB().equals("1/1/2000")))
+            assertTrue(false);
+        if (!(test[0].getDOD().equals("NULL")))
+            assertTrue(false);
+        if (!(test[0].getFirstName().equals("First")))
+            assertTrue(false);
+        if (!(test[0].getMiddleName().equals("Middle")))
+            assertTrue(false);
+        if (!(test[0].getLastName().equals("Last")))
+            assertTrue(false);
+        if (!(test[0].getEmail().equals("email@address.com")))
+            assertTrue(false);
+        if (test[0].getRelatedPID()[0] != 222222222)
+            assertTrue(false);
+        assertTrue(true);
     }
 
     @After

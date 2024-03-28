@@ -12,9 +12,7 @@ public class Form {
     private String[] relation;
 
     public Form(long PID, String DOB, String DOD, String[] relation, String firstName, String middleName,
-            String lastName,
-
-            String email, long[] relatedPID) {
+            String lastName, String email, long[] relatedPID) {
         this.PID = PID;
         this.DOB = DOB;
         this.DOD = DOD;
