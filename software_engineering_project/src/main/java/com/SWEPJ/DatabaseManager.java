@@ -9,7 +9,7 @@ public class DatabaseManager {
     private static String lock1str = "1db.lock";
     private static String lock2str = "2db.lock";
 
-    // 0 = called by entry (unused but lock still used in writing)
+    // 0 = called by entry
     // 1 = called by review
     // 2 = called by approve
     // PID = pid of person who filled out form/person to lookup
@@ -21,6 +21,7 @@ public class DatabaseManager {
     @SuppressWarnings("resource")
     public static Form[] fetch(int db, long PID, String related, Boolean skip) {
         try {
+            Thread.sleep(10000);
             File database = new File(fileName);
             File lock0 = new File(lock0str);
             File lock1 = new File(lock1str);

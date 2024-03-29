@@ -1,20 +1,15 @@
 package com.SWEPJ;
 
-public class Approve extends Thread {
-    Thread t;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
+public class Approve {
     public Approve() {
-        // this.t = new Thread(this);
-        // this.t.start();
-    }
-
-    public void run() {
-        System.out.println("Approve working");
-        try {
-            Thread.sleep(10000);
-            System.out.println("done waiting");
-        } catch (Exception e) {
-            System.out.println("error");
-        }
+        System.out.println("Hello World!");
+        Stage secondStage = new Stage();
+        secondStage.setScene(new Scene(new HBox(4, new Label("Approve window"))));
+        secondStage.show();
     }
 }

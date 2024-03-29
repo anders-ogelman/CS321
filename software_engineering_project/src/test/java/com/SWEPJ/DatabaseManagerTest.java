@@ -1,7 +1,6 @@
 package com.SWEPJ;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
 
 import org.junit.Ignore;
 import org.junit.Test;

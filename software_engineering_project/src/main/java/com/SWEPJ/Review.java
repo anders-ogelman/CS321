@@ -1,14 +1,15 @@
 package com.SWEPJ;
 
-public class Review extends Thread {
-    Review() { // code written here is not concurrent and will hold up everyone elses code
-    }
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
-    public void run() {
-        try {// thread.sleep requires try/catch, idk why lol
-            Thread.sleep(100000);// code written here is concurrent, even though my program will wait for 100
-                                 // seconds, yours will not
-        } catch (Exception e) {
-        }
+public class Review {
+    public Review() {
+        System.out.println("Hello World!");
+        Stage secondStage = new Stage();
+        secondStage.setScene(new Scene(new HBox(4, new Label("Review window"))));
+        secondStage.show();
     }
 }

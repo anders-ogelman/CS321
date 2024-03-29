@@ -40,6 +40,12 @@ public class FormTest {
     }
 
     @Test
+    public void testInitalizeRelatedPID() {
+        long test = 222222222;
+        assertTrue(form.getRelatedPID()[0] == test);
+    }
+
+    @Test
     public void testInitalizeDOB() {
         assertTrue(form.getDOB().equals("1/1/2000"));
     }
@@ -88,7 +94,13 @@ public class FormTest {
     @Test
     public void testSetRelation() {
         String[] test = { "father" };
-        assertTrue(form.setRelation(test) && form.getRelation()[0].equals("father"));
+        assertTrue(form.setRelation(test) && form.getRelation().equals(test));
+    }
+
+    @Test
+    public void testSetRelatedPID() {
+        long[] test = { 222222222 };
+        assertTrue(form.setRelatedPID(test) && form.getRelatedPID().equals(test));
     }
 
     @Test
@@ -229,7 +241,8 @@ public class FormTest {
     @Ignore
     @Test
     public void testWrongRelationLong() {
-        boolean test = form.setRelation("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        String[] tooLong = { "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" };
+        boolean test = form.setRelation(tooLong);
         Boolean[] fail = form.getFail();
         assertFalse(test || (!fail[2]));
     }
@@ -271,6 +284,24 @@ public class FormTest {
         boolean test = form.setEmail("AAA@AAA");
         Boolean[] fail = form.getFail();
         assertFalse(test || (!fail[7]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongRelatedPIDShort() {
+        long[] sample = { 1 };
+        boolean test = form.setRelatedPID(sample);
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[8]));
+    }
+
+    @Ignore
+    @Test
+    public void testWrongRelatedPIDLong() {
+        long[] sample = { 1 };
+        boolean test = form.setRelatedPID(sample);
+        Boolean[] fail = form.getFail();
+        assertFalse(test || (!fail[8]));
     }
 
 }
