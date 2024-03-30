@@ -9,15 +9,15 @@ public class DatabaseManager {
     private static String lock1str = "1db.lock";
     private static String lock2str = "2db.lock";
 
-    // 0 = called by entry
-    // 1 = called by review
-    // 2 = called by approve
+    // int db = 0 = called by entry
+    // int db = 1 = called by review
+    // int db = 2 = called by approve
     // PID = pid of person who filled out form/person to lookup
     // related = related immigrant to lookup, if only doing a lookup for one person,
     // leave this field as an empty string
     // skip is used internally and should always be set to false
     // ret null if error
-    // ret form, and form of related if read
+    // ret form of requester (index 0), and form of related if read (index 1)
     @SuppressWarnings("resource")
     public static Form[] fetch(int db, long PID, String related, Boolean skip) {
         try {
@@ -91,6 +91,7 @@ public class DatabaseManager {
     // 0 = called by
     // 1 = called by review
     // 2 = called by approve
+    // form = form being saved
     // ret false if error
     // ret true if worked
 

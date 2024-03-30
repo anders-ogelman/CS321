@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.After;
+import org.junit.Before;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -13,18 +14,51 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class DatabaseManagerTest {
+	
+	Form form;
 
+    @Before
+    public void setup() {
+        long PID = 111111111;
+        long[] relatedPID = { 222222222 };
+        String[] relation = { "mother" };
+        form = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "Last", "test@gmail.com", relatedPID);
+    }
+	
+    //Checks bad input into DatabaseManager's methods
+    @Ignore
+    @Test
+	public void testFetchInvalidScreen() {
+		assertTrue(DatabaseManager.fetch(4, 1111111111, "", false) == null); //check invalid access type
+	}
+    @Ignore
+    @Test
+    public void testUpdateInvalidScreen() {
+    	assertTrue(DatabaseManager.update(4, form) == false); //check invalid access type
+    }
+    @Ignore
+    @Test
+    public void testFetchInvalidLookup() {
+    	assertTrue(DatabaseManager.fetch(0, 1, null, false) == null); //check incorrect PID lookup
+    }
+    @Ignore
+    @Test
+    public void testUpdateInvalidLookup() {
+	assertTrue(DatabaseManager.update(1, null) == true); //check null form
+    }
+	
     // No need to check for wrong user input as isValid() in Form() already does
     // this
     @Ignore
     @Test
     public void testDualAccess() {
-        Form[] test = DatabaseManager.fetch(1, 1111111111, "father", false);
+        Form[] test = DatabaseManager.fetch(1, 1111111111, "father", false); //try to get the father of a test person
         Boolean[] fails = test[0].getFail();
         for (int i = 0; i < 9; i++) {
             if (fails[i])
-                assertTrue(false);
+                assertTrue(false); //if the test form isn't found, then break out
         }
+        //check test person's information
         if (test[0].getPID() != 1111111111)
             assertTrue(false);
         if (!(test[0].getRelation()[1].equals("father")))
@@ -46,7 +80,7 @@ public class DatabaseManagerTest {
         fails = test[1].getFail();
         for (int i = 0; i < 9; i++) {
             if (fails[i])
-                assertTrue(false);
+                assertTrue(false); //if the tester errors out
         }
         if (test[0].getPID() != 333333333)
             assertTrue(false);
