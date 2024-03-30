@@ -72,15 +72,28 @@ public class WorkflowTest {
         assertTrue(true);
     }
 
+	//tester for approval step being able to access
     @Ignore
     @Test
     public void testApproveAccess() {
+    	
+	//attempts to get the item at the end of the current workflow queue for the approval stage 
         Form[] test = WorkflowManager.info(2);
+	
+	//test to make sure the queued item returns properly
+	assertTrue(test != null && test[0] != null);
+	
+	//ensures that the data verification array is initialized with the correct values (false)
         Boolean[] fails = test[0].getFail();
         for (int i = 0; i < 9; i++) {
             if (fails[i])
                 assertTrue(false);
         }
+		
+	//the following tests are written with information about a 
+	//specific fictional requestor in mind, with the idea being that if everything works correctly,
+	//this requestor's information will be transferred into the desired form object 
+	//in a way that causes all of these tests to pass
         if (test[0].getPID() != 1111111111)
             assertTrue(false);
         if (!(test[0].getRelation()[1].equals("father")))
@@ -99,11 +112,20 @@ public class WorkflowTest {
             assertTrue(false);
         if (test[0].getRelatedPID()[1] != 333333333)
             assertTrue(false);
-        fails = test[1].getFail();
+
+        
+	//ensures that the data verification array is initialized with the correct values (false) for the 
+	//person whose records are being requested
+	fails = test[1].getFail();
         for (int i = 0; i < 9; i++) {
             if (fails[i])
                 assertTrue(false);
         }
+
+	//the following tests are written with information about a 
+	//specific fictional requestee in mind, with the idea being that if everything works correctly,
+	//this requestee's information will be transferred into the desired form object 
+	//in a way that causes all of these tests to pass
         if (test[0].getPID() != 333333333)
             assertTrue(false);
         if (!(test[1].getRelation()[0].equals("")))
@@ -120,6 +142,8 @@ public class WorkflowTest {
             assertTrue(false);
         if (!(test[1].getEmail().equals("john@doe.com")))
             assertTrue(false);
+
+	//tests to make sure that all file locks have been properly removed
         File currLock;
         for (int i = 0; i < 3; i++) {
             currLock = new File(Integer.toString(i) + "db.lock");
