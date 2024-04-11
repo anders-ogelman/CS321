@@ -1,18 +1,20 @@
 package com.SWEPJ;
 
-/**
- * Hello world!
- *
- */
+//PID = pid of requester
+//DOB = date of birth of the requester
+//name fields = name of the requester
+//email = email of the requester
+//relation = requesters relation to the dead
+//DOD = date of death
+//relatedPID = the relitives pid
+//fail = [PID, DOB, relation, firstname, middlename, lastname, email, relatedPID, DOD]
 public class Form {
     private Boolean fail[];
-    private long PID;
-    private long[] relatedPID;
-    private String DOB, DOD, firstName, middleName, lastName, email;
-    private String[] relation;
+    private long PID, relatedPID;
+    private String DOB, DOD, firstName, middleName, lastName, email, relation;
 
-    public Form(long PID, String DOB, String DOD, String[] relation, String firstName, String middleName,
-            String lastName, String email, long[] relatedPID) {
+    public Form(long PID, String DOB, String DOD, String relation, String firstName, String middleName,
+            String lastName, String email, long relatedPID) {
         this.PID = PID;
         this.DOB = DOB;
         this.DOD = DOD;
@@ -32,7 +34,7 @@ public class Form {
         return DOD;
     }
 
-    public long[] getRelatedPID() {
+    public long getRelatedPID() {
         return relatedPID;
     }
 
@@ -52,7 +54,7 @@ public class Form {
         return PID;
     }
 
-    public String[] getRelation() {
+    public String getRelation() {
         return relation;
     }
 
@@ -122,8 +124,8 @@ public class Form {
         return false;
     }
 
-    public Boolean setRelatedPID(long[] relatedPID) {
-        long[] temp = this.relatedPID;
+    public Boolean setRelatedPID(long relatedPID) {
+        long temp = this.relatedPID;
         this.relatedPID = relatedPID;
         if (isValid())
             return true;
@@ -131,8 +133,8 @@ public class Form {
         return false;
     }
 
-    public Boolean setRelation(String[] relation) {
-        String[] temp = this.relation;
+    public Boolean setRelation(String relation) {
+        String temp = this.relation;
         this.relation = relation;
         if (isValid())
             return true;
@@ -152,7 +154,7 @@ public class Form {
     // WIP
     public Boolean isValid() {
         // reset fail array
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 9; i++)
             fail[i] = false;
 
         // checks for PID
@@ -166,7 +168,6 @@ public class Form {
         int month = Integer.parseInt(birthdate[0]);
         int day = Integer.parseInt(birthdate[1]);
         int year = Integer.parseInt(birthdate[2]);
-
         switch (month) {
             case 1:
             case 3:

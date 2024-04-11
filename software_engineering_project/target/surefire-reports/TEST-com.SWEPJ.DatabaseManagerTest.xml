@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.DatabaseManagerTest" time="0.041" tests="3" errors="0" skipped="3" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.DatabaseManagerTest" time="0.033" tests="7" errors="0" skipped="7" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\OpenLogic\jdk-17.0.10.7-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire648182322604320608\surefirebooter11948636550784156615.jar C:\Users\jaden\AppData\Local\Temp\surefire648182322604320608 2024-03-28T13-17-39_454-jvmRun1 surefire176312988618184494tmp surefire_08943038251514773055tmp"/>
+    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire8559638358463609052\surefirebooter1920286616232719248.jar C:\Users\jaden\AppData\Local\Temp\surefire8559638358463609052 2024-03-29T21-31-34_916-jvmRun1 surefire9652187894332808903tmp surefire_015075925022192398444tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\test-classes;c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\classes;C:\Users\jaden\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\jaden\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire648182322604320608\surefirebooter11948636550784156615.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire8559638358463609052\surefirebooter1920286616232719248.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.10+7-adhoc..jdk17u"/>
@@ -61,6 +61,18 @@
     <skipped/>
   </testcase>
   <testcase name="testDualAccess" classname="com.SWEPJ.DatabaseManagerTest" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateInvalidLookup" classname="com.SWEPJ.DatabaseManagerTest" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="testUpdateInvalidScreen" classname="com.SWEPJ.DatabaseManagerTest" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="testFetchInvalidLookup" classname="com.SWEPJ.DatabaseManagerTest" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="testFetchInvalidScreen" classname="com.SWEPJ.DatabaseManagerTest" time="0">
     <skipped/>
   </testcase>
   <testcase name="testUpdate" classname="com.SWEPJ.DatabaseManagerTest" time="0">

@@ -9,6 +9,7 @@ public class Approve {
     public Approve() {
         System.out.println("Hello World!");
         Stage secondStage = new Stage();
+
         secondStage.setScene(new Scene(new HBox(4, new Label("Approve window"))));
         secondStage.show();
     }
