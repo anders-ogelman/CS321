@@ -30,7 +30,6 @@ public class Review {
         TextField email = new TextField();
         TextField DOD = new TextField();
         TextField relatedPID = new TextField();
-        TextField dummy = new TextField();
         fullName.setStyle("-fx-background-color: white;");
         PID.setStyle("-fx-background-color: white;");
         DOB.setStyle("-fx-background-color: white;");
@@ -255,13 +254,13 @@ public class Review {
                     }
                     if (!lock) {
                         form = null;
-                        in1.setText("");
-                        in2.setText("");
-                        in3.setText("");
-                        in4.setText("");
-                        in5.setText("");
-                        in6.setText("");
-                        in7.setText("");
+                        in1.setText("Accepted!");
+                        in2.setText("Accepted!");
+                        in3.setText("Accepted!");
+                        in4.setText("Accepted!");
+                        in5.setText("Accepted!");
+                        in6.setText("Accepted!");
+                        in7.setText("Accepted!");
                         // will check if the data is valid, then upload
                         // to the wf table/database
                     }

@@ -13,8 +13,7 @@ public class WorkflowManager {
     // 2 = called by approve
     // ret null if error
     // returns the next form to process
-    @SuppressWarnings("resource")
-    public static Form[] info(int wf) {
+    public static Form info(int wf) {
         return null;
         /*
          * try {

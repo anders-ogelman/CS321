@@ -18,10 +18,8 @@ public class FormTest {
     // This sets up the inital form to be tested
     @Before
     public void setup() {
-        long PID = 111111111;
-        long[] relatedPID = { 222222222 };
-        String[] relation = { "mother" };
-        form = new Form(PID, "1/1/2000", "NULL", relation, "First", "Middle", "Last", "test@gmail.com", relatedPID);
+        form = new Form(111111111, "1/1/2000", "NULL", "mother", "First", "Middle", "Last", "test@gmail.com",
+                222222222);
     }
 
     // test the inital fail array, should
@@ -46,7 +44,7 @@ public class FormTest {
     @Test
     public void testInitalizeRelatedPID() {
         long test = 222222222;
-        assertTrue(form.getRelatedPID()[0] == test);
+        assertTrue(form.getRelatedPID() == test);
     }
 
     // test inital DOB
@@ -58,7 +56,7 @@ public class FormTest {
     // test inital relation array
     @Test
     public void testInitalizeRelation() {
-        assertTrue(form.getRelation()[0].equals("mother"));
+        assertTrue(form.getRelation().equals("mother"));
     }
 
     // test inital first name
@@ -107,15 +105,13 @@ public class FormTest {
     // test setting relation array
     @Test
     public void testSetRelation() {
-        String[] test = { "father" };
-        assertTrue(form.setRelation(test) && form.getRelation().equals(test));
+        assertTrue(form.setRelation("father") && form.getRelation().equals("father"));
     }
 
     // tests setting relation pid array
     @Test
     public void testSetRelatedPID() {
-        long[] test = { 222222222 };
-        assertTrue(form.setRelatedPID(test) && form.getRelatedPID().equals(test));
+        assertTrue(form.setRelatedPID(222222222) && form.getRelatedPID() == 222222222);
     }
 
     // tests setting first name
@@ -337,18 +333,16 @@ public class FormTest {
     @Ignore
     @Test
     public void testWrongRelatedPIDShort() {
-        long[] sample = { 1 };
-        boolean test = form.setRelatedPID(sample);
+        boolean test = form.setRelatedPID(1);
         Boolean[] fail = form.getFail();
         assertFalse(test || (!fail[8]));
     }
 
-    // tests a relitives pid that is too short (not 9 numbers)
+    // tests a relitives pid that is too long (not 9 numbers)
     @Ignore
     @Test
     public void testWrongRelatedPIDLong() {
-        long[] sample = { 1 };
-        boolean test = form.setRelatedPID(sample);
+        boolean test = form.setRelatedPID(1111111111);
         Boolean[] fail = form.getFail();
         assertFalse(test || (!fail[8]));
     }
