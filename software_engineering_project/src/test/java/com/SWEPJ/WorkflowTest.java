@@ -11,13 +11,12 @@ import java.util.Scanner;
 
 import org.junit.After;
 import org.junit.Test;
-import org.junit.Ignore;
 
 public class WorkflowTest {
 
     // tester for the review stage being able to access the results of the data
     // entry stage
-    @Ignore
+
     @Test
     public void testReviewAccess() {
         Form test = WorkflowManager.info(1);
@@ -60,7 +59,7 @@ public class WorkflowTest {
     }
 
     // tester for approval step being able to access the results of the review stage
-    @Ignore
+
     @Test
     public void testApproveAccess() {
 
@@ -110,7 +109,7 @@ public class WorkflowTest {
     }
 
     // tester for adding a form entered by the Data Enterer into the workflow table
-    @Ignore
+
     @Test
     public void testEntryPush() {
         long PID = 111111111;
@@ -147,7 +146,6 @@ public class WorkflowTest {
 
     }
 
-    @Ignore
     @Test
     public void testReviewPush() {
         long PID = 111111111;
@@ -178,7 +176,6 @@ public class WorkflowTest {
 
     }
 
-    @Ignore
     @Test
     public void testReviewPull() {
         long PID = 111111111;
@@ -206,7 +203,6 @@ public class WorkflowTest {
 
     }
 
-    @Ignore
     @Test
     public void testApprovePush() {
         long PID = 111111111;
@@ -237,7 +233,6 @@ public class WorkflowTest {
 
     }
 
-    @Ignore
     @Test
     public void testApprovePull() {
         long PID = 111111111;

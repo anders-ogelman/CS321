@@ -1,4 +1,32 @@
 -------------------------------------------------------------------------------
 Test set: com.SWEPJ.WorkflowTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 7, Time elapsed: 0.003 s - in com.SWEPJ.WorkflowTest
+Tests run: 7, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in com.SWEPJ.WorkflowTest
+testApproveAccess(com.SWEPJ.WorkflowTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.WorkflowTest.testApproveAccess(WorkflowTest.java:71)
+
+testReviewAccess(com.SWEPJ.WorkflowTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.WorkflowTest.testReviewAccess(WorkflowTest.java:25)
+
+testApprovePull(com.SWEPJ.WorkflowTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.WorkflowTest.testApprovePull(WorkflowTest.java:251)
+
+testApprovePush(com.SWEPJ.WorkflowTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.WorkflowTest.testApprovePush(WorkflowTest.java:229)
+
+testEntryPush(com.SWEPJ.WorkflowTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.WorkflowTest.testEntryPush(WorkflowTest.java:133)
+
+testReviewPull(com.SWEPJ.WorkflowTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.WorkflowTest.testReviewPull(WorkflowTest.java:193)
+
+testReviewPush(com.SWEPJ.WorkflowTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.WorkflowTest.testReviewPush(WorkflowTest.java:163)
+

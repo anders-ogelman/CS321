@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
 
@@ -141,6 +140,7 @@ public class Review {
             @Override
             public void handle(ActionEvent e) {
                 if (form != null) {
+                    form.isValid();
                     // fullName.setStyle("-fx-background-color: red;");
                     fullName.setStyle("-fx-background-color: white;");
                     PID.setStyle("-fx-background-color: white;");
@@ -151,6 +151,7 @@ public class Review {
                     relatedPID.setStyle("-fx-background-color: white;");
                     // System.out.println(fullName.getCharacters());
                     if (fullName.getCharacters().length() != 0) {
+                        // System.out.println("char is: " + fullName.getCharacters());
                         String split[] = fullName.getCharacters().toString().split(" ");
                         switch (split.length) {
                             case 2:

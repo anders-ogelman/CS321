@@ -3,12 +3,10 @@ package com.SWEPJ;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -25,29 +23,26 @@ public class DatabaseManagerTest {
     }
 
     // Checks bad input into DatabaseManager's methods
-    @Ignore
     @Test
     public void testFetchInvalid() {
         assertTrue(DatabaseManager.fetch(form.getPID(), 1) == null); // check invalid access
     }
 
-    @Ignore
     @Test
     public void testUpdateInvalid() {
         assertFalse(DatabaseManager.update(form) == false); // check invalid access type
     }
 
-    @Ignore
     @Test
     public void testFetchInvalidLookup() {
         assertTrue(DatabaseManager.fetch(1, 1) == null); // check incorrect PID lookup
     }
 
-    @Ignore
     @Test
     public void testUpdateInvalidLookup() {
         form.setPID(444444444);
         assertTrue(DatabaseManager.update(form) == true); // ch
+        assertTrue(DatabaseManager.fetch(form.getPID(), form.getRelatedPID()) != null);
         assertTrue(DatabaseManager.fetch(form.getPID(), form.getRelatedPID()).equals(form));
 
     }
@@ -116,11 +111,11 @@ public class DatabaseManagerTest {
      * }
      */
 
-    @Ignore
     @Test
     public void testAccess() {
         long PID2 = 222222222;
         Form test = DatabaseManager.fetch(111111111, PID2);
+        assertTrue(test != null);
         Boolean[] fails = test.getFail();
         for (int i = 0; i < 9; i++) {
             if (fails[i])

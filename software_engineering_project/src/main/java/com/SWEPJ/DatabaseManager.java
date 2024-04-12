@@ -5,9 +5,6 @@ import java.util.Scanner;
 
 public class DatabaseManager {
     private static String fileName = "Database.txt";
-    private static String lock0str = "0db.lock";
-    private static String lock1str = "1db.lock";
-    private static String lock2str = "2db.lock";
 
     // PID = pid of requester
     // returns all the forms submitted by the requester

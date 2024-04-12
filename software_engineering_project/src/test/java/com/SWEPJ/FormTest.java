@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -200,7 +199,7 @@ public class FormTest {
     }
 
     // tests a death day with a nonexistant month
-    @Ignore
+
     @Test
     public void testWrongDODMonth() {
         boolean test = form.setDOD("13/1/2000");
@@ -209,7 +208,7 @@ public class FormTest {
     }
 
     // tests a death day with a nonexistant day
-    @Ignore
+
     @Test
     public void testWrongDODDay() {
         boolean test = form.setDOD("12/0/2000");
@@ -218,7 +217,7 @@ public class FormTest {
     }
 
     // tests a death day with a year that is too long ago
-    @Ignore
+
     @Test
     public void testWrongDODYear() {
         boolean test = form.setDOD("12/1/1899");
@@ -227,7 +226,7 @@ public class FormTest {
     }
 
     // tests a death day that is before a birthday
-    @Ignore
+
     @Test
     public void testConfictingDOD() {
         boolean test = form.setDOD("12/1/1999");
@@ -277,7 +276,6 @@ public class FormTest {
     }
 
     // tests a relation name that is too long (>35 chars)
-    @Ignore
     @Test
     public void testWrongRelationLong() {
         String tooLong = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
@@ -287,7 +285,6 @@ public class FormTest {
     }
 
     // tests a relation name that is too short (<1 char)
-    @Ignore
     @Test
     public void testWrongEmailShort() {
         boolean test = form.setEmail("");
@@ -296,7 +293,6 @@ public class FormTest {
     }
 
     // tests an email that is too long (>105 chars)
-    @Ignore
     @Test
     public void testWrongEmailLong() {
         String sample = "";
@@ -312,7 +308,6 @@ public class FormTest {
     }
 
     // tests an email that is missing the '@' char
-    @Ignore
     @Test
     public void testWrongEmailinvalid1() {
         boolean test = form.setEmail("AAA.com");
@@ -321,7 +316,6 @@ public class FormTest {
     }
 
     // tests an email that is missing the '.' char
-    @Ignore
     @Test
     public void testWrongEmailinvalid2() {
         boolean test = form.setEmail("AAA@AAA");
@@ -330,7 +324,6 @@ public class FormTest {
     }
 
     // tests a relitives pid that is too short (not 9 numbers)
-    @Ignore
     @Test
     public void testWrongRelatedPIDShort() {
         boolean test = form.setRelatedPID(1);
@@ -339,7 +332,7 @@ public class FormTest {
     }
 
     // tests a relitives pid that is too long (not 9 numbers)
-    @Ignore
+
     @Test
     public void testWrongRelatedPIDLong() {
         boolean test = form.setRelatedPID(1111111111);

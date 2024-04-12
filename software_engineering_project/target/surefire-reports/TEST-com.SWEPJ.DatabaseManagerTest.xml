@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.DatabaseManagerTest" time="0.039" tests="5" errors="0" skipped="5" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.SWEPJ.DatabaseManagerTest" time="0.067" tests="5" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\OpenLogic\jdk-17.0.10.7-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire13366162599113854251\surefirebooter16095016450529748438.jar C:\Users\jaden\AppData\Local\Temp\surefire13366162599113854251 2024-04-12T12-34-56_907-jvmRun1 surefire6214657589526225928tmp surefire_03032677542046123411tmp"/>
+    <property name="sun.java.command" value="C:\Users\jaden\AppData\Local\Temp\surefire7220976211579783528\surefirebooter6366094541722748962.jar C:\Users\jaden\AppData\Local\Temp\surefire7220976211579783528 2024-04-12T14-58-39_789-jvmRun1 surefire966044234157513118tmp surefire_015435048737779604017tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\test-classes;c:\Users\jaden\OneDrive\Documents\GitHub\CS321\software_engineering_project\target\classes;C:\Users\jaden\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\jaden\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-controls\11\javafx-controls-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-graphics\11\javafx-graphics-11-win.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11.jar;C:\Users\jaden\.m2\repository\org\openjfx\javafx-base\11\javafx-base-11-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire13366162599113854251\surefirebooter16095016450529748438.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\jaden\AppData\Local\Temp\surefire7220976211579783528\surefirebooter6366094541722748962.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.10+7-adhoc..jdk17u"/>
@@ -57,19 +57,21 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testUpdateInvalid" classname="com.SWEPJ.DatabaseManagerTest" time="0">
-    <skipped/>
+  <testcase name="testUpdateInvalid" classname="com.SWEPJ.DatabaseManagerTest" time="0.008"/>
+  <testcase name="testFetchInvalid" classname="com.SWEPJ.DatabaseManagerTest" time="0.004"/>
+  <testcase name="testUpdateInvalidLookup" classname="com.SWEPJ.DatabaseManagerTest" time="0.009">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at com.SWEPJ.DatabaseManagerTest.testUpdateInvalidLookup(DatabaseManagerTest.java:45)
+</failure>
+    <system-err><![CDATA[manual database replacement required
+]]></system-err>
   </testcase>
-  <testcase name="testFetchInvalid" classname="com.SWEPJ.DatabaseManagerTest" time="0">
-    <skipped/>
+  <testcase name="testAccess" classname="com.SWEPJ.DatabaseManagerTest" time="0.001">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at com.SWEPJ.DatabaseManagerTest.testAccess(DatabaseManagerTest.java:118)
+</failure>
+    <system-err><![CDATA[manual database replacement required
+]]></system-err>
   </testcase>
-  <testcase name="testUpdateInvalidLookup" classname="com.SWEPJ.DatabaseManagerTest" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testAccess" classname="com.SWEPJ.DatabaseManagerTest" time="0">
-    <skipped/>
-  </testcase>
-  <testcase name="testFetchInvalidLookup" classname="com.SWEPJ.DatabaseManagerTest" time="0">
-    <skipped/>
-  </testcase>
+  <testcase name="testFetchInvalidLookup" classname="com.SWEPJ.DatabaseManagerTest" time="0.003"/>
 </testsuite>

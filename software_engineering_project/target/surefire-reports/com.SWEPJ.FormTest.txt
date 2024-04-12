@@ -1,4 +1,48 @@
 -------------------------------------------------------------------------------
 Test set: com.SWEPJ.FormTest
 -------------------------------------------------------------------------------
-Tests run: 41, Failures: 0, Errors: 0, Skipped: 11, Time elapsed: 0.002 s - in com.SWEPJ.FormTest
+Tests run: 41, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in com.SWEPJ.FormTest
+testWrongDODDay(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongDODDay(FormTest.java:216)
+
+testWrongRelatedPIDLong(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongRelatedPIDLong(FormTest.java:340)
+
+testWrongEmailShort(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongEmailShort(FormTest.java:292)
+
+testWrongRelatedPIDShort(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongRelatedPIDShort(FormTest.java:331)
+
+testConfictingDOD(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testConfictingDOD(FormTest.java:234)
+
+testWrongEmailinvalid1(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongEmailinvalid1(FormTest.java:315)
+
+testWrongEmailinvalid2(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongEmailinvalid2(FormTest.java:323)
+
+testWrongDODYear(com.SWEPJ.FormTest)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongDODYear(FormTest.java:225)
+
+testWrongDODMonth(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongDODMonth(FormTest.java:207)
+
+testWrongRelationLong(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongRelationLong(FormTest.java:284)
+
+testWrongEmailLong(com.SWEPJ.FormTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at com.SWEPJ.FormTest.testWrongEmailLong(FormTest.java:307)
+
