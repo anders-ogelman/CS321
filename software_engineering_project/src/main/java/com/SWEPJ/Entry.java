@@ -10,7 +10,8 @@ import javafx.stage.Stage;
 
 public class Entry {
 	public Entry() {
-
+		
+		//setting up form UI elements
 		Label firstNameLabel = new Label("First Name:");
 		TextField firstNameField = new TextField();
 
@@ -28,13 +29,15 @@ public class Entry {
 
 		Label dodLabel = new Label("Date of Death:");
 		TextField dodField = new TextField();
-
+		
+		//JavaFx UI VBox layout setup
 		Stage secondStage = new Stage();
 
 		VBox entryBox = new VBox(4, new Label("Entry Window"));
 		entryBox.getChildren().addAll(firstNameLabel, firstNameField, middleNameLabel, middleNameField, lastNameLabel,
 				lastNameField, emailLabel, emailField, dobLabel, dobField, dodLabel, dodField);
-
+		
+		//adding the layout to the screen and rendering
 		Scene entryScene = new Scene(entryBox);
 		secondStage.setScene(entryScene);
 		secondStage.show();
