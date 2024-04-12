@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.SWEPJ.DatabaseManagerTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.029 s - in com.SWEPJ.DatabaseManagerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.039 s - in com.SWEPJ.DatabaseManagerTest

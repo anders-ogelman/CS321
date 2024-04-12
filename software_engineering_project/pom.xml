@@ -79,7 +79,7 @@
           <artifactId>javafx-maven-plugin</artifactId>
           <version>0.0.1</version>
           <configuration>
-            <mainClass>HelloFX</mainClass>
+            <mainClass>com.SWEPJ.App</mainClass>
           </configuration>
         </plugin>
         <!-- Build an executable JAR --> 

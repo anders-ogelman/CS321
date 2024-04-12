@@ -109,23 +109,32 @@ public class Review {
         next.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                form = new Form(111111111, "1/1/2000", "1/1/2023", "mother", "john", "", "doe", "e@mail.com",
-                        222222222); // will be read from workflow/database once thats ready
-                if (form.getMiddleName().equals(""))
-                    in1.setText(form.getFirstName() + " " + form.getLastName());
-                else
-                    in1.setText(form.getFirstName() + " " + form.getMiddleName() + " " + form.getLastName());
-                in2.setText(Long.toString(form.getPID()));
-                in3.setText(form.getDOB());
-                in4.setText(form.getRelation());
-                in5.setText(form.getEmail());
-                in6.setText(form.getDOD());
-                in7.setText(Long.toString(form.getRelatedPID()));
-                if (!started) {
-                    grid.getChildren().add(submit);
-                    started = true;
-                }
+                if (in1.getText().equals("Accepted!") || !started) {
+                    form = new Form(111111111, "1/1/2000", "1/1/2023", "mother", "john", "", "doe", "e@mail.com",
+                            222222222); // will be read from workflow/database once thats ready
+                    if (form.getMiddleName().equals(""))
+                        in1.setText(form.getFirstName() + " " + form.getLastName());
+                    else
+                        in1.setText(form.getFirstName() + " " + form.getMiddleName() + " " + form.getLastName());
+                    in2.setText(Long.toString(form.getPID()));
+                    in3.setText(form.getDOB());
+                    in4.setText(form.getRelation());
+                    in5.setText(form.getEmail());
+                    in6.setText(form.getDOD());
+                    in7.setText(Long.toString(form.getRelatedPID()));
+                    if (!started) {
+                        grid.getChildren().add(submit);
+                        started = true;
+                    }
+                    fullName.setText("");
+                    PID.setText("");
+                    DOB.setText("");
+                    relation.setText("");
+                    email.setText("");
+                    DOD.setText("");
+                    relatedPID.setText("");
 
+                }
             }
         });
         submit.setOnAction(new EventHandler<ActionEvent>() {
