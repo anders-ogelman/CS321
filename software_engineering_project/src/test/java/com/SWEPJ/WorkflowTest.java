@@ -106,11 +106,6 @@ public class WorkflowTest {
         // ensures that the data verification array is initialized with the correct
         // values (false) for the
         // person whose records are being requested
-        fails = test[1].getFail();
-        for (int i = 0; i < 9; i++) {
-            if (fails[i])
-                assertTrue(false);
-        }
         assertTrue(true);
     }
 

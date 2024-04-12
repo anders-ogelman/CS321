@@ -280,7 +280,7 @@ public class FormTest {
     @Ignore
     @Test
     public void testWrongRelationLong() {
-        String[] tooLong = { "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" };
+        String tooLong = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
         boolean test = form.setRelation(tooLong);
         Boolean[] fail = form.getFail();
         assertFalse(test || (!fail[2]));
