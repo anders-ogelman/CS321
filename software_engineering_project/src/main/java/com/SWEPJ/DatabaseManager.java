@@ -8,8 +8,7 @@ public class DatabaseManager {
 
     // PID = pid of requester
     // returns all the forms submitted by the requester
-    @SuppressWarnings("resource")
-    public static Form fetch(long PID, long relatedPID) {
+    public static Form fetch(long FID) {
         File database = new File(fileName);
 
         try {
@@ -18,6 +17,7 @@ public class DatabaseManager {
             return null;
         }
         return null;
+
         /*
          * Thread.sleep(10000);
          * File database = new File(fileName);
@@ -91,7 +91,6 @@ public class DatabaseManager {
     // ret false if error
     // ret true if worked
 
-    @SuppressWarnings("resource")
     public static boolean update(Form form) {
         return true;
         /*

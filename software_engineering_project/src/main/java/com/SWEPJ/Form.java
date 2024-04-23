@@ -7,10 +7,11 @@ package com.SWEPJ;
 //relation = requesters relation to the dead
 //DOD = date of death
 //relatedPID = the relitives pid
-//fail = [PID, DOB, relation, firstname, middlename, lastname, email, relatedPID, DOD]
+//fid = id to look form up with
+//fail = [PID, DOB, relation, firstname, middlename, lastname, email, relatedPID, DOD] * FID is managed internally by database manager and does not need checked here
 public class Form {
     private Boolean fail[];
-    private long PID, relatedPID;
+    private long PID, relatedPID, FID;
     private String DOB, DOD, firstName, middleName, lastName, email, relation;
 
     public Form(long PID, String DOB, String DOD, String relation, String firstName, String middleName,
@@ -24,6 +25,7 @@ public class Form {
         this.lastName = lastName;
         this.email = email;
         this.relatedPID = relatedPID;
+        this.FID = -1;
         fail = new Boolean[9];
         for (int i = 0; i < 9; i++)
             fail[i] = false; // PID DOB relation firstName middleName lastName email
@@ -66,8 +68,16 @@ public class Form {
         return email;
     }
 
+    public long getFID() {
+        return FID;
+    }
+
     public Boolean[] getFail() {
         return fail;
+    }
+
+    public void setFID(long FID) {
+        this.FID = FID;
     }
 
     public Boolean setDOB(String DOB) {

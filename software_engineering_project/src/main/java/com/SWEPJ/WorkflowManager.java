@@ -12,8 +12,8 @@ public class WorkflowManager {
     // 1 = called by review
     // 2 = called by approve
     // ret null if error
-    // returns the next form to process
-    public static Form info(int wf) {
+    // returns the next form FID to process
+    public static Long info(int wf) {
         return null;
         /*
          * try {
@@ -77,7 +77,7 @@ public class WorkflowManager {
     // action = 0 = push forward
     // action = 1 = push backward
     // ret false if error
-    public static boolean update(int wf, Form form, int action) {
+    public static boolean update(int wf, long FID, int action) {
         return true;
         /*
          * try {
