@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Entry {
@@ -29,13 +30,15 @@ public class Entry {
 
 		Label dodLabel = new Label("Date of Death:");
 		TextField dodField = new TextField();
+
+		Button submitButton = new Button("Submit");
 		
 		//JavaFx UI VBox layout setup
 		Stage secondStage = new Stage();
 
 		VBox entryBox = new VBox(4, new Label("Entry Window"));
 		entryBox.getChildren().addAll(firstNameLabel, firstNameField, middleNameLabel, middleNameField, lastNameLabel,
-				lastNameField, emailLabel, emailField, dobLabel, dobField, dodLabel, dodField);
+				lastNameField, emailLabel, emailField, dobLabel, dobField, dodLabel, dodField, submitButton);
 		
 		//adding the layout to the screen and rendering
 		Scene entryScene = new Scene(entryBox);
