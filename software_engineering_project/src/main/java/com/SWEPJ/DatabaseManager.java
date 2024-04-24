@@ -13,6 +13,10 @@ public class DatabaseManager {
 
         try {
             Scanner s = new Scanner(database);
+            s.nextLine();
+            s.close();
+            // while(s.nextLine(0 != "X"))
+
         } catch (Exception e) {
             return null;
         }

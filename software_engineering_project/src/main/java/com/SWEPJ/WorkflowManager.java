@@ -70,6 +70,7 @@ public class WorkflowManager {
             FileWriter w = new FileWriter(fileName);
             w.append(queue);
             w.flush();
+            w.close();
 
         } catch (Exception e) {
             return null;
@@ -139,6 +140,73 @@ public class WorkflowManager {
     // action = 1 = push backward
     // ret false if error
     public static boolean update(int wf, long FID) {
+        File database = new File(fileName);
+        String queue;
+        try {
+            Scanner s = new Scanner(database);
+            // StringBuffer b = new StringBuffer();
+            switch (wf) {
+                case 0:
+                case 1:
+                case 2:
+                    queue = s.nextLine();
+                    queue += '\n';
+                    queue += s.nextLine();
+                    break;
+                default:
+                    s.close();
+                    return false;
+            }
+            System.out.println(queue);
+            s.close();
+
+        } catch (Exception e) {
+            return false;
+        }
+        String[] queues;
+        queues = queue.split("\n");
+        String overwrite = queues[wf % 2];
+        /*
+         * switch (wf) {
+         * case 0:
+         * overwrite = queues[0];
+         * break;
+         * case 1:
+         * overwrite = queues[1];
+         * break;
+         * case 2:
+         * overwrite = queues[0];
+         * break;
+         * }
+         */
+        if (!(queues[wf % 2].equals("REVIEWER_TASKS=") || queues[wf % 2].equals("APPROVER_TASKS=")))
+            overwrite += ",";
+        overwrite += Long.toString(FID);
+        overwrite = queue = queue.replaceAll(queues[wf % 2], overwrite);
+        /*
+         * switch (wf) {
+         * case 0:
+         * overwrite = queue = queue.replaceAll(queues[0], overwrite);
+         * break;
+         * case 1:
+         * overwrite = queue = queue.replaceAll(queues[1], overwrite);
+         * break;
+         * case 2:
+         * overwrite = queue = queue.replaceAll(queues[0], overwrite);
+         * break;
+         * }
+         */
+        System.out.println("\n" + queue + "\n");
+        try {
+            FileWriter w = new FileWriter(fileName);
+            w.append(queue);
+            w.flush();
+            w.close();
+
+        } catch (Exception e) {
+            return false;
+        }
+        // System.out.println(overwrite);
         return true;
         /*
          * try {
