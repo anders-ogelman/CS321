@@ -14,6 +14,21 @@ public class WorkflowManager {
     // ret null if error
     // returns the next form FID to process
     public static Long info(int wf) {
+        File database = new File(fileName);
+        try {
+            Scanner s = new Scanner(database);
+            switch (wf) {
+                case 1:
+                    break;
+                case 2:
+                default:
+                    s.close();
+                    return null;
+            }
+            s.close();
+        } catch (Exception e) {
+            return null;
+        }
         return null;
         /*
          * try {

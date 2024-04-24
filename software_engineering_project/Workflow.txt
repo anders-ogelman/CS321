@@ -1,3 +1,2 @@
-//data is stored as PID/relationship,, this allows the workflow manager to call database, which can easily retrieve the required information about the person and their relitive
-REVIEWER_TASKS = [1, 2]
-APPROVER_TASKS = [1, 2]
+REVIEWER_TASKS=1,2
+APPROVER_TASKS=1,2
