@@ -2,6 +2,7 @@ package com.SWEPJ;
 
 import java.io.File;
 import java.util.Scanner;
+import java.io.FileWriter;
 
 public class WorkflowManager {
     private static String fileName = "Workflow.txt";
@@ -15,21 +16,66 @@ public class WorkflowManager {
     // returns the next form FID to process
     public static Long info(int wf) {
         File database = new File(fileName);
+        String queue;
         try {
             Scanner s = new Scanner(database);
+            // StringBuffer b = new StringBuffer();
             switch (wf) {
                 case 1:
-                    break;
                 case 2:
+                    queue = s.nextLine();
+                    queue += '\n';
+                    queue += s.nextLine();
+                    break;
                 default:
                     s.close();
                     return null;
             }
+            System.out.println(queue);
             s.close();
+
         } catch (Exception e) {
             return null;
         }
-        return null;
+        String[] queues, elements;
+        try {
+            queues = queue.split("\n");
+            String curr = queues[wf - 1].split("=")[1];
+            elements = curr.split(",");
+        } catch (Exception e) {
+            return null;
+        }
+
+        String overwrite = "";
+        switch (wf) {
+            case 1:
+                overwrite = "REVIEWER_TASKS=";
+                break;
+            case 2:
+                overwrite = "APPROVER_TASKS=";
+                break;
+        }
+        for (int i = 1; i < elements.length; i++) {
+            if (i != elements.length - 1) {
+                overwrite += elements[i];
+                overwrite += ',';
+            } else {
+                overwrite += elements[i];
+                // overwrite += '\n';
+            }
+        }
+        queue = queue.replaceAll(queues[wf - 1], overwrite);
+        System.out.println("\n" + queue + "\n");
+        try {
+            FileWriter w = new FileWriter(fileName);
+            w.append(queue);
+            w.flush();
+
+        } catch (Exception e) {
+            return null;
+        }
+        // System.out.println(overwrite);
+        return Long.parseLong(elements[0]);
         /*
          * try {
          * File database = new File(fileName);
@@ -92,7 +138,7 @@ public class WorkflowManager {
     // action = 0 = push forward
     // action = 1 = push backward
     // ret false if error
-    public static boolean update(int wf, long FID, int action) {
+    public static boolean update(int wf, long FID) {
         return true;
         /*
          * try {
