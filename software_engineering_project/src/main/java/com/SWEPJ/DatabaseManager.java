@@ -17,6 +17,7 @@ public class DatabaseManager {
 	public static Form fetch(long FID) {
 		File database = new File(fileName);
 
+<<<<<<< HEAD
 		try {
 			Scanner s = new Scanner(database);
 		} catch (Exception e) {
@@ -24,6 +25,18 @@ public class DatabaseManager {
 		}
 		return null;
 	}
+=======
+        try {
+            Scanner s = new Scanner(database);
+            s.nextLine();
+            s.close();
+            // while(s.nextLine(0 != "X"))
+
+        } catch (Exception e) {
+            return null;
+        }
+        return null;
+>>>>>>> 69604cd80785121186a09b31f9df30d37d7a1dea
 
 	// form = form being saved
 	// ret false if error

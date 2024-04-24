@@ -174,43 +174,49 @@ public class Form {
 
         // checks for DOB
         /* */
-        String[] birthdate = DOB.split("/", 3);
-        int month = Integer.parseInt(birthdate[0]);
-        int day = Integer.parseInt(birthdate[1]);
-        int year = Integer.parseInt(birthdate[2]);
-        switch (month) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                if (day > 31 || day < 1)
-                    fail[1] = true;
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                if (day > 30 || day < 1)
-                    fail[1] = true;
-                break;
-            case 2:
-                if (year % 4 == 0) {
-                    if (day > 29 || day < 1)
+        try {
+            String[] birthdate = DOB.split("/", 3);
+            int month = Integer.parseInt(birthdate[0]);
+            int day = Integer.parseInt(birthdate[1]);
+            int year = Integer.parseInt(birthdate[2]);
+
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    if (day > 31 || day < 1)
                         fail[1] = true;
-                } else {
-                    if (day > 28 || day < 1)
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    if (day > 30 || day < 1)
                         fail[1] = true;
-                }
-                break;
-            default:
+                    break;
+                case 2:
+                    if (year % 4 == 0) {
+                        if (day > 29 || day < 1)
+                            fail[1] = true;
+                    } else {
+                        if (day > 28 || day < 1)
+                            fail[1] = true;
+                    }
+                    break;
+                default:
+                    fail[1] = true;
+                    break;
+            }
+            if (year < 1900 || year > 2023)
                 fail[1] = true;
-                break;
-        }
-        if (year < 1900 || year > 2023)
+
+        } catch (Exception e) {
             fail[1] = true;
+        }
 
         // checks for relation
         // if (relation.length() > 35 || relation.length() < 1)
