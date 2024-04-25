@@ -2,7 +2,6 @@ package com.SWEPJ;
 
 import java.io.File;
 import java.util.Scanner;
-import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,17 +15,45 @@ public class DatabaseManager {
     // returns all the forms submitted by the requester
     public static Form fetch(long FID) {
         File database = new File(fileName);
-
+        Form form = null;
         try {
             Scanner s = new Scanner(database);
-            s.nextLine();
+            while (s.nextLine().equals("~")) {
+                String FIDs = s.nextLine();
+                String[] split = FIDs.split("=");
+                if (Long.parseLong(split[1]) == FID)
+                    break;
+                for (int i = 0; i < 8; i++) {
+                    s.nextLine();
+                }
+                // System.out.println(s.nextLine());
+
+            }
+            long PID = Long.parseLong(s.nextLine().split("=")[1]);
+            String[] split = s.nextLine().split("=")[1].split(" ");
+            String relation = split[1];
+            long relatedPID = Long.parseLong(split[0]);
+            String DOB = s.nextLine().split("=")[1];
+            String DOD = s.nextLine().split("=")[1];
+            String firstName = s.nextLine().split("=")[1];
+            String middleName = "";
+            try {
+                middleName = s.nextLine().split("=")[1];
+            } catch (Exception e) {
+            }
+            String lastName = s.nextLine().split("=")[1];
+            String email = s.nextLine().split("=")[1];
+            form = new Form(PID, DOB, DOD, relation, firstName, middleName, lastName,
+                    email, relatedPID);
+            form.setFID(FID);
             s.close();
             // while(s.nextLine(0 != "X"))
 
         } catch (Exception e) {
+            System.err.println(e.getMessage());
             return null;
         }
-        return null;
+        return form;
     }
 
     // form = form being saved

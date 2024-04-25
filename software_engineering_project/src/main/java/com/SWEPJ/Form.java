@@ -177,7 +177,6 @@ public class Form {
         }
 
         // checks for DOB
-        /* */
         try {
             String[] birthdate = DOB.split("/", 3);
             int month = Integer.parseInt(birthdate[0]);
