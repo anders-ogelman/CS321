@@ -169,6 +169,7 @@ public class Review {
                         switch (split.length) {
                             case 2:
                                 form.setFirstName(split[0]);
+                                form.setLastName("");
                                 form.setLastName(split[1]);
                                 break;
                             case 3:
@@ -284,9 +285,10 @@ public class Review {
                         in6.setText("Accepted!");
                         in7.setText("Accepted!");
                         WorkflowManager.update(1, form.getFID());
+                        DatabaseManager.update(form);
                         // System.out.println(form.getFID());
                         form = null;
-                        // Waiting for database update implementation***
+
                         // will check if the data is valid, then upload
                         // to the wf table/database
                     }
