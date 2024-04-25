@@ -63,8 +63,11 @@ public class Entry {
 				Form submissionForm = new Form(pid, dob, dod, "placeholder relation", firstName, middleName, lastName, email, 0000000);
 				
 
-				//Adding new form to the database
+				//Adding new form to the database, method also sets submissionForm FID
 				DatabaseManager.update(submissionForm);
+
+				//updating the workflow table
+				WorkflowManager.update(0, submissionForm.getFID());
 			}
 
 		};
