@@ -108,7 +108,7 @@ public class Review {
         next.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                if (in1.getText().equals("Accepted!") || !started) {
+                if (in1.getText().equals("waiting for new task") || in1.getText().equals("Accepted!") || !started) {
                     // form = new Form(111111111, "1/1/2000", "1/1/2023", "mother",
                     // "john",
                     // "", "doe", "e@mail.com",
