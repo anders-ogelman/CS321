@@ -29,8 +29,8 @@ public class WorkflowTest {
         assertTrue(2 == WorkflowManager.info(1));
         assertTrue(2 == WorkflowManager.info(2));
 
-        assertTrue(null == WorkflowManager.info(1));
-        assertTrue(null == WorkflowManager.info(2));
+        assertTrue(-1 == WorkflowManager.info(1));
+        assertTrue(-1 == WorkflowManager.info(2));
     }
 
     // tester for approval step being able to access the results of the review stage
@@ -41,9 +41,8 @@ public class WorkflowTest {
             WorkflowManager.info(1);
             WorkflowManager.info(2);
         }
-        assertTrue(WorkflowManager.info(1) == null);
-        assertTrue(null == WorkflowManager.info(2));
-        assertTrue(null == WorkflowManager.info(2));
+        assertTrue(WorkflowManager.info(1) == -1);
+        assertTrue(-1 == WorkflowManager.info(2));
         assertTrue(WorkflowManager.update(0, 1));
         assertTrue(WorkflowManager.update(2, 3));
         assertTrue(WorkflowManager.update(1, 2));
@@ -52,6 +51,8 @@ public class WorkflowTest {
         assertTrue(2 == WorkflowManager.info(2));
         assertTrue(3 == WorkflowManager.info(1));
         assertTrue(4 == WorkflowManager.info(2));
+        assertTrue(WorkflowManager.info(1) == -1);
+        assertTrue(-1 == WorkflowManager.info(2));
 
     }
 
