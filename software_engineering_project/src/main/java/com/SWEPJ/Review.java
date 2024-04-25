@@ -109,31 +109,42 @@ public class Review {
             @Override
             public void handle(ActionEvent e) {
                 if (in1.getText().equals("Accepted!") || !started) {
-                    form = new Form(111111111, "1/1/2000", "1/1/2023", "mother",
-                            "john",
-                            "", "doe", "e@mail.com",
-                            222222222); // will be read from workflow/database once thats ready
-                    if (form.getMiddleName().equals(""))
-                        in1.setText(form.getFirstName() + " " + form.getLastName());
-                    else
-                        in1.setText(form.getFirstName() + " " + form.getMiddleName() + " " + form.getLastName());
-                    in2.setText(Long.toString(form.getPID()));
-                    in3.setText(form.getDOB());
-                    in4.setText(form.getRelation());
-                    in5.setText(form.getEmail());
-                    in6.setText(form.getDOD());
-                    in7.setText(Long.toString(form.getRelatedPID()));
-                    if (!started) {
-                        grid.getChildren().add(submit);
-                        started = true;
+                    // form = new Form(111111111, "1/1/2000", "1/1/2023", "mother",
+                    // "john",
+                    // "", "doe", "e@mail.com",
+                    // 222222222); // will be read from workflow/database once thats ready
+                    form = DatabaseManager.fetch(WorkflowManager.info(1));
+                    if (form != null) {
+                        if (form.getMiddleName().equals(""))
+                            in1.setText(form.getFirstName() + " " + form.getLastName());
+                        else
+                            in1.setText(form.getFirstName() + " " + form.getMiddleName() + " " + form.getLastName());
+                        in2.setText(Long.toString(form.getPID()));
+                        in3.setText(form.getDOB());
+                        in4.setText(form.getRelation());
+                        in5.setText(form.getEmail());
+                        in6.setText(form.getDOD());
+                        in7.setText(Long.toString(form.getRelatedPID()));
+                        if (!started) {
+                            grid.getChildren().add(submit);
+                            started = true;
+                        }
+                        fullName.setText("");
+                        PID.setText("");
+                        DOB.setText("");
+                        relation.setText("");
+                        email.setText("");
+                        DOD.setText("");
+                        relatedPID.setText("");
+                    } else {
+                        in1.setText("waiting for new task");
+                        in2.setText("waiting for new task");
+                        in3.setText("waiting for new task");
+                        in4.setText("waiting for new task");
+                        in5.setText("waiting for new task");
+                        in6.setText("waiting for new task");
+                        in7.setText("waiting for new task");
                     }
-                    fullName.setText("");
-                    PID.setText("");
-                    DOB.setText("");
-                    relation.setText("");
-                    email.setText("");
-                    DOD.setText("");
-                    relatedPID.setText("");
 
                 }
             }
@@ -265,7 +276,6 @@ public class Review {
                         }
                     }
                     if (!lock) {
-                        form = null;
                         in1.setText("Accepted!");
                         in2.setText("Accepted!");
                         in3.setText("Accepted!");
@@ -273,6 +283,10 @@ public class Review {
                         in5.setText("Accepted!");
                         in6.setText("Accepted!");
                         in7.setText("Accepted!");
+                        WorkflowManager.update(1, form.getFID());
+                        // System.out.println(form.getFID());
+                        form = null;
+                        // Waiting for database update implementation***
                         // will check if the data is valid, then upload
                         // to the wf table/database
                     }

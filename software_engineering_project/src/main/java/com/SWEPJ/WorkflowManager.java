@@ -12,11 +12,12 @@ public class WorkflowManager {
 
     // 1 = called by review
     // 2 = called by approve
-    // ret null if error
+    // ret errRet if error
     // returns the next form FID to process
     public static Long info(int wf) {
         File database = new File(fileName);
         String queue;
+        long errRet = -1;
         try {
             Scanner s = new Scanner(database);
             // StringBuffer b = new StringBuffer();
@@ -29,13 +30,13 @@ public class WorkflowManager {
                     break;
                 default:
                     s.close();
-                    return null;
+                    return errRet;
             }
             System.out.println(queue);
             s.close();
 
         } catch (Exception e) {
-            return null;
+            return errRet;
         }
         String[] queues, elements;
         try {
@@ -43,7 +44,7 @@ public class WorkflowManager {
             String curr = queues[wf - 1].split("=")[1];
             elements = curr.split(",");
         } catch (Exception e) {
-            return null;
+            return errRet;
         }
 
         String overwrite = "";
@@ -73,7 +74,7 @@ public class WorkflowManager {
             w.close();
 
         } catch (Exception e) {
-            return null;
+            return errRet;
         }
         // System.out.println(overwrite);
         return Long.parseLong(elements[0]);
@@ -123,10 +124,10 @@ public class WorkflowManager {
          * }
          * s.close();
          * currLock.delete();
-         * return null;
+         * return errRet;
          * } catch (Exception e) {
          * System.out.println("read failed");
-         * return null;
+         * return errRet;
          * }
          */
     }
