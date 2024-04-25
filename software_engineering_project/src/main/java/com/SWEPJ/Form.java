@@ -224,7 +224,8 @@ public class Form {
         // checks for relation
         if (relation.length() > 35 || relation.length() < 1)
             fail[2] = true;
-
+        if (relation.indexOf(' ') != -1)
+            fail[2] = true;
         // checks for firstName
         if (firstName.length() > 35 || firstName.length() < 1)
             fail[3] = true;
