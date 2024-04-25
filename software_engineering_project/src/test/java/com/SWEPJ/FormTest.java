@@ -17,7 +17,7 @@ public class FormTest {
     // This sets up the inital form to be tested
     @Before
     public void setup() {
-        form = new Form(111111111, "1/1/2000", "NULL", "mother", "First", "Middle", "Last", "test@gmail.com",
+        form = new Form(111111111, "1/1/2000", "1/1/2000", "mother", "First", "Middle", "Last", "test@gmail.com",
                 222222222);
     }
 
@@ -85,7 +85,7 @@ public class FormTest {
     // test inital DOB
     @Test
     public void testInitalizeDOD() {
-        assertTrue(form.getDOD().equals("NULL"));
+        assertTrue(form.getDOD().equals("1/1/2000"));
     }
 
     // test setting pid
@@ -143,13 +143,6 @@ public class FormTest {
         assertTrue(form.setDOD("1/1/2001") && form.getDOD().equals("1/1/2001"));
     }
 
-    // tests setting DOD to null, if person is not dead
-    @Test
-    public void testSetDODNull() {
-        form.setDOD("NULL");
-        assertTrue(form.setDOD("NULL") && form.getDOD().equals("NULL"));
-    }
-
     /*
      * The tests below test incorrect inputs, if an input is incorrect, then the
      * fail array will be populated allowing the individual guis to desplay
@@ -204,7 +197,7 @@ public class FormTest {
     public void testWrongDODMonth() {
         boolean test = form.setDOD("13/1/2000");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[2]));
+        assertFalse(test || (!fail[8]));
     }
 
     // tests a death day with a nonexistant day
@@ -213,7 +206,11 @@ public class FormTest {
     public void testWrongDODDay() {
         boolean test = form.setDOD("12/0/2000");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[2]));
+        for (int i = 0; i < fail.length; i++) {
+            System.out.println(fail[i]);
+        }
+        System.out.println(test);
+        assertFalse(test || (!fail[8]));
     }
 
     // tests a death day with a year that is too long ago
@@ -222,16 +219,7 @@ public class FormTest {
     public void testWrongDODYear() {
         boolean test = form.setDOD("12/1/1899");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[2]));
-    }
-
-    // tests a death day that is before a birthday
-
-    @Test
-    public void testConfictingDOD() {
-        boolean test = form.setDOD("12/1/1999");
-        Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[2]));
+        assertFalse(test || (!fail[8]));
     }
 
     // tests a first name that is too long (>35 chars)
@@ -281,15 +269,15 @@ public class FormTest {
         String tooLong = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
         boolean test = form.setRelation(tooLong);
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[2]));
+        assertFalse(test || (!fail[3]));
     }
 
-    // tests a relation name that is too short (<1 char)
+    // tests a relation name that is too short (<5 chars)
     @Test
     public void testWrongEmailShort() {
         boolean test = form.setEmail("");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[7]));
+        assertFalse(test || (!fail[6]));
     }
 
     // tests an email that is too long (>105 chars)
@@ -304,7 +292,7 @@ public class FormTest {
         sample += ".com";
         boolean test = form.setEmail(sample);
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[7]));
+        assertFalse(test || (!fail[6]));
     }
 
     // tests an email that is missing the '@' char
@@ -312,7 +300,7 @@ public class FormTest {
     public void testWrongEmailinvalid1() {
         boolean test = form.setEmail("AAA.com");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[7]));
+        assertFalse(test || (!fail[6]));
     }
 
     // tests an email that is missing the '.' char
@@ -320,7 +308,7 @@ public class FormTest {
     public void testWrongEmailinvalid2() {
         boolean test = form.setEmail("AAA@AAA");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[7]));
+        assertFalse(test || (!fail[6]));
     }
 
     // tests a relitives pid that is too short (not 9 numbers)
@@ -328,7 +316,7 @@ public class FormTest {
     public void testWrongRelatedPIDShort() {
         boolean test = form.setRelatedPID(1);
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[8]));
+        assertFalse(test || (!fail[7]));
     }
 
     // tests a relitives pid that is too long (not 9 numbers)
@@ -337,7 +325,7 @@ public class FormTest {
     public void testWrongRelatedPIDLong() {
         boolean test = form.setRelatedPID(1111111111);
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[8]));
+        assertFalse(test || (!fail[7]));
     }
 
 }

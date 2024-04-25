@@ -107,9 +107,9 @@ public class Form {
         return false;
     }
 
-    public Boolean setDOD(String DOD) {
+    public Boolean setDOD(String DOD1) {
         String temp = this.DOD;
-        this.DOD = DOD;
+        this.DOD = DOD1;
         if (isValid())
             return true;
         this.DOD = temp;
@@ -172,6 +172,10 @@ public class Form {
             fail[0] = true;
         }
 
+        if (String.valueOf(relatedPID).length() != 9) {
+            fail[7] = true;
+        }
+
         // checks for DOB
         /* */
         try {
@@ -211,7 +215,7 @@ public class Form {
                     fail[1] = true;
                     break;
             }
-            if (year < 1900 || year > 2023)
+            if (year < 1900 || year > 2024)
                 fail[1] = true;
 
         } catch (Exception e) {
@@ -219,8 +223,8 @@ public class Form {
         }
 
         // checks for relation
-        // if (relation.length() > 35 || relation.length() < 1)
-        // fail[3] = true;
+        if (relation.length() > 35 || relation.length() < 1)
+            fail[3] = true;
 
         // checks for firstName
         if (firstName.length() > 35 || firstName.length() < 1)
@@ -234,8 +238,67 @@ public class Form {
         if (lastName.length() > 35 || lastName.length() < 1)
             fail[6] = true;
 
+        try {
+            String[] deathdate = DOD.split("/", 3);
+            int dMonth = Integer.parseInt(deathdate[0]);
+            int dDay = Integer.parseInt(deathdate[1]);
+            int dYear = Integer.parseInt(deathdate[2]);
+
+            switch (dMonth) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    // System.out.println("Working");
+                    if (dDay > 31 || dDay < 1) {
+                        System.out.println("day is wrong");
+                        fail[8] = true;
+                        System.out.println(fail[8]);
+                    }
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    if (dDay > 30 || dDay < 1)
+                        fail[8] = true;
+                    break;
+                case 2:
+                    if (dYear % 4 == 0) {
+                        if (dDay > 29 || dDay < 1)
+                            fail[8] = true;
+                    } else {
+                        if (dDay > 28 || dDay < 1)
+                            fail[8] = true;
+                    }
+                    break;
+                default:
+                    fail[8] = true;
+                    break;
+            }
+            if (dYear < 1900 || dYear > 2024)
+                fail[8] = true;
+
+        } catch (Exception e) {
+            fail[8] = true;
+        }
+
+        if (email.length() > 105 || email.length() < 5) {
+            fail[6] = true;
+        }
+        try {
+            String[] tester = email.split("@");
+            if (tester[1].indexOf('.') == -1) {
+                fail[6] = true;
+            }
+        } catch (Exception e) {
+            fail[6] = true;
+        }
         // check if any field failed
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 9; i++) {
             if (fail[i] == true)
                 return false;
         }
