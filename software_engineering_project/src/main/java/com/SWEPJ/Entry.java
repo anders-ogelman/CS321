@@ -53,7 +53,7 @@ public class Entry {
 				String dob = dobField.getText();
 				String dod = dodField.getText();
 				String firstName = firstNameField.getText();
-				String middleName = middleNameLabel.getText();
+				String middleName = middleNameField.getText();
 				String lastName = lastNameField.getText();
 				String email = emailField.getText();
 

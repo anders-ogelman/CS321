@@ -17,6 +17,7 @@ public class DatabaseManager {
     // PID = pid of requester
     // returns all the forms submitted by the requester
     public static Form fetch(long FID) {
+
         File database = new File(fileName);
         Form form = null;
         try {
@@ -65,6 +66,9 @@ public class DatabaseManager {
 
     public static boolean update(Form form) {
 
+
+    	System.out.println("update ran");
+
         // only implementing the adding new form functionality - somebody else will add
         // updating
 	
@@ -72,10 +76,8 @@ public class DatabaseManager {
 
 		
 	Scanner reader = null;
-	Scanner fidScanner = null;
 	try {
 		reader = new Scanner(database);
-		fidScanner = new Scanner(database);
 	} catch (Exception e) {
 		System.out.println("Scanner failed to open database");
 		System.exit(-1);
