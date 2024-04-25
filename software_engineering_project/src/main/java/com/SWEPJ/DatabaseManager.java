@@ -70,39 +70,62 @@ public class DatabaseManager {
 	
 	File database = new File(fileName);
 
-        if (form.getFID() == -1) {
 		
-		Scanner reader = null;
-		Scanner fidScanner = null;
-		try {
-			reader = new Scanner(database);
-			fidScanner = new Scanner(database);
-		} catch (Exception e) {
-			System.out.println("Scanner failed to open database");
-			System.exit(-1);
-		}
+	Scanner reader = null;
+	Scanner fidScanner = null;
+	try {
+		reader = new Scanner(database);
+		fidScanner = new Scanner(database);
+	} catch (Exception e) {
+		System.out.println("Scanner failed to open database");
+		System.exit(-1);
+	}
 
-		//if this doesn't work, it may mean there is no X ending the database, and it isn't correctly formatted
-		try {
-			
-			File tempFile = new File("temp.txt");
-			tempFile.createNewFile();
+	//if this doesn't work, it may mean there is no X ending the database, and it isn't correctly formatted
+	try {
+		
+		File tempFile = new File("temp.txt");
+		tempFile.createNewFile();
 
-			String currLine = reader.nextLine();
-			
-			FileWriter tempWriter = new FileWriter("temp.txt");
+		String currLine = reader.nextLine();
+		
+		FileWriter tempWriter = new FileWriter("temp.txt");
 
-			//loop through the existing database until you get to the X at the end (not inclusive)
-			//and copy them all into a new temp file
-			while(currLine.charAt(0) != 'X') {
-				tempWriter.write(currLine);
-				tempWriter.write("\n");
-				currLine = reader.nextLine();
+		//holds the FIDs of the forms as we loop through the database
+		long FIDholder = -1;
+
+		//loop through the existing database until you get to the X at the end (not inclusive)
+		//and copy them all into a new temp file
+		while(currLine.charAt(0) != 'X') {
+
+			//if this line gives the FID of the form, store it in FIDholder. 
+			if(currLine.length() >= 3 && currLine.substring(0,3).equals("FID")) {
+				FIDholder = Long.parseLong(currLine.substring(4,currLine.length()));
 			}
 
+			//checking for the form FID to replace, if replacement is what's being done 
+			if(form.getFID() != (-1) && FIDholder == form.getFID()) {
 
+				//TODO: code for replacing an existing database entry goes here
+
+				//a couple special considerations: you'll have to skip the lines being replaced on the scanner
+
+			} else {
+				tempWriter.write(currLine);
+				tempWriter.write("\n");
+			}
+			currLine = reader.nextLine();
+		}
+
+
+		//adding a new form to the end of the database
+		if(form.getFID() == -1) {
 			//having reached the end of the file, add on the new form entry
 			//TODO: properly handle FID
+			
+			//setting up the new FID
+			form.setFID(FIDholder+1);
+
 			tempWriter.write("~\n");
 			tempWriter.write("FID=" + form.getFID() + "\n");
 			tempWriter.write("PID=" + form.getPID() + "\n");
@@ -115,37 +138,37 @@ public class DatabaseManager {
 			tempWriter.write("X");
 
 			System.out.println("Got here");
+		}
 
-			//replace the original file with temp, delete temp
+		//replace the original file with temp, delete temp
+		try {
+			Path replaceMe = Paths.get(fileName);
+			Path replacement = Paths.get("temp.txt");
+			System.out.println("Got past here");
+			
+			
+			//closing the writer before deleting the file
 			try {
-			    	Path replaceMe = Paths.get(fileName);
-			    	Path replacement = Paths.get("temp.txt");
-				System.out.println("Got past here");
-			    	
-				
-				//closing the writer before deleting the file
-				try {
-					reader.close();
-					tempWriter.close();
-				} catch (IOException e) {
-					System.out.println("Couldn't close file writer");
-				}
-
-				Files.copy(replacement, replaceMe, StandardCopyOption.REPLACE_EXISTING);
-
-				tempFile.delete();
-
-			} catch (Exception e) {
-			    	System.err.println("Someting in temp file went wrong");
-				System.err.println(e);
+				reader.close();
+				tempWriter.close();
+			} catch (IOException e) {
+				System.out.println("Couldn't close file writer");
 			}
 
-		} catch (IOException e) {
-			System.out.println("Problem with the FileWriter or file creator");
-			System.exit(-1);
+			Files.copy(replacement, replaceMe, StandardCopyOption.REPLACE_EXISTING);
+
+			tempFile.delete();
+
+		} catch (Exception e) {
+			System.err.println("Someting in temp file went wrong");
+			System.err.println(e);
 		}
-		
-        }
+
+	} catch (IOException e) {
+		System.out.println("Problem with the FileWriter or file creator");
+		System.exit(-1);
+	}
+	
 
         return true;
     }
