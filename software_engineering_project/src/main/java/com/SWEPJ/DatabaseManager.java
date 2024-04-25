@@ -6,6 +6,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.io.IOException;
+import java.io.FileWriter;
+
 
 public class DatabaseManager {
 
@@ -64,8 +67,84 @@ public class DatabaseManager {
 
         // only implementing the adding new form functionality - somebody else will add
         // updating
-        if (form.getFID() == -1) {
+	
+	File database = new File(fileName);
 
+        if (form.getFID() == -1) {
+		
+		Scanner reader = null;
+		Scanner fidScanner = null;
+		try {
+			reader = new Scanner(database);
+			fidScanner = new Scanner(database);
+		} catch (Exception e) {
+			System.out.println("Scanner failed to open database");
+			System.exit(-1);
+		}
+
+		//if this doesn't work, it may mean there is no X ending the database, and it isn't correctly formatted
+		try {
+			
+			File tempFile = new File("temp.txt");
+			tempFile.createNewFile();
+
+			String currLine = reader.nextLine();
+			
+			FileWriter tempWriter = new FileWriter("temp.txt");
+
+			//loop through the existing database until you get to the X at the end (not inclusive)
+			//and copy them all into a new temp file
+			while(currLine.charAt(0) != 'X') {
+				tempWriter.write(currLine);
+				tempWriter.write("\n");
+				currLine = reader.nextLine();
+			}
+
+
+			//having reached the end of the file, add on the new form entry
+			//TODO: properly handle FID
+			tempWriter.write("~\n");
+			tempWriter.write("FID=" + form.getFID() + "\n");
+			tempWriter.write("PID=" + form.getPID() + "\n");
+			tempWriter.write("DOB=" + form.getDOB() + "\n");
+			tempWriter.write("DOD=" + form.getDOD() + "\n");
+			tempWriter.write("FIRSTNAME=" + form.getFirstName() + "\n");
+			tempWriter.write("MIDDLENAME=" + form.getMiddleName() + "\n");
+			tempWriter.write("LASTNAME=" + form.getLastName() + "\n");
+			tempWriter.write("EMAIL=" + form.getEmail() + "\n");
+			tempWriter.write("X");
+
+			System.out.println("Got here");
+
+			//replace the original file with temp, delete temp
+			try {
+			    	Path replaceMe = Paths.get(fileName);
+			    	Path replacement = Paths.get("temp.txt");
+				System.out.println("Got past here");
+			    	
+				
+				//closing the writer before deleting the file
+				try {
+					reader.close();
+					tempWriter.close();
+				} catch (IOException e) {
+					System.out.println("Couldn't close file writer");
+				}
+
+				Files.copy(replacement, replaceMe, StandardCopyOption.REPLACE_EXISTING);
+
+				tempFile.delete();
+
+			} catch (Exception e) {
+			    	System.err.println("Someting in temp file went wrong");
+				System.err.println(e);
+			}
+
+		} catch (IOException e) {
+			System.out.println("Problem with the FileWriter or file creator");
+			System.exit(-1);
+		}
+		
         }
 
         return true;
