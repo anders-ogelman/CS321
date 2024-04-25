@@ -109,7 +109,9 @@ public class Review {
             @Override
             public void handle(ActionEvent e) {
                 if (in1.getText().equals("Accepted!") || !started) {
-                    form = new Form(111111111, "1/1/2000", "1/1/2023", "mother", "john", "", "doe", "e@mail.com",
+                    form = new Form(111111111, "1/1/2000", "1/1/2023", "mother",
+                            "john",
+                            "", "doe", "e@mail.com",
                             222222222); // will be read from workflow/database once thats ready
                     if (form.getMiddleName().equals(""))
                         in1.setText(form.getFirstName() + " " + form.getLastName());
@@ -242,19 +244,19 @@ public class Review {
                                     fullName.setStyle("-fx-background-color: red;");
                                 }
                                 break;
-                            case 7:
+                            case 6:
                                 if (fails[i]) {
                                     lock = true;
                                     email.setStyle("-fx-background-color: red;");
                                 }
                                 break;
-                            case 8:
+                            case 7:
                                 if (fails[i]) {
                                     lock = true;
                                     relatedPID.setStyle("-fx-background-color: red;");
                                 }
                                 break;
-                            case 9:
+                            case 8:
                                 if (fails[i]) {
                                     lock = true;
                                     DOD.setStyle("-fx-background-color: red;");

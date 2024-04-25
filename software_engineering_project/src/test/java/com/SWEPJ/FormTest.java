@@ -227,7 +227,7 @@ public class FormTest {
     public void testWrongFirstNameLong() {
         boolean test = form.setFirstName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[4]));
+        assertFalse(test || (!fail[3]));
     }
 
     // tests a first name that is too short (<1 char)
@@ -235,7 +235,7 @@ public class FormTest {
     public void testWrongFirstNameShort() {
         boolean test = form.setFirstName("");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[4]));
+        assertFalse(test || (!fail[3]));
     }
 
     // tests a middle name that is too long (>35 chars) (also no middle name is
@@ -244,7 +244,7 @@ public class FormTest {
     public void testWrongMiddleNameShortLong() {
         boolean test = form.setMiddleName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[5]));
+        assertFalse(test || (!fail[4]));
     }
 
     // tests a last name that is too long (>35 chars)
@@ -252,7 +252,7 @@ public class FormTest {
     public void testWrongLastNameLong() {
         boolean test = form.setLastName("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[6]));
+        assertFalse(test || (!fail[5]));
     }
 
     // tests a last name that is too short (<1 char)
@@ -260,7 +260,7 @@ public class FormTest {
     public void testWrongLastNameShort() {
         boolean test = form.setLastName("");
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[6]));
+        assertFalse(test || (!fail[5]));
     }
 
     // tests a relation name that is too long (>35 chars)
@@ -269,7 +269,7 @@ public class FormTest {
         String tooLong = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
         boolean test = form.setRelation(tooLong);
         Boolean[] fail = form.getFail();
-        assertFalse(test || (!fail[3]));
+        assertFalse(test || (!fail[2]));
     }
 
     // tests a relation name that is too short (<5 chars)

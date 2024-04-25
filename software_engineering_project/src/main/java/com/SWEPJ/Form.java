@@ -224,19 +224,19 @@ public class Form {
 
         // checks for relation
         if (relation.length() > 35 || relation.length() < 1)
-            fail[3] = true;
+            fail[2] = true;
 
         // checks for firstName
         if (firstName.length() > 35 || firstName.length() < 1)
-            fail[4] = true;
+            fail[3] = true;
 
         // checks for middleName
         if (middleName.length() > 35)
-            fail[5] = true;
+            fail[4] = true;
 
         // checks for lastName
         if (lastName.length() > 35 || lastName.length() < 1)
-            fail[6] = true;
+            fail[5] = true;
 
         try {
             String[] deathdate = DOD.split("/", 3);
