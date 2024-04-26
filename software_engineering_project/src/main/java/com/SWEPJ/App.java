@@ -1,10 +1,5 @@
 package com.SWEPJ;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -20,56 +15,43 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Button entry = new Button("Entry");
+        Button entry = new Button("Entry");// declare buttons
         Button review = new Button("Review");
         Button approve = new Button("Approve");
-        HBox box1 = new HBox(10);
-        box1.getChildren().add(entry);
+        HBox box1 = new HBox(10);// make hbox
+        box1.getChildren().add(entry);// add buttons to hbox
         box1.getChildren().add(review);
         box1.getChildren().add(approve);
-        GridPane grid = new GridPane();
+        GridPane grid = new GridPane();// elements rest on a gridpane
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-        grid.add(box1, 1, 4);
+        grid.add(box1, 0, 0);// add hbbox to gridpane
         Scene scene = new Scene(grid, 300, 275);
-        entry.setOnAction(new EventHandler<ActionEvent>() {
+        entry.setOnAction(new EventHandler<ActionEvent>() {// start entry on press
             @Override
             public void handle(ActionEvent event) {
                 new Entry();
-
             }
         });
-        review.setOnAction(new EventHandler<ActionEvent>() {
+        review.setOnAction(new EventHandler<ActionEvent>() {// start review on press
             @Override
             public void handle(ActionEvent event) {
                 new Review();
             }
         });
-        approve.setOnAction(new EventHandler<ActionEvent>() {
+        approve.setOnAction(new EventHandler<ActionEvent>() {// start approve on press
             @Override
             public void handle(ActionEvent event) {
                 new Approve();
             }
         });
 
-        stage.setScene(scene);
+        stage.setScene(scene);// set the stage and show it
         stage.show();
     }
 
     public static void main(String[] args) {
-        // System.out.println(WorkflowManager.info(2));
-        // Boolean[] f = DatabaseManager.fetch(1).getFail();
-        // for (int i = 0; i < f.length; i++) {
-        // System.out.println(f[i]);
-        // }
-        /*
-         * Form form = new Form(111111111, "1/1/2000", "1/1/2000", "mother", "First",
-         * "Middle", "Last", "test@gmail.com",
-         * 222222222);
-         * form.setFID(1);
-         * DatabaseManager.update(form);
-         */
-        launch();
+        launch();// start the gui
     }
 }

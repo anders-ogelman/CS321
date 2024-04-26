@@ -64,7 +64,6 @@ public class WorkflowTest {
     @After
     public void cleanup() {
         try {
-            System.out.println("the after thing is running right now");
             Path replaceMe = Paths.get("Workflow.txt");
             Path replacement = Paths.get("backup/Workflow.txt");
             Files.copy(replacement, replaceMe, StandardCopyOption.REPLACE_EXISTING);
