@@ -206,10 +206,6 @@ public class FormTest {
     public void testWrongDODDay() {
         boolean test = form.setDOD("12/0/2000");
         Boolean[] fail = form.getFail();
-        for (int i = 0; i < fail.length; i++) {
-            System.out.println(fail[i]);
-        }
-        System.out.println(test);
         assertFalse(test || (!fail[8]));
     }
 

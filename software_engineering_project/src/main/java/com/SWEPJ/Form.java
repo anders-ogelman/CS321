@@ -5,8 +5,8 @@ package com.SWEPJ;
 //name fields = name of the requester
 //email = email of the requester
 //relation = requesters relation to the dead
-//DOD = date of death
-//relatedPID = the relitives pid
+//DOD = date of relative death
+//relatedPID = the relatives pid
 //fid = id to look form up with
 //fail = [PID, DOB, relation, firstname, middlename, lastname, email, relatedPID, DOD] * FID is managed internally by database manager and does not need checked here
 public class Form {
@@ -161,7 +161,6 @@ public class Form {
         return false;
     }
 
-    // WIP
     public Boolean isValid() {
         // reset fail array
         for (int i = 0; i < 9; i++)
@@ -237,7 +236,7 @@ public class Form {
         // checks for lastName
         if (lastName.length() > 35 || lastName.length() < 1)
             fail[5] = true;
-
+        // check death date
         try {
             String[] deathdate = DOD.split("/", 3);
             int dMonth = Integer.parseInt(deathdate[0]);
@@ -281,7 +280,7 @@ public class Form {
         } catch (Exception e) {
             fail[8] = true;
         }
-
+        // check email
         if (email.length() > 105 || email.length() < 5) {
             fail[6] = true;
         }

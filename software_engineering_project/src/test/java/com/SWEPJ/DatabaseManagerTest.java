@@ -133,7 +133,6 @@ public class DatabaseManagerTest {
             if (fails[i])
                 assertTrue(false);
         }
-        System.out.println(test.getPID());
         assertTrue(test.getPID() == 111111111);
         assertTrue(test.getRelatedPID() == 222222222);
         assertTrue(test.getRelation().equals("mother"));

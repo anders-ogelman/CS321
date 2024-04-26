@@ -13,15 +13,14 @@ public class DatabaseManager {
 
 	private static String fileName = "Database.txt";
 
-	// PID = pid of requester
-	// returns all the forms submitted by the requester
+	// FID = id of the form to look up
+	// returns the form with the matching ID
 	public static Form fetch(long FID) {
-
 		File database = new File(fileName);
 		Form form = null;
 		try {
 			Scanner s = new Scanner(database);
-			while (s.nextLine().equals("~")) {
+			while (s.nextLine().equals("~")) {// read the database, and search for the requested fid
 				String FIDs = s.nextLine();
 				String[] split = FIDs.split("=");
 				if (Long.parseLong(split[1]) == FID)
@@ -29,10 +28,8 @@ public class DatabaseManager {
 				for (int i = 0; i < 8; i++) {
 					s.nextLine();
 				}
-				// System.out.println(s.nextLine());
-
 			}
-			long PID = Long.parseLong(s.nextLine().split("=")[1]);
+			long PID = Long.parseLong(s.nextLine().split("=")[1]);// fill in all the form fields
 			String[] split = s.nextLine().split("=")[1].split(" ");
 			String relation = split[1];
 			long relatedPID = Long.parseLong(split[0]);
@@ -47,11 +44,9 @@ public class DatabaseManager {
 			String lastName = s.nextLine().split("=")[1];
 			String email = s.nextLine().split("=")[1];
 			form = new Form(PID, DOB, DOD, relation, firstName, middleName, lastName,
-					email, relatedPID);
-			form.setFID(FID);
+					email, relatedPID);// create form
+			form.setFID(FID);// set the FID
 			s.close();
-			// while(s.nextLine(0 != "X"))
-
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			System.out.println("error in database manageer info");
@@ -64,10 +59,7 @@ public class DatabaseManager {
 	// form = form being saved
 	// ret false if error
 	// ret true if worked
-
 	public static boolean update(Form form) {
-
-		System.out.println("update ran");
 
 		// only implementing the adding new form functionality - somebody else will add
 		// updating
@@ -108,12 +100,6 @@ public class DatabaseManager {
 
 				// checking for the form FID to replace, if replacement is what's being done
 				if (form.getFID() != (-1) && FIDholder == form.getFID()) {
-
-					// TODO: code for replacing an existing database entry goes here
-
-					// a couple special considerations: you'll have to skip the lines being replaced
-					// on the scanner
-					System.out.println("editing a database entry");
 					tempWriter.write(currLine + "\n");
 					tempWriter.write(reader.nextLine().split("=")[0] + "=" + Long.toString(form.getPID()) + "\n");
 					tempWriter.write(reader.nextLine().split("=")[0] + "=" +
@@ -139,7 +125,6 @@ public class DatabaseManager {
 			if (form.getFID() == -1) {
 				// having reached the end of the file, add on the new form entry
 				// TODO: properly handle FID
-				System.out.println("adding a database entry");
 
 				// setting up the new FID
 				form.setFID(FIDholder + 1);
@@ -154,8 +139,6 @@ public class DatabaseManager {
 				tempWriter.write("MIDDLENAME=" + form.getMiddleName() + "\n");
 				tempWriter.write("LASTNAME=" + form.getLastName() + "\n");
 				tempWriter.write("EMAIL=" + form.getEmail() + "\n");
-
-				System.out.println("Got here");
 			}
 			tempWriter.write("X");
 
@@ -171,7 +154,6 @@ public class DatabaseManager {
 				}
 				Path replaceMe = Paths.get(fileName);
 				Path replacement = Paths.get("temp.txt");
-				System.out.println("Got past here");
 				Files.copy(replacement, replaceMe, StandardCopyOption.REPLACE_EXISTING);
 
 				tempFile.delete();
@@ -188,16 +170,4 @@ public class DatabaseManager {
 
 		return true;
 	}
-
-	private void resetDatabase() {
-
-		try {
-			Path replaceMe = Paths.get("Database.txt");
-			Path replacement = Paths.get("backup/Database.txt");
-			Files.copy(replacement, replaceMe, StandardCopyOption.REPLACE_EXISTING);
-		} catch (Exception e) {
-			System.err.println("manual database replacement required");
-		}
-	}
-
 }

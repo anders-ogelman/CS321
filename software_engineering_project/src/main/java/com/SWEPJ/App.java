@@ -58,18 +58,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        // System.out.println(WorkflowManager.info(2));
-        // Boolean[] f = DatabaseManager.fetch(1).getFail();
-        // for (int i = 0; i < f.length; i++) {
-        // System.out.println(f[i]);
-        // }
-        /*
-         * Form form = new Form(111111111, "1/1/2000", "1/1/2000", "mother", "First",
-         * "Middle", "Last", "test@gmail.com",
-         * 222222222);
-         * form.setFID(1);
-         * DatabaseManager.update(form);
-         */
         launch();
     }
 }
