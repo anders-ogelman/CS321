@@ -175,6 +175,22 @@ public class Review {
                             default:
                                 form.setFirstName("");// if invalid input
                         }
+                    } else {
+                        String split[] = in1.getText().split(" ");
+                        switch (split.length) {
+                            case 2:
+                                form.setFirstName(split[0]);
+                                form.setLastName("");
+                                form.setLastName(split[1]);
+                                break;
+                            case 3:
+                                form.setFirstName(split[0]);
+                                form.setMiddleName(split[1]);
+                                form.setLastName(split[2]);
+                                break;
+                            default:
+                                form.setFirstName("");// if invalid input
+                        }
                     }
                     if (PID.getCharacters().length() != 0) {// set the pid, make it fail if the input is bad
                         try {
@@ -182,7 +198,9 @@ public class Review {
                         } catch (Exception e2) {
                             form.setPID(-1);
                         }
-                    }
+                    } else
+                        form.setPID(Long.parseLong(in2.getText()));
+
                     if (DOB.getCharacters().length() != 0) {// split up the date of birth, make it invalid if improperly
                                                             // formatted
                         try {
@@ -194,13 +212,17 @@ public class Review {
                         } catch (Exception e3) {
                             form.setDOB("0/0/0000");
                         }
-                    }
+                    } else
+                        form.setDOB(in3.getText());
+
                     if (relation.getCharacters().length() != 0) {// set relation
                         form.setRelation(relation.getCharacters().toString());
-                    }
+                    } else
+                        form.setRelation(in4.getText());
                     if (email.getCharacters().length() != 0) {// set email
                         form.setEmail(email.getCharacters().toString());
-                    }
+                    } else
+                        form.setEmail(in5.getText());
                     if (DOD.getCharacters().length() != 0) {// set the date of death
                         try {
                             String split2[] = DOD.getCharacters().toString().split("/");
@@ -211,14 +233,16 @@ public class Review {
                         } catch (Exception e4) {
                             form.setDOD("0/0/0000");
                         }
-                    }
+                    } else
+                        form.setDOD(in6.getText());
                     if (relatedPID.getCharacters().length() != 0) {// set the related pid
                         try {
                             form.setRelatedPID(Long.parseLong(relatedPID.getCharacters().toString()));
                         } catch (Exception e2) {
                             form.setRelatedPID(-1);
                         }
-                    }
+                    } else
+                        form.setRelatedPID(Long.parseLong(in7.getText()));
                     // System.out.println(Long.parseLong("test"));
                     Boolean lock = false;
                     Boolean fails[] = form.getFail();// fail = [PID, DOB, relation, firstname, middlename, lastname,
