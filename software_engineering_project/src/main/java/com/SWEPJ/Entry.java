@@ -89,7 +89,7 @@ public class Entry {
 				boolean validationPassed = true;
 
 				for(int i = 0; i < isValidArr.length; i++) {
-					if(!isValidArr[i]) {
+					if(isValidArr[i]) {
 						if(validationPassed) {
 							invalids = invalids + "Invalid entries in: ";
 						}
