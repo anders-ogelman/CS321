@@ -81,90 +81,103 @@ public class Form {
     }
 
     public Boolean setDOB(String DOB) {
-        String temp = this.DOB;
         this.DOB = DOB;
-        if (isValid())
+        fail[1] = false;
+        this.isValid();
+        if (!fail[1])
             return true;
-        this.DOB = temp;
+        // this.DOB = temp;
         return false;
     }
 
     public Boolean setFirstName(String firstName) {
-        String temp = this.firstName;
         this.firstName = firstName;
-        if (isValid())
+        fail[3] = false;
+        this.isValid();
+        if (!fail[3])
             return true;
-        this.firstName = temp;
+        // this.firstName = temp;
         return false;
     }
 
     public Boolean setLastName(String lastName) {
-        String temp = this.lastName;
         this.lastName = lastName;
-        if (isValid())
+        fail[5] = false;
+        this.isValid();
+        if (!fail[5])
             return true;
-        this.lastName = temp;
+        // this.lastName = temp;
         return false;
     }
 
-    public Boolean setDOD(String DOD1) {
-        String temp = this.DOD;
-        this.DOD = DOD1;
-        if (isValid())
+    public Boolean setDOD(String DOD) {
+        this.DOD = DOD;
+        fail[8] = false;
+        this.isValid();
+        if (!fail[8])
             return true;
-        this.DOD = temp;
+        // this.DOD = temp;
         return false;
     }
 
     public Boolean setMiddleName(String middleName) {
-        String temp = this.middleName;
         this.middleName = middleName;
-        if (isValid())
+        fail[4] = false;
+        this.isValid();
+        if (!fail[4])
             return true;
-        this.middleName = temp;
+        // this.middleName = temp;
         return false;
     }
 
     public Boolean setPID(long PID) {
-        long temp = this.PID;
+        // long temp = this.PID;
         this.PID = PID;
-        if (isValid())
+        fail[0] = false;
+        this.isValid();
+        if (!fail[0])
             return true;
-        this.PID = temp;
+        // this.PID = temp;
         return false;
     }
 
     public Boolean setRelatedPID(long relatedPID) {
-        long temp = this.relatedPID;
+        // long temp = this.relatedPID;
         this.relatedPID = relatedPID;
-        if (isValid())
+        fail[7] = false;
+        this.isValid();
+        if (!fail[7])
             return true;
-        this.relatedPID = temp;
+        // this.relatedPID = temp;
         return false;
     }
 
     public Boolean setRelation(String relation) {
-        String temp = this.relation;
+        // String temp = this.relation;
         this.relation = relation;
-        if (isValid())
+        fail[2] = false;
+        this.isValid();
+        if (!fail[2])
             return true;
-        this.relation = temp;
+        // this.relation = temp;
         return false;
     }
 
     public boolean setEmail(String email) {
-        String temp = this.email;
+        // String temp = this.email;
         this.email = email;
-        if (isValid())
+        fail[6] = false;
+        this.isValid();
+        if (!fail[6])
             return true;
-        this.email = temp;
+        // this.email = temp;
         return false;
     }
 
     public Boolean isValid() {
         // reset fail array
-        for (int i = 0; i < 9; i++)
-            fail[i] = false;
+        // for (int i = 0; i < 9; i++)
+        // fail[i] = false;
 
         // checks for PID
         if (String.valueOf(PID).length() != 9) {

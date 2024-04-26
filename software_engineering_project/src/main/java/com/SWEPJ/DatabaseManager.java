@@ -48,9 +48,7 @@ public class DatabaseManager {
 			form.setFID(FID);// set the FID
 			s.close();
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
-			System.out.println("error in database manageer info");
-			e.printStackTrace();
+
 			return null;
 		}
 		return form;

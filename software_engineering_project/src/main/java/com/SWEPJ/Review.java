@@ -16,8 +16,6 @@ public class Review {
     private Boolean started = false;
 
     public Review() {
-        // Form form;
-        // System.out.println("Hello World!");
         Stage secondStage = new Stage();// general field/label/text field/button setup in a grid pane
         GridPane grid = new GridPane();
         Button next = new Button("Next");
@@ -98,7 +96,7 @@ public class Review {
         grid.setHgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
         grid.getChildren().addAll(next);
-        grid.getChildren().addAll(field1, in1, out1, fullName);
+        grid.getChildren().addAll(field1, in1, out1, fullName);// add everything to the grid
         grid.getChildren().addAll(field2, in2, out2, PID);
         grid.getChildren().addAll(field3, in3, out3, DOB);
         grid.getChildren().addAll(field4, in4, out4, relation);
@@ -154,7 +152,6 @@ public class Review {
             public void handle(ActionEvent e) {
                 if (form != null) {
                     form.isValid();
-                    // fullName.setStyle("-fx-background-color: red;");
                     fullName.setStyle("-fx-background-color: white;");// reset field colors
                     PID.setStyle("-fx-background-color: white;");
                     DOB.setStyle("-fx-background-color: white;");
@@ -162,9 +159,7 @@ public class Review {
                     email.setStyle("-fx-background-color: white;");
                     DOD.setStyle("-fx-background-color: white;");
                     relatedPID.setStyle("-fx-background-color: white;");
-                    // System.out.println(fullName.getCharacters());
                     if (fullName.getCharacters().length() != 0) {// code to break down the full name
-                        // System.out.println("char is: " + fullName.getCharacters());
                         String split[] = fullName.getCharacters().toString().split(" ");
                         switch (split.length) {
                             case 2:
