@@ -1,6 +1,5 @@
 package com.SWEPJ;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -13,39 +12,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class DatabaseManagerTest {
-
-    Form form;
-
-    @Before
-    public void setup() {
-        form = new Form(111111111, "1/1/2000", "NULL", "mother", "First", "Middle", "Last", "test@gmail.com",
-                222222222);
-    }
-
-    // Checks bad input into DatabaseManager's methods
-    @Test
-    public void testFetchInvalid() {
-        assertTrue(DatabaseManager.fetch(form.getPID(), 1) == null); // check invalid access
-    }
-
-    @Test
-    public void testUpdateInvalid() {
-        assertFalse(DatabaseManager.update(form) == false); // check invalid access type
-    }
-
-    @Test
-    public void testFetchInvalidLookup() {
-        assertTrue(DatabaseManager.fetch(1, 1) == null); // check incorrect PID lookup
-    }
-
-    @Test
-    public void testUpdateInvalidLookup() {
-        form.setPID(444444444);
-        assertTrue(DatabaseManager.update(form) == true); // ch
-        assertTrue(DatabaseManager.fetch(form.getPID(), form.getRelatedPID()) != null);
-        assertTrue(DatabaseManager.fetch(form.getPID(), form.getRelatedPID()).equals(form));
-
-    }
 
     // No need to check for wrong user input as isValid() in Form() already does
     // this
@@ -114,31 +80,129 @@ public class DatabaseManagerTest {
     @Test
     public void testAccess() {
         long PID2 = 222222222;
-        Form test = DatabaseManager.fetch(111111111, PID2);
+        Form test = DatabaseManager.fetch(1);
         assertTrue(test != null);
         Boolean[] fails = test.getFail();
         for (int i = 0; i < 9; i++) {
             if (fails[i])
                 assertTrue(false);
         }
-        if (test.getPID() != 1111111111)
-            assertTrue(false);
-        if (!(test.getRelation().equals("mother")))
-            assertTrue(false);
-        if (!(test.getDOB().equals("1/1/1970")))
-            assertTrue(false);
-        if (!(test.getDOD().equals("12/30/2012")))
-            assertTrue(false);
-        if (!(test.getFirstName().equals("Jane")))
-            assertTrue(false);
-        if (!(test.getMiddleName().equals("")))
-            assertTrue(false);
-        if (!(test.getLastName().equals("Doe")))
-            assertTrue(false);
-        if (!(test.getEmail().equals("jane@doe.com")))
-            assertTrue(false);
-        assertTrue(true);
+        assertTrue(test.getPID() == 111111111);
+        assertTrue(test.getRelatedPID() == PID2);
+        assertTrue(test.getRelation().equals("mother"));
+        assertTrue(test.getDOB().equals("1/1/1990"));
+        assertTrue(test.getDOD().equals("1/2/1930"));
+        assertTrue(test.getFirstName().equals("Jill"));
+        assertTrue(test.getMiddleName().equals(""));
+        assertTrue(test.getLastName().equals("Doe"));
+        assertTrue(test.getEmail().equals("jill@doe.com"));
     }
+
+    @Test
+    public void testAccess2() {
+        long PID = 333333333;
+        long PID2 = 444444444;
+        Form test = DatabaseManager.fetch(2);
+        assertTrue(test != null);
+        Boolean[] fails = test.getFail();
+        for (int i = 0; i < 9; i++) {
+            if (fails[i])
+                assertTrue(false);
+        }
+        assertTrue(test.getPID() == PID);
+        assertTrue(test.getRelatedPID() == PID2);
+        assertTrue(test.getRelation().equals("father"));
+        assertTrue(test.getDOB().equals("1/1/1970"));
+        assertTrue(test.getDOD().equals("12/30/1940"));
+        assertTrue(test.getFirstName().equals("John"));
+        assertTrue(test.getMiddleName().equals("Scott"));
+        assertTrue(test.getLastName().equals("Doe"));
+        assertTrue(test.getEmail().equals("john@doe.com"));
+    }
+
+    @Test
+    public void testEdit() {
+        Form form = new Form(111111111, "1/1/2000", "1/1/2000", "mother", "First", "Middle", "Last", "test@gmail.com",
+                222222222);
+        form.setFID(2);
+        DatabaseManager.update(form);
+        Form test = DatabaseManager.fetch(2);
+        assertTrue(test != null);
+        Boolean[] fails = test.getFail();
+        for (int i = 0; i < 9; i++) {
+            if (fails[i])
+                assertTrue(false);
+        }
+        System.out.println(test.getPID());
+        assertTrue(test.getPID() == 111111111);
+        assertTrue(test.getRelatedPID() == 222222222);
+        assertTrue(test.getRelation().equals("mother"));
+        assertTrue(test.getDOB().equals("1/1/2000"));
+        assertTrue(test.getDOD().equals("1/1/2000"));
+        assertTrue(test.getFirstName().equals("First"));
+        assertTrue(test.getMiddleName().equals("Middle"));
+        assertTrue(test.getLastName().equals("Last"));
+        assertTrue(test.getEmail().equals("test@gmail.com"));
+    }
+
+    @Test
+    public void testinsert() {
+        Form form = new Form(111111111, "1/1/2000", "1/1/2000", "mother", "First",
+                "Middle", "Last", "test@gmail.com",
+                222222222);
+        DatabaseManager.update(form);
+        Form test = DatabaseManager.fetch(3);
+        assertTrue(test != null);
+        Boolean[] fails = test.getFail();
+        for (int i = 0; i < 9; i++) {
+            if (fails[i])
+                assertTrue(false);
+        }
+        assertTrue(test.getPID() == 111111111);
+        assertTrue(test.getRelatedPID() == 222222222);
+        assertTrue(test.getRelation().equals("mother"));
+        assertTrue(test.getDOB().equals("1/1/2000"));
+        assertTrue(test.getDOD().equals("1/1/2000"));
+        assertTrue(test.getFirstName().equals("First"));
+        assertTrue(test.getMiddleName().equals("Middle"));
+        assertTrue(test.getLastName().equals("Last"));
+        assertTrue(test.getEmail().equals("test@gmail.com"));
+    }
+
+    // Checks bad input into DatabaseManager's methods
+    @Test
+    public void testFetchInvalid() {
+        assertTrue(DatabaseManager.fetch(3) == null); // check invalid access
+    }
+
+    @Test
+    public void testFetchInvalidLookup() {
+        assertTrue(DatabaseManager.fetch(-1) == null); // check incorrect PID lookup
+    }
+
+    /*
+     * ~
+     * FID=1
+     * PID=111111111
+     * RELATION=222222222 mother
+     * DOB=1/1/1990
+     * DOD=1/2/1930
+     * FIRSTNAME=Jill
+     * MIDDLENAME=
+     * LASTNAME=Doe
+     * EMAIL=jill@doe.com
+     * ~
+     * FID=2
+     * PID=333333333
+     * RELATIONS=444444444 father
+     * DOB=1/1/1970
+     * DOD=12/30/1940
+     * FIRSTNAME=John
+     * MIDDLENAME=Scott
+     * LASTNAME=Doe
+     * EMAIL=john@doe.com
+     * X
+     */
     /*
      * @Ignore
      * 
@@ -179,7 +243,8 @@ public class DatabaseManagerTest {
      * assertTrue(true);
      * }
      */
-
+    /* */
+    @Before
     @After
     public void cleanup() {
         try {

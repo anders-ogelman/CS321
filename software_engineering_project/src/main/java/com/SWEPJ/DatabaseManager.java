@@ -54,6 +54,8 @@ public class DatabaseManager {
 
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
+			System.out.println("error in database manageer info");
+			e.printStackTrace();
 			return null;
 		}
 		return form;
@@ -111,6 +113,7 @@ public class DatabaseManager {
 
 					// a couple special considerations: you'll have to skip the lines being replaced
 					// on the scanner
+					System.out.println("editing a database entry");
 					tempWriter.write(currLine + "\n");
 					tempWriter.write(reader.nextLine().split("=")[0] + "=" + Long.toString(form.getPID()) + "\n");
 					tempWriter.write(reader.nextLine().split("=")[0] + "=" +
@@ -136,6 +139,7 @@ public class DatabaseManager {
 			if (form.getFID() == -1) {
 				// having reached the end of the file, add on the new form entry
 				// TODO: properly handle FID
+				System.out.println("adding a database entry");
 
 				// setting up the new FID
 				form.setFID(FIDholder + 1);
@@ -143,6 +147,7 @@ public class DatabaseManager {
 				tempWriter.write("~\n");
 				tempWriter.write("FID=" + form.getFID() + "\n");
 				tempWriter.write("PID=" + form.getPID() + "\n");
+				tempWriter.write("RELATIONS=" + Long.toString(form.getRelatedPID()) + " " + form.getRelation() + '\n');
 				tempWriter.write("DOB=" + form.getDOB() + "\n");
 				tempWriter.write("DOD=" + form.getDOD() + "\n");
 				tempWriter.write("FIRSTNAME=" + form.getFirstName() + "\n");
@@ -156,9 +161,6 @@ public class DatabaseManager {
 
 			// replace the original file with temp, delete temp
 			try {
-				Path replaceMe = Paths.get(fileName);
-				Path replacement = Paths.get("temp.txt");
-				System.out.println("Got past here");
 
 				// closing the writer before deleting the file
 				try {
@@ -167,7 +169,9 @@ public class DatabaseManager {
 				} catch (IOException e) {
 					System.out.println("Couldn't close file writer");
 				}
-
+				Path replaceMe = Paths.get(fileName);
+				Path replacement = Paths.get("temp.txt");
+				System.out.println("Got past here");
 				Files.copy(replacement, replaceMe, StandardCopyOption.REPLACE_EXISTING);
 
 				tempFile.delete();

@@ -28,7 +28,6 @@ public class WorkflowTest {
         assertTrue(1 == WorkflowManager.info(2));
         assertTrue(2 == WorkflowManager.info(1));
         assertTrue(2 == WorkflowManager.info(2));
-
         assertTrue(-1 == WorkflowManager.info(1));
         assertTrue(-1 == WorkflowManager.info(2));
     }

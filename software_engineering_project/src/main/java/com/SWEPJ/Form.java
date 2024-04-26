@@ -252,12 +252,8 @@ public class Form {
                 case 8:
                 case 10:
                 case 12:
-                    // System.out.println("Working");
-                    if (dDay > 31 || dDay < 1) {
-                        System.out.println("day is wrong");
+                    if (dDay > 31 || dDay < 1)
                         fail[8] = true;
-                        System.out.println(fail[8]);
-                    }
                     break;
                 case 4:
                 case 6:

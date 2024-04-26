@@ -32,7 +32,6 @@ public class WorkflowManager {
                     s.close();
                     return errRet;
             }
-            System.out.println(queue);
             s.close();
 
         } catch (Exception e) {
@@ -66,7 +65,6 @@ public class WorkflowManager {
             }
         }
         queue = queue.replaceAll(queues[wf - 1], overwrite);
-        System.out.println("\n" + queue + "\n");
         try {
             FileWriter w = new FileWriter(fileName);
             w.append(queue);
@@ -158,7 +156,6 @@ public class WorkflowManager {
                     s.close();
                     return false;
             }
-            System.out.println(queue);
             s.close();
 
         } catch (Exception e) {
@@ -197,7 +194,6 @@ public class WorkflowManager {
          * break;
          * }
          */
-        System.out.println("\n" + queue + "\n");
         try {
             FileWriter w = new FileWriter(fileName);
             w.append(queue);
