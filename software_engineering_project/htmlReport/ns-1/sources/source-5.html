@@ -1,0 +1,432 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Form</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.SWEPJ</a>
+</div>
+
+<h1>Coverage Summary for Class: Form (com.SWEPJ)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Form</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (23/23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57.6%
+  </span>
+  <span class="absValue">
+    (68/118)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.2%
+  </span>
+  <span class="absValue">
+    (127/144)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.SWEPJ;
+&nbsp;
+&nbsp;//PID = pid of requester
+&nbsp;//DOB = date of birth of the requester
+&nbsp;//name fields = name of the requester
+&nbsp;//email = email of the requester
+&nbsp;//relation = requesters relation to the dead
+&nbsp;//DOD = date of relative death
+&nbsp;//relatedPID = the relatives pid
+&nbsp;//fid = id to look form up with
+&nbsp;//fail = [PID, DOB, relation, firstname, middlename, lastname, email, relatedPID, DOD] * FID is managed internally by database manager and does not need checked here
+&nbsp;public class Form {
+&nbsp;    private Boolean fail[];
+&nbsp;    private long PID, relatedPID, FID;
+&nbsp;    private String DOB, DOD, firstName, middleName, lastName, email, relation;
+&nbsp;
+&nbsp;    public Form(long PID, String DOB, String DOD, String relation, String firstName, String middleName,
+<b class="fc">&nbsp;            String lastName, String email, long relatedPID) {</b>
+<b class="fc">&nbsp;        this.PID = PID;</b>
+<b class="fc">&nbsp;        this.DOB = DOB;</b>
+<b class="fc">&nbsp;        this.DOD = DOD;</b>
+<b class="fc">&nbsp;        this.relation = relation;</b>
+<b class="fc">&nbsp;        this.firstName = firstName;</b>
+<b class="fc">&nbsp;        this.middleName = middleName;</b>
+<b class="fc">&nbsp;        this.lastName = lastName;</b>
+<b class="fc">&nbsp;        this.email = email;</b>
+<b class="fc">&nbsp;        this.relatedPID = relatedPID;</b>
+<b class="fc">&nbsp;        this.FID = -1;</b>
+<b class="fc">&nbsp;        fail = new Boolean[9];</b>
+<b class="fc">&nbsp;        for (int i = 0; i &lt; 9; i++)</b>
+<b class="fc">&nbsp;            fail[i] = false; // PID DOB relation firstName middleName lastName email</b>
+<b class="fc">&nbsp;        isValid();// Will require user classes to manually check fail[] array</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDOD() {
+<b class="fc">&nbsp;        return DOD;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public long getRelatedPID() {
+<b class="fc">&nbsp;        return relatedPID;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getFirstName() {
+<b class="fc">&nbsp;        return firstName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getLastName() {
+<b class="fc">&nbsp;        return lastName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getMiddleName() {
+<b class="fc">&nbsp;        return middleName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public long getPID() {
+<b class="fc">&nbsp;        return PID;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getRelation() {
+<b class="fc">&nbsp;        return relation;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDOB() {
+<b class="fc">&nbsp;        return DOB;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getEmail() {
+<b class="fc">&nbsp;        return email;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public long getFID() {
+<b class="fc">&nbsp;        return FID;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean[] getFail() {
+<b class="fc">&nbsp;        return fail;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setFID(long FID) {
+<b class="fc">&nbsp;        this.FID = FID;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean setDOB(String DOB) {
+<b class="fc">&nbsp;        this.DOB = DOB;</b>
+<b class="fc">&nbsp;        fail[1] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[1])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.DOB = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean setFirstName(String firstName) {
+<b class="fc">&nbsp;        this.firstName = firstName;</b>
+<b class="fc">&nbsp;        fail[3] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[3])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.firstName = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean setLastName(String lastName) {
+<b class="fc">&nbsp;        this.lastName = lastName;</b>
+<b class="fc">&nbsp;        fail[5] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[5])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.lastName = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean setDOD(String DOD) {
+<b class="fc">&nbsp;        this.DOD = DOD;</b>
+<b class="fc">&nbsp;        fail[8] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[8])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.DOD = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean setMiddleName(String middleName) {
+<b class="fc">&nbsp;        this.middleName = middleName;</b>
+<b class="fc">&nbsp;        fail[4] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[4])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.middleName = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean setPID(long PID) {
+&nbsp;        // long temp = this.PID;
+<b class="fc">&nbsp;        this.PID = PID;</b>
+<b class="fc">&nbsp;        fail[0] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[0])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.PID = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean setRelatedPID(long relatedPID) {
+&nbsp;        // long temp = this.relatedPID;
+<b class="fc">&nbsp;        this.relatedPID = relatedPID;</b>
+<b class="fc">&nbsp;        fail[7] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[7])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.relatedPID = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean setRelation(String relation) {
+&nbsp;        // String temp = this.relation;
+<b class="fc">&nbsp;        this.relation = relation;</b>
+<b class="fc">&nbsp;        fail[2] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[2])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.relation = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean setEmail(String email) {
+&nbsp;        // String temp = this.email;
+<b class="fc">&nbsp;        this.email = email;</b>
+<b class="fc">&nbsp;        fail[6] = false;</b>
+<b class="fc">&nbsp;        this.isValid();</b>
+<b class="fc">&nbsp;        if (!fail[6])</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        // this.email = temp;
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Boolean isValid() {
+&nbsp;        // reset fail array
+&nbsp;        // for (int i = 0; i &lt; 9; i++)
+&nbsp;        // fail[i] = false;
+&nbsp;
+&nbsp;        // checks for PID
+<b class="fc">&nbsp;        if (String.valueOf(PID).length() != 9) {</b>
+<b class="fc">&nbsp;            fail[0] = true;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (String.valueOf(relatedPID).length() != 9) {</b>
+<b class="fc">&nbsp;            fail[7] = true;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // checks for DOB
+&nbsp;        try {
+<b class="fc">&nbsp;            String[] birthdate = DOB.split(&quot;/&quot;, 3);</b>
+<b class="fc">&nbsp;            int month = Integer.parseInt(birthdate[0]);</b>
+<b class="fc">&nbsp;            int day = Integer.parseInt(birthdate[1]);</b>
+<b class="fc">&nbsp;            int year = Integer.parseInt(birthdate[2]);</b>
+&nbsp;
+<b class="pc">&nbsp;            switch (month) {</b>
+&nbsp;                case 1:
+&nbsp;                case 3:
+&nbsp;                case 5:
+&nbsp;                case 7:
+&nbsp;                case 8:
+&nbsp;                case 10:
+&nbsp;                case 12:
+<b class="pc">&nbsp;                    if (day &gt; 31 || day &lt; 1)</b>
+<b class="fc">&nbsp;                        fail[1] = true;</b>
+&nbsp;                    break;
+&nbsp;                case 4:
+&nbsp;                case 6:
+&nbsp;                case 9:
+&nbsp;                case 11:
+<b class="nc">&nbsp;                    if (day &gt; 30 || day &lt; 1)</b>
+<b class="nc">&nbsp;                        fail[1] = true;</b>
+&nbsp;                    break;
+&nbsp;                case 2:
+<b class="pc">&nbsp;                    if (year % 4 == 0) {</b>
+<b class="pc">&nbsp;                        if (day &gt; 29 || day &lt; 1)</b>
+<b class="nc">&nbsp;                            fail[1] = true;</b>
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        if (day &gt; 28 || day &lt; 1)</b>
+<b class="nc">&nbsp;                            fail[1] = true;</b>
+&nbsp;                    }
+&nbsp;                    break;
+&nbsp;                default:
+<b class="fc">&nbsp;                    fail[1] = true;</b>
+&nbsp;                    break;
+&nbsp;            }
+<b class="pc">&nbsp;            if (year &lt; 1900 || year &gt; 2024)</b>
+<b class="fc">&nbsp;                fail[1] = true;</b>
+&nbsp;
+<b class="nc">&nbsp;        } catch (Exception e) {</b>
+<b class="nc">&nbsp;            fail[1] = true;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // checks for relation
+<b class="pc">&nbsp;        if (relation.length() &gt; 35 || relation.length() &lt; 1)</b>
+<b class="fc">&nbsp;            fail[2] = true;</b>
+<b class="pc">&nbsp;        if (relation.indexOf(&#39; &#39;) != -1)</b>
+<b class="nc">&nbsp;            fail[2] = true;</b>
+&nbsp;        // checks for firstName
+<b class="fc">&nbsp;        if (firstName.length() &gt; 35 || firstName.length() &lt; 1)</b>
+<b class="fc">&nbsp;            fail[3] = true;</b>
+&nbsp;
+&nbsp;        // checks for middleName
+<b class="fc">&nbsp;        if (middleName.length() &gt; 35)</b>
+<b class="fc">&nbsp;            fail[4] = true;</b>
+&nbsp;
+&nbsp;        // checks for lastName
+<b class="fc">&nbsp;        if (lastName.length() &gt; 35 || lastName.length() &lt; 1)</b>
+<b class="fc">&nbsp;            fail[5] = true;</b>
+&nbsp;        // check death date
+&nbsp;        try {
+<b class="fc">&nbsp;            String[] deathdate = DOD.split(&quot;/&quot;, 3);</b>
+<b class="fc">&nbsp;            int dMonth = Integer.parseInt(deathdate[0]);</b>
+<b class="fc">&nbsp;            int dDay = Integer.parseInt(deathdate[1]);</b>
+<b class="fc">&nbsp;            int dYear = Integer.parseInt(deathdate[2]);</b>
+&nbsp;
+<b class="pc">&nbsp;            switch (dMonth) {</b>
+&nbsp;                case 1:
+&nbsp;                case 3:
+&nbsp;                case 5:
+&nbsp;                case 7:
+&nbsp;                case 8:
+&nbsp;                case 10:
+&nbsp;                case 12:
+<b class="pc">&nbsp;                    if (dDay &gt; 31 || dDay &lt; 1)</b>
+<b class="fc">&nbsp;                        fail[8] = true;</b>
+&nbsp;                    break;
+&nbsp;                case 4:
+&nbsp;                case 6:
+&nbsp;                case 9:
+&nbsp;                case 11:
+<b class="nc">&nbsp;                    if (dDay &gt; 30 || dDay &lt; 1)</b>
+<b class="nc">&nbsp;                        fail[8] = true;</b>
+&nbsp;                    break;
+&nbsp;                case 2:
+<b class="nc">&nbsp;                    if (dYear % 4 == 0) {</b>
+<b class="nc">&nbsp;                        if (dDay &gt; 29 || dDay &lt; 1)</b>
+<b class="nc">&nbsp;                            fail[8] = true;</b>
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        if (dDay &gt; 28 || dDay &lt; 1)</b>
+<b class="nc">&nbsp;                            fail[8] = true;</b>
+&nbsp;                    }
+&nbsp;                    break;
+&nbsp;                default:
+<b class="fc">&nbsp;                    fail[8] = true;</b>
+&nbsp;                    break;
+&nbsp;            }
+<b class="pc">&nbsp;            if (dYear &lt; 1900 || dYear &gt; 2024)</b>
+<b class="fc">&nbsp;                fail[8] = true;</b>
+&nbsp;
+<b class="nc">&nbsp;        } catch (Exception e) {</b>
+<b class="nc">&nbsp;            fail[8] = true;</b>
+&nbsp;        }
+&nbsp;        // check email
+<b class="fc">&nbsp;        if (email.length() &gt; 105 || email.length() &lt; 5) {</b>
+<b class="fc">&nbsp;            fail[6] = true;</b>
+&nbsp;        }
+&nbsp;        try {
+<b class="fc">&nbsp;            String[] tester = email.split(&quot;@&quot;);</b>
+<b class="fc">&nbsp;            if (tester[1].indexOf(&#39;.&#39;) == -1) {</b>
+<b class="fc">&nbsp;                fail[6] = true;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        } catch (Exception e) {</b>
+<b class="fc">&nbsp;            fail[6] = true;</b>
+&nbsp;        }
+&nbsp;        // check if any field failed
+<b class="fc">&nbsp;        for (int i = 0; i &lt; 9; i++) {</b>
+<b class="fc">&nbsp;            if (fail[i] == true)</b>
+<b class="fc">&nbsp;                return false;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-26 18:47</div>
+</div>
+</body>
+</html>

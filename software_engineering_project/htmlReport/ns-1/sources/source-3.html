@@ -1,0 +1,287 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > DatabaseManager</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.SWEPJ</a>
+</div>
+
+<h1>Coverage Summary for Class: DatabaseManager (com.SWEPJ)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DatabaseManager</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.4%
+  </span>
+  <span class="absValue">
+    (17/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.9%
+  </span>
+  <span class="absValue">
+    (73/87)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.SWEPJ;
+&nbsp;
+&nbsp;import java.io.File;
+&nbsp;import java.util.Scanner;
+&nbsp;import java.nio.file.Files;
+&nbsp;import java.nio.file.Path;
+&nbsp;import java.nio.file.Paths;
+&nbsp;import java.nio.file.StandardCopyOption;
+&nbsp;import java.io.IOException;
+&nbsp;import java.io.FileWriter;
+&nbsp;
+<b class="nc">&nbsp;public class DatabaseManager {</b>
+&nbsp;
+<b class="fc">&nbsp;	private static String fileName = &quot;Database.txt&quot;;</b>
+&nbsp;
+&nbsp;	// FID = id of the form to look up
+&nbsp;	// returns the form with the matching ID
+&nbsp;	public static Form fetch(long FID) {
+<b class="fc">&nbsp;		File database = new File(fileName);</b>
+<b class="fc">&nbsp;		Form form = null;</b>
+&nbsp;		try {
+<b class="fc">&nbsp;			Scanner s = new Scanner(database);</b>
+<b class="pc">&nbsp;			while (s.nextLine().equals(&quot;~&quot;)) {// read the database, and search for the requested fid</b>
+<b class="fc">&nbsp;				String FIDs = s.nextLine();</b>
+<b class="fc">&nbsp;				String[] split = FIDs.split(&quot;=&quot;);</b>
+<b class="fc">&nbsp;				if (Long.parseLong(split[1]) == FID)</b>
+&nbsp;					break;
+<b class="fc">&nbsp;				for (int i = 0; i &lt; 8; i++) {</b>
+<b class="fc">&nbsp;					s.nextLine();</b>
+&nbsp;				}
+&nbsp;			}
+<b class="fc">&nbsp;			long PID = Long.parseLong(s.nextLine().split(&quot;=&quot;)[1]);// fill in all the form fields</b>
+<b class="fc">&nbsp;			String[] split = s.nextLine().split(&quot;=&quot;)[1].split(&quot; &quot;);</b>
+<b class="fc">&nbsp;			String relation = split[1];</b>
+<b class="fc">&nbsp;			long relatedPID = Long.parseLong(split[0]);</b>
+<b class="fc">&nbsp;			String DOB = s.nextLine().split(&quot;=&quot;)[1];</b>
+<b class="fc">&nbsp;			String DOD = s.nextLine().split(&quot;=&quot;)[1];</b>
+<b class="fc">&nbsp;			String firstName = s.nextLine().split(&quot;=&quot;)[1];</b>
+<b class="fc">&nbsp;			String middleName = &quot;&quot;;</b>
+&nbsp;			try {
+<b class="fc">&nbsp;				middleName = s.nextLine().split(&quot;=&quot;)[1];</b>
+<b class="fc">&nbsp;			} catch (Exception e) {</b>
+&nbsp;			}
+<b class="fc">&nbsp;			String lastName = s.nextLine().split(&quot;=&quot;)[1];</b>
+<b class="fc">&nbsp;			String email = s.nextLine().split(&quot;=&quot;)[1];</b>
+<b class="fc">&nbsp;			form = new Form(PID, DOB, DOD, relation, firstName, middleName, lastName,</b>
+&nbsp;					email, relatedPID);// create form
+<b class="fc">&nbsp;			form.setFID(FID);// set the FID</b>
+<b class="fc">&nbsp;			s.close();</b>
+<b class="nc">&nbsp;		} catch (Exception e) {</b>
+&nbsp;
+<b class="nc">&nbsp;			return null;</b>
+&nbsp;		}
+<b class="fc">&nbsp;		return form;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	// form = form being saved
+&nbsp;	// ret false if error
+&nbsp;	// ret true if worked
+&nbsp;	public static boolean update(Form form) {
+&nbsp;
+&nbsp;		// only implementing the adding new form functionality - somebody else will add
+&nbsp;		// updating
+&nbsp;
+<b class="fc">&nbsp;		File database = new File(fileName);</b>
+&nbsp;
+<b class="fc">&nbsp;		Scanner reader = null;</b>
+&nbsp;		try {
+<b class="fc">&nbsp;			reader = new Scanner(database);</b>
+<b class="nc">&nbsp;		} catch (Exception e) {</b>
+<b class="nc">&nbsp;			System.out.println(&quot;Scanner failed to open database&quot;);</b>
+<b class="nc">&nbsp;			System.exit(-1);</b>
+&nbsp;		}
+&nbsp;
+&nbsp;		// if this doesn&#39;t work, it may mean there is no X ending the database, and it
+&nbsp;		// isn&#39;t correctly formatted
+&nbsp;		try {
+&nbsp;
+<b class="fc">&nbsp;			File tempFile = new File(&quot;temp.txt&quot;);</b>
+<b class="fc">&nbsp;			tempFile.createNewFile();</b>
+&nbsp;
+<b class="fc">&nbsp;			String currLine = reader.nextLine();</b>
+&nbsp;
+<b class="fc">&nbsp;			FileWriter tempWriter = new FileWriter(&quot;temp.txt&quot;);</b>
+&nbsp;
+&nbsp;			// holds the FIDs of the forms as we loop through the database
+<b class="fc">&nbsp;			long FIDholder = -1;</b>
+&nbsp;
+&nbsp;			// loop through the existing database until you get to the X at the end (not
+&nbsp;			// inclusive)
+&nbsp;			// and copy them all into a new temp file
+<b class="fc">&nbsp;			while (currLine.charAt(0) != &#39;X&#39;) {</b>
+&nbsp;
+&nbsp;				// if this line gives the FID of the form, store it in FIDholder.
+<b class="fc">&nbsp;				if (currLine.length() &gt;= 3 &amp;&amp; currLine.substring(0, 3).equals(&quot;FID&quot;)) {</b>
+<b class="fc">&nbsp;					FIDholder = Long.parseLong(currLine.substring(4, currLine.length()));</b>
+&nbsp;				}
+&nbsp;
+&nbsp;				// checking for the form FID to replace, if replacement is what&#39;s being done
+<b class="fc">&nbsp;				if (form.getFID() != (-1) &amp;&amp; FIDholder == form.getFID()) {</b>
+<b class="fc">&nbsp;					tempWriter.write(currLine + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					tempWriter.write(reader.nextLine().split(&quot;=&quot;)[0] + &quot;=&quot; + Long.toString(form.getPID()) + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					tempWriter.write(reader.nextLine().split(&quot;=&quot;)[0] + &quot;=&quot; +</b>
+<b class="fc">&nbsp;							Long.toString(form.getRelatedPID()) + &quot; &quot; + form.getRelation() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					tempWriter.write(reader.nextLine().split(&quot;=&quot;)[0] + &quot;=&quot; + form.getDOB() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					tempWriter.write(reader.nextLine().split(&quot;=&quot;)[0] + &quot;=&quot; + form.getDOD() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					tempWriter.write(reader.nextLine().split(&quot;=&quot;)[0] + &quot;=&quot; + form.getFirstName() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					tempWriter.write(reader.nextLine().split(&quot;=&quot;)[0] + &quot;=&quot; + form.getMiddleName() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					tempWriter.write(reader.nextLine().split(&quot;=&quot;)[0] + &quot;=&quot; + form.getLastName() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					tempWriter.write(reader.nextLine().split(&quot;=&quot;)[0] + &quot;=&quot; + form.getEmail() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;					FIDholder = -1;</b>
+<b class="fc">&nbsp;					currLine = reader.nextLine();</b>
+&nbsp;					continue;
+&nbsp;
+&nbsp;				} else {
+<b class="fc">&nbsp;					tempWriter.write(currLine);</b>
+<b class="fc">&nbsp;					tempWriter.write(&quot;\n&quot;);</b>
+&nbsp;				}
+<b class="fc">&nbsp;				currLine = reader.nextLine();</b>
+&nbsp;			}
+&nbsp;
+&nbsp;			// adding a new form to the end of the database
+<b class="fc">&nbsp;			if (form.getFID() == -1) {</b>
+&nbsp;				// having reached the end of the file, add on the new form entry
+&nbsp;				// TODO: properly handle FID
+&nbsp;
+&nbsp;				// setting up the new FID
+<b class="fc">&nbsp;				form.setFID(FIDholder + 1);</b>
+&nbsp;
+<b class="fc">&nbsp;				tempWriter.write(&quot;~\n&quot;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;FID=&quot; + form.getFID() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;PID=&quot; + form.getPID() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;RELATIONS=&quot; + Long.toString(form.getRelatedPID()) + &quot; &quot; + form.getRelation() + &#39;\n&#39;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;DOB=&quot; + form.getDOB() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;DOD=&quot; + form.getDOD() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;FIRSTNAME=&quot; + form.getFirstName() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;MIDDLENAME=&quot; + form.getMiddleName() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;LASTNAME=&quot; + form.getLastName() + &quot;\n&quot;);</b>
+<b class="fc">&nbsp;				tempWriter.write(&quot;EMAIL=&quot; + form.getEmail() + &quot;\n&quot;);</b>
+&nbsp;			}
+<b class="fc">&nbsp;			tempWriter.write(&quot;X&quot;);</b>
+&nbsp;
+&nbsp;			// replace the original file with temp, delete temp
+&nbsp;			try {
+&nbsp;
+&nbsp;				// closing the writer before deleting the file
+&nbsp;				try {
+<b class="fc">&nbsp;					reader.close();</b>
+<b class="fc">&nbsp;					tempWriter.close();</b>
+<b class="nc">&nbsp;				} catch (IOException e) {</b>
+<b class="nc">&nbsp;					System.out.println(&quot;Couldn&#39;t close file writer&quot;);</b>
+&nbsp;				}
+<b class="fc">&nbsp;				Path replaceMe = Paths.get(fileName);</b>
+<b class="fc">&nbsp;				Path replacement = Paths.get(&quot;temp.txt&quot;);</b>
+<b class="fc">&nbsp;				Files.copy(replacement, replaceMe, StandardCopyOption.REPLACE_EXISTING);</b>
+&nbsp;
+<b class="fc">&nbsp;				tempFile.delete();</b>
+&nbsp;
+<b class="nc">&nbsp;			} catch (Exception e) {</b>
+<b class="nc">&nbsp;				System.err.println(&quot;Someting in temp file went wrong&quot;);</b>
+<b class="nc">&nbsp;				System.err.println(e);</b>
+&nbsp;			}
+&nbsp;
+<b class="nc">&nbsp;		} catch (IOException e) {</b>
+<b class="nc">&nbsp;			System.out.println(&quot;Problem with the FileWriter or file creator&quot;);</b>
+<b class="nc">&nbsp;			System.exit(-1);</b>
+&nbsp;		}
+&nbsp;
+<b class="fc">&nbsp;		return true;</b>
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-26 18:47</div>
+</div>
+</body>
+</html>

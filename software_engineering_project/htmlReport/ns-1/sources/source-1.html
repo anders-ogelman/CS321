@@ -1,0 +1,225 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > App</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.SWEPJ</a>
+</div>
+
+<h1>Coverage Summary for Class: App (com.SWEPJ)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">App</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">App$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">App$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">App$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.SWEPJ;
+&nbsp;
+&nbsp;import javafx.application.Application;
+&nbsp;import javafx.event.ActionEvent;
+&nbsp;import javafx.geometry.Insets;
+&nbsp;import javafx.geometry.Pos;
+&nbsp;import javafx.scene.Scene;
+&nbsp;import javafx.scene.layout.GridPane;
+&nbsp;import javafx.scene.layout.HBox;
+&nbsp;import javafx.stage.Stage;
+&nbsp;import javafx.scene.control.Button;
+&nbsp;import javafx.event.EventHandler;
+&nbsp;
+<b class="nc">&nbsp;public class App extends Application {</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void start(Stage stage) {
+<b class="nc">&nbsp;        Button entry = new Button(&quot;Entry&quot;);// declare buttons</b>
+<b class="nc">&nbsp;        Button review = new Button(&quot;Review&quot;);</b>
+<b class="nc">&nbsp;        Button approve = new Button(&quot;Approve&quot;);</b>
+<b class="nc">&nbsp;        HBox box1 = new HBox(10);// make hbox</b>
+<b class="nc">&nbsp;        box1.getChildren().add(entry);// add buttons to hbox</b>
+<b class="nc">&nbsp;        box1.getChildren().add(review);</b>
+<b class="nc">&nbsp;        box1.getChildren().add(approve);</b>
+<b class="nc">&nbsp;        GridPane grid = new GridPane();// elements rest on a gridpane</b>
+<b class="nc">&nbsp;        grid.setAlignment(Pos.CENTER);</b>
+<b class="nc">&nbsp;        grid.setHgap(10);</b>
+<b class="nc">&nbsp;        grid.setPadding(new Insets(25, 25, 25, 25));</b>
+<b class="nc">&nbsp;        grid.add(box1, 0, 0);// add hbbox to gridpane</b>
+<b class="nc">&nbsp;        Scene scene = new Scene(grid, 300, 275);</b>
+<b class="nc">&nbsp;        entry.setOnAction(new EventHandler&lt;ActionEvent&gt;() {// start entry on press</b>
+&nbsp;            @Override
+&nbsp;            public void handle(ActionEvent event) {
+<b class="nc">&nbsp;                new Entry();</b>
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        review.setOnAction(new EventHandler&lt;ActionEvent&gt;() {// start review on press</b>
+&nbsp;            @Override
+&nbsp;            public void handle(ActionEvent event) {
+<b class="nc">&nbsp;                new Review();</b>
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        approve.setOnAction(new EventHandler&lt;ActionEvent&gt;() {// start approve on press</b>
+&nbsp;            @Override
+&nbsp;            public void handle(ActionEvent event) {
+<b class="nc">&nbsp;                new Approve();</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        stage.setScene(scene);// set the stage and show it</b>
+<b class="nc">&nbsp;        stage.show();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        launch();// start the gui</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-26 18:47</div>
+</div>
+</body>
+</html>

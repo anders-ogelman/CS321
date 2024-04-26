@@ -1,0 +1,295 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Entry</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.SWEPJ</a>
+</div>
+
+<h1>Coverage Summary for Class: Entry (com.SWEPJ)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Entry</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/29)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Entry$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/41)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/70)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.SWEPJ;
+&nbsp;
+&nbsp;import javafx.geometry.Pos;
+&nbsp;import javafx.scene.Scene;
+&nbsp;import javafx.scene.control.Label;
+&nbsp;import javafx.scene.layout.GridPane;
+&nbsp;import javafx.scene.layout.VBox;
+&nbsp;import javafx.scene.control.TextField;
+&nbsp;import javafx.scene.control.Button;
+&nbsp;import javafx.event.ActionEvent;
+&nbsp;import javafx.event.EventHandler;
+&nbsp;import javafx.stage.Stage;
+&nbsp;
+&nbsp;
+&nbsp;//plan: accepting input, use it to create a form, call the requisite method from database manager
+&nbsp;
+&nbsp;public class Entry {
+<b class="nc">&nbsp;	public Entry() {</b>
+&nbsp;		
+&nbsp;		//setting up form UI elements
+<b class="nc">&nbsp;		Label firstNameLabel = new Label(&quot;First Name:&quot;);</b>
+<b class="nc">&nbsp;		TextField firstNameField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label middleNameLabel = new Label(&quot;Middle Name:&quot;);</b>
+<b class="nc">&nbsp;		TextField middleNameField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label lastNameLabel = new Label(&quot;Last Name:&quot;);</b>
+<b class="nc">&nbsp;		TextField lastNameField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label emailLabel = new Label(&quot;Email:&quot;);</b>
+<b class="nc">&nbsp;		TextField emailField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label dobLabel = new Label(&quot;Date of Birth:&quot;);</b>
+<b class="nc">&nbsp;		TextField dobField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label dodLabel = new Label(&quot;Date of Death:&quot;);</b>
+<b class="nc">&nbsp;		TextField dodField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label pidLabel = new Label(&quot;PID: &quot;);</b>
+<b class="nc">&nbsp;		TextField pidField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label relationLabel = new Label(&quot;Relation: &quot;);</b>
+<b class="nc">&nbsp;		TextField relationField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label relationPIDLabel = new Label(&quot;RelationPID: &quot;);</b>
+<b class="nc">&nbsp;		TextField relationPIDField = new TextField();</b>
+&nbsp;
+<b class="nc">&nbsp;		Label validationLabel = new Label(&quot;&quot;);</b>
+&nbsp;	
+<b class="nc">&nbsp;		Button submitButton = new Button(&quot;Submit&quot;);</b>
+&nbsp;
+&nbsp;		//handling form submission
+<b class="nc">&nbsp;		EventHandler&lt;ActionEvent&gt; submitForm = new EventHandler&lt;ActionEvent&gt;() {</b>
+&nbsp;			
+&nbsp;			public void handle(ActionEvent e) {
+&nbsp;				//debug message
+<b class="nc">&nbsp;				System.out.println(&quot;pressed button!&quot;);</b>
+&nbsp;				
+&nbsp;				//putting them all in variables to make validation easier down the line
+&nbsp;				long pid;
+&nbsp;				try {
+<b class="nc">&nbsp;					pid = Long.parseLong(pidField.getText());</b>
+<b class="nc">&nbsp;				} catch (NumberFormatException err) {</b>
+<b class="nc">&nbsp;					pid = -1; </b>
+&nbsp;				}
+<b class="nc">&nbsp;				String dob = dobField.getText();</b>
+<b class="nc">&nbsp;				String dod = dodField.getText();</b>
+<b class="nc">&nbsp;				String firstName = firstNameField.getText();</b>
+<b class="nc">&nbsp;				String middleName = middleNameField.getText();</b>
+<b class="nc">&nbsp;				String lastName = lastNameField.getText();</b>
+<b class="nc">&nbsp;				String email = emailField.getText();</b>
+<b class="nc">&nbsp;				String relation = relationField.getText();</b>
+&nbsp;				long relationPID;
+&nbsp;				try {
+<b class="nc">&nbsp;					relationPID = Long.parseLong(relationPIDField.getText());</b>
+<b class="nc">&nbsp;				} catch (NumberFormatException err) {</b>
+<b class="nc">&nbsp;					relationPID = -1;</b>
+&nbsp;				}
+&nbsp;
+&nbsp;				
+&nbsp;				//TODO: add in basic validation, figure out what to do
+<b class="nc">&nbsp;				Form submissionForm = new Form(pid, dob, dod, relation, firstName, middleName, lastName, email, relationPID);</b>
+&nbsp;				//validation and display if the form isn&#39;t valid
+<b class="nc">&nbsp;				submissionForm.isValid();</b>
+<b class="nc">&nbsp;				Boolean[] isValidArr = submissionForm.getFail();</b>
+<b class="nc">&nbsp;				String[] fieldsArr = {&quot;PID&quot;, &quot;DOB&quot;, &quot;relation&quot;, &quot;firstname&quot;, &quot;middlename&quot;, &quot;lastname&quot;, &quot;email&quot;, &quot;relatedPID&quot;, &quot;DOD&quot;};</b>
+<b class="nc">&nbsp;				String invalids = &quot;&quot;;</b>
+&nbsp;				
+<b class="nc">&nbsp;				boolean validationPassed = true;</b>
+&nbsp;
+<b class="nc">&nbsp;				for(int i = 0; i &lt; isValidArr.length; i++) {</b>
+<b class="nc">&nbsp;					if(isValidArr[i]) {</b>
+<b class="nc">&nbsp;						if(validationPassed) {</b>
+<b class="nc">&nbsp;							invalids = invalids + &quot;Invalid entries in: &quot;;</b>
+&nbsp;						}
+<b class="nc">&nbsp;						invalids = invalids + fieldsArr[i] + &quot;, &quot;;</b>
+<b class="nc">&nbsp;						validationPassed = false;</b>
+&nbsp;					}
+&nbsp;				}
+&nbsp;				
+<b class="nc">&nbsp;				if(validationPassed) {</b>
+&nbsp;					
+<b class="nc">&nbsp;					validationLabel.setText(&quot;&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;					firstNameField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;					middleNameField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;					lastNameField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;					emailField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;					dobField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;					dodField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;					pidField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;					relationField.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;					relationPIDField.setText(&quot;&quot;);</b>
+&nbsp;
+&nbsp;					//Adding new form to the database, method also sets submissionForm FID
+<b class="nc">&nbsp;					DatabaseManager.update(submissionForm);</b>
+&nbsp;					//updating the workflow table
+<b class="nc">&nbsp;					WorkflowManager.update(0, submissionForm.getFID());</b>
+&nbsp;
+&nbsp;				} else {
+<b class="nc">&nbsp;					validationLabel.setText(invalids);</b>
+&nbsp;				}
+&nbsp;
+&nbsp;
+&nbsp;			}
+&nbsp;
+&nbsp;		};
+&nbsp;
+<b class="nc">&nbsp;		submitButton.setOnAction(submitForm);</b>
+&nbsp;		
+&nbsp;		//JavaFx UI VBox layout setup
+<b class="nc">&nbsp;		Stage secondStage = new Stage();</b>
+&nbsp;
+<b class="nc">&nbsp;		VBox entryBox = new VBox(4, new Label(&quot;Entry Window&quot;));</b>
+<b class="nc">&nbsp;		entryBox.getChildren().addAll(firstNameLabel, firstNameField, middleNameLabel, middleNameField, lastNameLabel,</b>
+&nbsp;				lastNameField, emailLabel, emailField, dobLabel, dobField, dodLabel, dodField, pidLabel, pidField, relationLabel, relationField, relationPIDLabel, relationPIDField, submitButton, validationLabel);
+&nbsp;
+&nbsp;		
+&nbsp;		//adding the layout to the screen and rendering
+<b class="nc">&nbsp;		Scene entryScene = new Scene(entryBox);</b>
+<b class="nc">&nbsp;		secondStage.setScene(entryScene);</b>
+<b class="nc">&nbsp;		secondStage.show();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-26 18:47</div>
+</div>
+</body>
+</html>

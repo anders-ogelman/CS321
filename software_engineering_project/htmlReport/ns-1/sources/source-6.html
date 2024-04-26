@@ -1,0 +1,513 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Review</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.SWEPJ</a>
+</div>
+
+<h1>Coverage Summary for Class: Review (com.SWEPJ)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Review</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/95)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Review$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Review$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/47)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/99)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/59)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/224)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.SWEPJ;
+&nbsp;
+&nbsp;import javafx.event.ActionEvent;
+&nbsp;import javafx.geometry.Insets;
+&nbsp;import javafx.geometry.Pos;
+&nbsp;import javafx.scene.Scene;
+&nbsp;import javafx.scene.control.Button;
+&nbsp;import javafx.scene.control.Label;
+&nbsp;import javafx.scene.control.TextField;
+&nbsp;import javafx.scene.layout.GridPane;
+&nbsp;import javafx.stage.Stage;
+&nbsp;import javafx.event.EventHandler;
+&nbsp;
+<b class="nc">&nbsp;public class Review {</b>
+<b class="nc">&nbsp;    private Form form = null;</b>
+<b class="nc">&nbsp;    private Boolean started = false;</b>
+&nbsp;
+<b class="nc">&nbsp;    public Review() {</b>
+<b class="nc">&nbsp;        Stage secondStage = new Stage();// general field/label/text field/button setup in a grid pane</b>
+<b class="nc">&nbsp;        GridPane grid = new GridPane();</b>
+<b class="nc">&nbsp;        Button next = new Button(&quot;Next&quot;);</b>
+<b class="nc">&nbsp;        Button submit = new Button(&quot;Submit&quot;);</b>
+<b class="nc">&nbsp;        TextField fullName = new TextField();</b>
+<b class="nc">&nbsp;        TextField PID = new TextField();</b>
+<b class="nc">&nbsp;        TextField DOB = new TextField();</b>
+<b class="nc">&nbsp;        TextField relation = new TextField();</b>
+<b class="nc">&nbsp;        TextField email = new TextField();</b>
+<b class="nc">&nbsp;        TextField DOD = new TextField();</b>
+<b class="nc">&nbsp;        TextField relatedPID = new TextField();</b>
+<b class="nc">&nbsp;        fullName.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;        PID.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;        DOB.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;        relation.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;        email.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;        DOD.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;        relatedPID.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;        Label field1 = new Label(&quot;Full Name:&quot;);</b>
+<b class="nc">&nbsp;        Label field2 = new Label(&quot;PID:&quot;);</b>
+<b class="nc">&nbsp;        Label field3 = new Label(&quot;DOB:&quot;);</b>
+<b class="nc">&nbsp;        Label field4 = new Label(&quot;Relation:&quot;);</b>
+<b class="nc">&nbsp;        Label field5 = new Label(&quot;email:&quot;);</b>
+<b class="nc">&nbsp;        Label field6 = new Label(&quot;DOD:&quot;);</b>
+<b class="nc">&nbsp;        Label field7 = new Label(&quot;relatedPID:&quot;);</b>
+<b class="nc">&nbsp;        Label in1 = new Label(&quot;&quot;);</b>
+<b class="nc">&nbsp;        Label in2 = new Label(&quot;&quot;);</b>
+<b class="nc">&nbsp;        Label in3 = new Label(&quot;&quot;);</b>
+<b class="nc">&nbsp;        Label in4 = new Label(&quot;&quot;);</b>
+<b class="nc">&nbsp;        Label in5 = new Label(&quot;&quot;);</b>
+<b class="nc">&nbsp;        Label in6 = new Label(&quot;&quot;);</b>
+<b class="nc">&nbsp;        Label in7 = new Label(&quot;&quot;);</b>
+<b class="nc">&nbsp;        Label out1 = new Label(&quot;Set Full Name:&quot;);</b>
+<b class="nc">&nbsp;        Label out2 = new Label(&quot;Set PID:&quot;);</b>
+<b class="nc">&nbsp;        Label out3 = new Label(&quot;Set DOB:&quot;);</b>
+<b class="nc">&nbsp;        Label out4 = new Label(&quot;Set Relation:&quot;);</b>
+<b class="nc">&nbsp;        Label out5 = new Label(&quot;Set email:&quot;);</b>
+<b class="nc">&nbsp;        Label out6 = new Label(&quot;Set DOD:&quot;);</b>
+<b class="nc">&nbsp;        Label out7 = new Label(&quot;Set relatedPID:&quot;);</b>
+<b class="nc">&nbsp;        fullName.setPromptText(&quot;first middle last&quot;);</b>
+<b class="nc">&nbsp;        PID.setPromptText(&quot;111111111&quot;);</b>
+<b class="nc">&nbsp;        DOB.setPromptText(&quot;month/day/year&quot;);</b>
+<b class="nc">&nbsp;        relation.setPromptText(&quot;relation&quot;);</b>
+<b class="nc">&nbsp;        email.setPromptText(&quot;example@domain.com&quot;);</b>
+<b class="nc">&nbsp;        DOD.setPromptText(&quot;month/day/year&quot;);</b>
+<b class="nc">&nbsp;        relatedPID.setPromptText(&quot;222222222&quot;);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(next, 0, 0);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(next, 1, 0);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(field1, 0, 1);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(in1, 1, 1);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(out1, 2, 1);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(fullName, 3, 1);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(field2, 0, 2);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(in2, 1, 2);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(out2, 2, 2);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(PID, 3, 2);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(field3, 0, 3);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(in3, 1, 3);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(out3, 2, 3);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(DOB, 3, 3);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(field4, 0, 4);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(in4, 1, 4);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(out4, 2, 4);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(relation, 3, 4);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(field5, 0, 5);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(in5, 1, 5);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(out5, 2, 5);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(email, 3, 5);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(field6, 0, 6);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(in6, 1, 6);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(out6, 2, 6);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(DOD, 3, 6);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(field7, 0, 7);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(in7, 1, 7);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(out7, 2, 7);</b>
+<b class="nc">&nbsp;        GridPane.setConstraints(relatedPID, 3, 7);</b>
+<b class="nc">&nbsp;        grid.setAlignment(Pos.CENTER);</b>
+<b class="nc">&nbsp;        grid.setHgap(10);</b>
+<b class="nc">&nbsp;        grid.setPadding(new Insets(25, 25, 25, 25));</b>
+<b class="nc">&nbsp;        grid.getChildren().addAll(next);</b>
+<b class="nc">&nbsp;        grid.getChildren().addAll(field1, in1, out1, fullName);// add everything to the grid</b>
+<b class="nc">&nbsp;        grid.getChildren().addAll(field2, in2, out2, PID);</b>
+<b class="nc">&nbsp;        grid.getChildren().addAll(field3, in3, out3, DOB);</b>
+<b class="nc">&nbsp;        grid.getChildren().addAll(field4, in4, out4, relation);</b>
+<b class="nc">&nbsp;        grid.getChildren().addAll(field5, in5, out5, email);</b>
+<b class="nc">&nbsp;        grid.getChildren().addAll(field6, in6, out6, DOD);</b>
+<b class="nc">&nbsp;        grid.getChildren().addAll(field7, in7, out7, relatedPID);</b>
+<b class="nc">&nbsp;        next.setOnAction(new EventHandler&lt;ActionEvent&gt;() {// next button actions</b>
+&nbsp;            @Override
+&nbsp;            public void handle(ActionEvent e) {
+<b class="nc">&nbsp;                if (in1.getText().equals(&quot;waiting for new task&quot;) || in1.getText().equals(&quot;Accepted!&quot;) || !started) {</b>
+&nbsp;                    // form = new Form(111111111, &quot;1/1/2000&quot;, &quot;1/1/2023&quot;, &quot;mother&quot;,
+&nbsp;                    // &quot;john&quot;,
+&nbsp;                    // &quot;&quot;, &quot;doe&quot;, &quot;e@mail.com&quot;,
+&nbsp;                    // 222222222); // will be read from workflow/database once thats ready
+<b class="nc">&nbsp;                    form = DatabaseManager.fetch(WorkflowManager.info(1));// grab next form in the workflow</b>
+<b class="nc">&nbsp;                    if (form != null) {</b>
+<b class="nc">&nbsp;                        if (form.getMiddleName().equals(&quot;&quot;))// display all the fields for the reviewer</b>
+<b class="nc">&nbsp;                            in1.setText(form.getFirstName() + &quot; &quot; + form.getLastName());</b>
+&nbsp;                        else
+<b class="nc">&nbsp;                            in1.setText(form.getFirstName() + &quot; &quot; + form.getMiddleName() + &quot; &quot; + form.getLastName());</b>
+<b class="nc">&nbsp;                        in2.setText(Long.toString(form.getPID()));</b>
+<b class="nc">&nbsp;                        in3.setText(form.getDOB());</b>
+<b class="nc">&nbsp;                        in4.setText(form.getRelation());</b>
+<b class="nc">&nbsp;                        in5.setText(form.getEmail());</b>
+<b class="nc">&nbsp;                        in6.setText(form.getDOD());</b>
+<b class="nc">&nbsp;                        in7.setText(Long.toString(form.getRelatedPID()));</b>
+<b class="nc">&nbsp;                        if (!started) {</b>
+<b class="nc">&nbsp;                            grid.getChildren().add(submit);</b>
+<b class="nc">&nbsp;                            started = true;</b>
+&nbsp;                        }
+<b class="nc">&nbsp;                        fullName.setText(&quot;&quot;);// reset text fields</b>
+<b class="nc">&nbsp;                        PID.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;                        DOB.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;                        relation.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;                        email.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;                        DOD.setText(&quot;&quot;);</b>
+<b class="nc">&nbsp;                        relatedPID.setText(&quot;&quot;);</b>
+&nbsp;                    } else {// if there is no next form, then wait for next form
+<b class="nc">&nbsp;                        in1.setText(&quot;waiting for new task&quot;);</b>
+<b class="nc">&nbsp;                        in2.setText(&quot;waiting for new task&quot;);</b>
+<b class="nc">&nbsp;                        in3.setText(&quot;waiting for new task&quot;);</b>
+<b class="nc">&nbsp;                        in4.setText(&quot;waiting for new task&quot;);</b>
+<b class="nc">&nbsp;                        in5.setText(&quot;waiting for new task&quot;);</b>
+<b class="nc">&nbsp;                        in6.setText(&quot;waiting for new task&quot;);</b>
+<b class="nc">&nbsp;                        in7.setText(&quot;waiting for new task&quot;);</b>
+&nbsp;                    }
+&nbsp;
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+<b class="nc">&nbsp;        submit.setOnAction(new EventHandler&lt;ActionEvent&gt;() {// submit button actions</b>
+&nbsp;            @Override
+&nbsp;            public void handle(ActionEvent e) {
+<b class="nc">&nbsp;                if (form != null) {</b>
+<b class="nc">&nbsp;                    form.isValid();</b>
+<b class="nc">&nbsp;                    fullName.setStyle(&quot;-fx-background-color: white;&quot;);// reset field colors</b>
+<b class="nc">&nbsp;                    PID.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;                    DOB.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;                    relation.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;                    email.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;                    DOD.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;                    relatedPID.setStyle(&quot;-fx-background-color: white;&quot;);</b>
+<b class="nc">&nbsp;                    if (fullName.getCharacters().length() != 0) {// code to break down the full name</b>
+<b class="nc">&nbsp;                        String split[] = fullName.getCharacters().toString().split(&quot; &quot;);</b>
+<b class="nc">&nbsp;                        switch (split.length) {</b>
+&nbsp;                            case 2:
+<b class="nc">&nbsp;                                form.setFirstName(split[0]);</b>
+<b class="nc">&nbsp;                                form.setLastName(&quot;&quot;);</b>
+<b class="nc">&nbsp;                                form.setLastName(split[1]);</b>
+&nbsp;                                break;
+&nbsp;                            case 3:
+<b class="nc">&nbsp;                                form.setFirstName(split[0]);</b>
+<b class="nc">&nbsp;                                form.setMiddleName(split[1]);</b>
+<b class="nc">&nbsp;                                form.setLastName(split[2]);</b>
+&nbsp;                                break;
+&nbsp;                            default:
+<b class="nc">&nbsp;                                form.setFirstName(&quot;&quot;);// if invalid input</b>
+&nbsp;                        }
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        String split[] = in1.getText().split(&quot; &quot;);</b>
+<b class="nc">&nbsp;                        switch (split.length) {</b>
+&nbsp;                            case 2:
+<b class="nc">&nbsp;                                form.setFirstName(split[0]);</b>
+<b class="nc">&nbsp;                                form.setLastName(&quot;&quot;);</b>
+<b class="nc">&nbsp;                                form.setLastName(split[1]);</b>
+&nbsp;                                break;
+&nbsp;                            case 3:
+<b class="nc">&nbsp;                                form.setFirstName(split[0]);</b>
+<b class="nc">&nbsp;                                form.setMiddleName(split[1]);</b>
+<b class="nc">&nbsp;                                form.setLastName(split[2]);</b>
+&nbsp;                                break;
+&nbsp;                            default:
+<b class="nc">&nbsp;                                form.setFirstName(&quot;&quot;);// if invalid input</b>
+&nbsp;                        }
+&nbsp;                    }
+<b class="nc">&nbsp;                    if (PID.getCharacters().length() != 0) {// set the pid, make it fail if the input is bad</b>
+&nbsp;                        try {
+<b class="nc">&nbsp;                            form.setPID(Long.parseLong(PID.getCharacters().toString()));</b>
+<b class="nc">&nbsp;                        } catch (Exception e2) {</b>
+<b class="nc">&nbsp;                            form.setPID(-1);</b>
+&nbsp;                        }
+&nbsp;                    } else
+<b class="nc">&nbsp;                        form.setPID(Long.parseLong(in2.getText()));</b>
+&nbsp;
+<b class="nc">&nbsp;                    if (DOB.getCharacters().length() != 0) {// split up the date of birth, make it invalid if improperly</b>
+&nbsp;                                                            // formatted
+&nbsp;                        try {
+<b class="nc">&nbsp;                            String split2[] = DOB.getCharacters().toString().split(&quot;/&quot;);</b>
+<b class="nc">&nbsp;                            Integer.valueOf(split2[0]);</b>
+<b class="nc">&nbsp;                            Integer.valueOf(split2[1]);</b>
+<b class="nc">&nbsp;                            Integer.valueOf(split2[2]);</b>
+<b class="nc">&nbsp;                            form.setDOB(DOB.getCharacters().toString());</b>
+<b class="nc">&nbsp;                        } catch (Exception e3) {</b>
+<b class="nc">&nbsp;                            form.setDOB(&quot;0/0/0000&quot;);</b>
+&nbsp;                        }
+&nbsp;                    } else
+<b class="nc">&nbsp;                        form.setDOB(in3.getText());</b>
+&nbsp;
+<b class="nc">&nbsp;                    if (relation.getCharacters().length() != 0) {// set relation</b>
+<b class="nc">&nbsp;                        form.setRelation(relation.getCharacters().toString());</b>
+&nbsp;                    } else
+<b class="nc">&nbsp;                        form.setRelation(in4.getText());</b>
+<b class="nc">&nbsp;                    if (email.getCharacters().length() != 0) {// set email</b>
+<b class="nc">&nbsp;                        form.setEmail(email.getCharacters().toString());</b>
+&nbsp;                    } else
+<b class="nc">&nbsp;                        form.setEmail(in5.getText());</b>
+<b class="nc">&nbsp;                    if (DOD.getCharacters().length() != 0) {// set the date of death</b>
+&nbsp;                        try {
+<b class="nc">&nbsp;                            String split2[] = DOD.getCharacters().toString().split(&quot;/&quot;);</b>
+<b class="nc">&nbsp;                            Integer.valueOf(split2[0]);</b>
+<b class="nc">&nbsp;                            Integer.valueOf(split2[1]);</b>
+<b class="nc">&nbsp;                            Integer.valueOf(split2[2]);</b>
+<b class="nc">&nbsp;                            form.setDOD(DOD.getCharacters().toString());</b>
+<b class="nc">&nbsp;                        } catch (Exception e4) {</b>
+<b class="nc">&nbsp;                            form.setDOD(&quot;0/0/0000&quot;);</b>
+&nbsp;                        }
+&nbsp;                    } else
+<b class="nc">&nbsp;                        form.setDOD(in6.getText());</b>
+<b class="nc">&nbsp;                    if (relatedPID.getCharacters().length() != 0) {// set the related pid</b>
+&nbsp;                        try {
+<b class="nc">&nbsp;                            form.setRelatedPID(Long.parseLong(relatedPID.getCharacters().toString()));</b>
+<b class="nc">&nbsp;                        } catch (Exception e2) {</b>
+<b class="nc">&nbsp;                            form.setRelatedPID(-1);</b>
+&nbsp;                        }
+&nbsp;                    } else
+<b class="nc">&nbsp;                        form.setRelatedPID(Long.parseLong(in7.getText()));</b>
+&nbsp;                    // System.out.println(Long.parseLong(&quot;test&quot;));
+<b class="nc">&nbsp;                    Boolean lock = false;</b>
+<b class="nc">&nbsp;                    Boolean fails[] = form.getFail();// fail = [PID, DOB, relation, firstname, middlename, lastname,</b>
+&nbsp;                                                     // email,
+&nbsp;                                                     // relatedPID, DOD]
+<b class="nc">&nbsp;                    for (int i = 0; i &lt; 9; i++) {// if any of the fields are invalid, change the field background to red</b>
+&nbsp;                                                 // to indicate that they need changed
+<b class="nc">&nbsp;                        switch (i) {</b>
+&nbsp;                            case 0:
+<b class="nc">&nbsp;                                if (fails[i]) {</b>
+<b class="nc">&nbsp;                                    lock = true;</b>
+<b class="nc">&nbsp;                                    PID.setStyle(&quot;-fx-background-color: red;&quot;);</b>
+&nbsp;                                }
+&nbsp;                                break;
+&nbsp;                            case 1:
+<b class="nc">&nbsp;                                if (fails[i]) {</b>
+<b class="nc">&nbsp;                                    lock = true;</b>
+<b class="nc">&nbsp;                                    DOB.setStyle(&quot;-fx-background-color: red;&quot;);</b>
+&nbsp;                                }
+&nbsp;                                break;
+&nbsp;                            case 2:
+<b class="nc">&nbsp;                                if (fails[i]) {</b>
+<b class="nc">&nbsp;                                    lock = true;</b>
+<b class="nc">&nbsp;                                    relation.setStyle(&quot;-fx-background-color: red;&quot;);</b>
+&nbsp;                                }
+&nbsp;                                break;
+&nbsp;                            case 3:
+&nbsp;                            case 4:
+&nbsp;                            case 5:
+<b class="nc">&nbsp;                                if (fails[i]) {</b>
+<b class="nc">&nbsp;                                    lock = true;</b>
+<b class="nc">&nbsp;                                    fullName.setStyle(&quot;-fx-background-color: red;&quot;);</b>
+&nbsp;                                }
+&nbsp;                                break;
+&nbsp;                            case 6:
+<b class="nc">&nbsp;                                if (fails[i]) {</b>
+<b class="nc">&nbsp;                                    lock = true;</b>
+<b class="nc">&nbsp;                                    email.setStyle(&quot;-fx-background-color: red;&quot;);</b>
+&nbsp;                                }
+&nbsp;                                break;
+&nbsp;                            case 7:
+<b class="nc">&nbsp;                                if (fails[i]) {</b>
+<b class="nc">&nbsp;                                    lock = true;</b>
+<b class="nc">&nbsp;                                    relatedPID.setStyle(&quot;-fx-background-color: red;&quot;);</b>
+&nbsp;                                }
+&nbsp;                                break;
+&nbsp;                            case 8:
+<b class="nc">&nbsp;                                if (fails[i]) {</b>
+<b class="nc">&nbsp;                                    lock = true;</b>
+<b class="nc">&nbsp;                                    DOD.setStyle(&quot;-fx-background-color: red;&quot;);</b>
+&nbsp;                                }
+&nbsp;                                break;
+&nbsp;                        }
+&nbsp;                    }
+<b class="nc">&nbsp;                    if (!lock) {// if everything is valid accept the form</b>
+<b class="nc">&nbsp;                        in1.setText(&quot;Accepted!&quot;);</b>
+<b class="nc">&nbsp;                        in2.setText(&quot;Accepted!&quot;);</b>
+<b class="nc">&nbsp;                        in3.setText(&quot;Accepted!&quot;);</b>
+<b class="nc">&nbsp;                        in4.setText(&quot;Accepted!&quot;);</b>
+<b class="nc">&nbsp;                        in5.setText(&quot;Accepted!&quot;);</b>
+<b class="nc">&nbsp;                        in6.setText(&quot;Accepted!&quot;);</b>
+<b class="nc">&nbsp;                        in7.setText(&quot;Accepted!&quot;);</b>
+<b class="nc">&nbsp;                        WorkflowManager.update(1, form.getFID());// push up in the workflow</b>
+<b class="nc">&nbsp;                        DatabaseManager.update(form);// save the changes to the form</b>
+&nbsp;                        // System.out.println(form.getFID());
+<b class="nc">&nbsp;                        form = null;// prep for next form</b>
+&nbsp;
+&nbsp;                        // will check if the data is valid, then upload
+&nbsp;                        // to the wf table/database
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+&nbsp;        // in1.setText(&quot;test&quot;);
+&nbsp;
+&nbsp;        // grid.setPadding(new Insets(10, 10, 10, 10));
+&nbsp;        // grid.setVgap(5);
+&nbsp;        // grid.setHgap(5);
+&nbsp;
+&nbsp;        // Label in1 = new Label(&quot;&quot;);
+&nbsp;
+&nbsp;        // fullName.setPromptText(&quot;Testing&quot;);
+&nbsp;        // fullName.setPrefColumnCount(15);
+&nbsp;        // fullName.getText();
+&nbsp;        // GridPane.setConstraints(fullName, 0, 1);
+&nbsp;        // grid.getChildren().add(fullName);
+<b class="nc">&nbsp;        secondStage.setScene(new Scene(grid, 500, 300));// make gui window</b>
+&nbsp;
+<b class="nc">&nbsp;        secondStage.show();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-26 18:47</div>
+</div>
+</body>
+</html>

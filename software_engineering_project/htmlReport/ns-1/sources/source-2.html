@@ -1,0 +1,265 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Approve</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.SWEPJ</a>
+</div>
+
+<h1>Coverage Summary for Class: Approve (com.SWEPJ)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Approve</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/43)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Approve$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Approve$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Approve$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/49)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.SWEPJ;
+&nbsp;
+&nbsp;import javafx.event.ActionEvent;
+&nbsp;import javafx.geometry.Insets;
+&nbsp;import javafx.geometry.Pos;
+&nbsp;import javafx.scene.Scene;
+&nbsp;import javafx.scene.control.Button;
+&nbsp;import javafx.scene.control.Label;
+&nbsp;import javafx.scene.control.TextField;
+&nbsp;import javafx.scene.layout.GridPane;
+&nbsp;import javafx.scene.layout.HBox;
+&nbsp;import javafx.scene.layout.VBox;
+&nbsp;import javafx.stage.Stage;
+&nbsp;import javafx.event.EventHandler;
+&nbsp;public class Approve {
+<b class="nc">&nbsp;	private Form form = null; //form to load</b>
+<b class="nc">&nbsp;    public Approve() {</b>
+&nbsp;    	//System.out.println(&quot;Hello World!&quot;);
+&nbsp;    	
+&nbsp;    	//Fields
+&nbsp;    	
+&nbsp;    	//FIRST NAME
+<b class="nc">&nbsp;    	Label lblNF = new Label(&quot;First Name&quot;);</b>
+<b class="nc">&nbsp;    	TextField txfNF = new TextField();</b>
+<b class="nc">&nbsp;    	txfNF.setEditable(false);</b>
+&nbsp;    	//MIDDLE NAME
+<b class="nc">&nbsp;    	Label lblNM = new Label(&quot;Middle Name&quot;);</b>
+<b class="nc">&nbsp;    	TextField txfNM = new TextField();</b>
+<b class="nc">&nbsp;    	txfNM.setEditable(false);</b>
+&nbsp;    	//LAST NAME
+<b class="nc">&nbsp;    	Label lblNL = new Label(&quot;Last Name&quot;);</b>
+<b class="nc">&nbsp;    	TextField txfNL = new TextField();</b>
+<b class="nc">&nbsp;    	txfNL.setEditable(false);</b>
+&nbsp;    	//EMAIL
+<b class="nc">&nbsp;    	Label lblEmail = new Label(&quot;email&quot;);</b>
+<b class="nc">&nbsp;    	TextField txfEmail = new TextField();</b>
+<b class="nc">&nbsp;    	txfEmail.setEditable(false);</b>
+&nbsp;    	//DOB
+<b class="nc">&nbsp;    	Label lblDOB = new Label(&quot;DOB:&quot;);</b>
+<b class="nc">&nbsp;    	TextField txfDOB = new TextField();</b>
+<b class="nc">&nbsp;    	txfDOB = new TextField();</b>
+&nbsp;    	//DOD
+<b class="nc">&nbsp;    	Label lblDOD = new Label(&quot;DOD:&quot;);</b>
+<b class="nc">&nbsp;    	TextField txfDOD = new TextField();</b>
+<b class="nc">&nbsp;    	txfDOD.setEditable(false);</b>
+&nbsp;    	
+<b class="nc">&nbsp;    	Label lblHdr1 = new Label(&quot;Incoming Form&quot;);</b>
+<b class="nc">&nbsp;    	lblHdr1.setAlignment(Pos.TOP_CENTER);</b>
+&nbsp;    	
+<b class="nc">&nbsp;    	VBox boxForm = new VBox(4, lblHdr1);</b>
+<b class="nc">&nbsp;    	boxForm.setPadding(new Insets(25, 25, 25, 25));</b>
+<b class="nc">&nbsp;    	boxForm.setAlignment(Pos.CENTER);</b>
+<b class="nc">&nbsp;    	boxForm.getChildren().addAll(lblNF, txfNF,lblNM,txfNM,lblNL,txfNL, lblDOB,txfDOB, lblDOD, txfDOD);</b>
+&nbsp;    	//End Fields
+&nbsp;    	
+&nbsp;    	//Buttons
+&nbsp;    	
+<b class="nc">&nbsp;    	Button butDeny = new Button(&quot;Deny&quot;);</b>
+<b class="nc">&nbsp;    	butDeny.setOnAction(new EventHandler&lt;ActionEvent&gt;() {</b>
+&nbsp;    		public void handle(ActionEvent e) {
+<b class="nc">&nbsp;    			System.out.println(&quot;Denied something!!&quot;);</b>
+&nbsp;    		}
+&nbsp;    	});
+&nbsp;    	
+&nbsp;    	
+<b class="nc">&nbsp;    	Button butLoadNext = new Button(&quot;Load Next&quot;);</b>
+&nbsp;    	//butLoadNext.setDisable(true); //look into this
+<b class="nc">&nbsp;    	butLoadNext.setOnAction(new EventHandler&lt;ActionEvent&gt;() {</b>
+&nbsp;    		public void handle(ActionEvent e) {
+<b class="nc">&nbsp;    			System.out.println(&quot;Wanted to Load something!!&quot;);</b>
+&nbsp;    		}
+&nbsp;    	});
+&nbsp;    	
+<b class="nc">&nbsp;    	Button butApprove = new Button(&quot;Approve&quot;);</b>
+<b class="nc">&nbsp;    	butApprove.setOnAction(new EventHandler&lt;ActionEvent&gt;() {</b>
+&nbsp;    		public void handle(ActionEvent e) {
+<b class="nc">&nbsp;    			System.out.println(&quot;Approved something!!&quot;);</b>
+&nbsp;    		}
+&nbsp;    	});
+&nbsp;    	
+<b class="nc">&nbsp;    	VBox boxButtons = new VBox(5, new Label(&quot;Control&quot;));</b>
+<b class="nc">&nbsp;    	boxButtons.setPadding(new Insets(25, 25, 25, 25));</b>
+<b class="nc">&nbsp;    	boxButtons.setAlignment(Pos.CENTER);</b>
+<b class="nc">&nbsp;    	boxButtons.getChildren().addAll(butDeny,butLoadNext,butApprove);</b>
+&nbsp;    	//End Buttons
+&nbsp;    	
+&nbsp;    	//boilerplate
+<b class="nc">&nbsp;    	HBox boxScreen = new HBox(8, new Label(&quot;&quot;));</b>
+<b class="nc">&nbsp;    	boxScreen.setAlignment(Pos.CENTER);</b>
+<b class="nc">&nbsp;    	boxScreen.getChildren().addAll(boxButtons, boxForm);</b>
+&nbsp;    	
+<b class="nc">&nbsp;    	Stage secondStage = new Stage();</b>
+<b class="nc">&nbsp;    	secondStage.setTitle(&quot;Data Approval&quot;);</b>
+<b class="nc">&nbsp;        secondStage.setScene(new Scene(boxScreen));</b>
+<b class="nc">&nbsp;        secondStage.show();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-26 18:47</div>
+</div>
+</body>
+</html>
