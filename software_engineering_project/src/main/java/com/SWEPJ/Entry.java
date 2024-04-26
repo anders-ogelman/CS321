@@ -44,6 +44,8 @@ public class Entry {
 
 		Label relationPIDLabel = new Label("RelationPID: ");
 		TextField relationPIDField = new TextField();
+
+		Label validationLabel = new Label("");
 	
 		Button submitButton = new Button("Submit");
 
@@ -55,7 +57,12 @@ public class Entry {
 				System.out.println("pressed button!");
 				
 				//putting them all in variables to make validation easier down the line
-				long pid = Long.parseLong(pidField.getText());
+				long pid;
+				try {
+					pid = Long.parseLong(pidField.getText());
+				} catch (NumberFormatException err) {
+					pid = -1; 
+				}
 				String dob = dobField.getText();
 				String dod = dodField.getText();
 				String firstName = firstNameField.getText();
@@ -63,19 +70,58 @@ public class Entry {
 				String lastName = lastNameField.getText();
 				String email = emailField.getText();
 				String relation = relationField.getText();
-				long relationPID = Long.parseLong(relationPIDField.getText());
+				long relationPID;
+				try {
+					relationPID = Long.parseLong(relationPIDField.getText());
+				} catch (NumberFormatException err) {
+					relationPID = -1;
+				}
 
 				
 				//TODO: add in basic validation, figure out what to do
-				//with placeholders 00000 and placeholder relation. these fields may get removed
 				Form submissionForm = new Form(pid, dob, dod, relation, firstName, middleName, lastName, email, relationPID);
+				//validation and display if the form isn't valid
+				submissionForm.isValid();
+				Boolean[] isValidArr = submissionForm.getFail();
+				String[] fieldsArr = {"PID", "DOB", "relation", "firstname", "middlename", "lastname", "email", "relatedPID", "DOD"};
+				String invalids = "";
 				
+				boolean validationPassed = true;
 
-				//Adding new form to the database, method also sets submissionForm FID
-				DatabaseManager.update(submissionForm);
+				for(int i = 0; i < isValidArr.length; i++) {
+					if(!isValidArr[i]) {
+						if(validationPassed) {
+							invalids = invalids + "Invalid entries in: ";
+						}
+						invalids = invalids + fieldsArr[i] + ", ";
+						validationPassed = false;
+					}
+				}
+				
+				if(validationPassed) {
+					
+					validationLabel.setText("");
 
-				//updating the workflow table
-				WorkflowManager.update(0, submissionForm.getFID());
+					firstNameField.setText("");
+					middleNameField.setText("");
+					lastNameField.setText("");
+					emailField.setText("");
+					dobField.setText("");
+					dodField.setText("");
+					pidField.setText("");
+					relationField.setText("");
+					relationPIDField.setText("");
+
+					//Adding new form to the database, method also sets submissionForm FID
+					DatabaseManager.update(submissionForm);
+					//updating the workflow table
+					WorkflowManager.update(0, submissionForm.getFID());
+
+				} else {
+					validationLabel.setText(invalids);
+				}
+
+
 			}
 
 		};
@@ -87,7 +133,7 @@ public class Entry {
 
 		VBox entryBox = new VBox(4, new Label("Entry Window"));
 		entryBox.getChildren().addAll(firstNameLabel, firstNameField, middleNameLabel, middleNameField, lastNameLabel,
-				lastNameField, emailLabel, emailField, dobLabel, dobField, dodLabel, dodField, pidLabel, pidField, relationLabel, relationField, relationPIDLabel, relationPIDField, submitButton);
+				lastNameField, emailLabel, emailField, dobLabel, dobField, dodLabel, dodField, pidLabel, pidField, relationLabel, relationField, relationPIDLabel, relationPIDField, submitButton, validationLabel);
 
 		
 		//adding the layout to the screen and rendering
