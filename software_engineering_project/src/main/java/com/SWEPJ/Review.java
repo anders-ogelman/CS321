@@ -18,7 +18,7 @@ public class Review {
     public Review() {
         // Form form;
         // System.out.println("Hello World!");
-        Stage secondStage = new Stage();
+        Stage secondStage = new Stage();// general field/label/text field/button setup in a grid pane
         GridPane grid = new GridPane();
         Button next = new Button("Next");
         Button submit = new Button("Submit");
@@ -105,7 +105,7 @@ public class Review {
         grid.getChildren().addAll(field5, in5, out5, email);
         grid.getChildren().addAll(field6, in6, out6, DOD);
         grid.getChildren().addAll(field7, in7, out7, relatedPID);
-        next.setOnAction(new EventHandler<ActionEvent>() {
+        next.setOnAction(new EventHandler<ActionEvent>() {// next button actions
             @Override
             public void handle(ActionEvent e) {
                 if (in1.getText().equals("waiting for new task") || in1.getText().equals("Accepted!") || !started) {
@@ -113,9 +113,9 @@ public class Review {
                     // "john",
                     // "", "doe", "e@mail.com",
                     // 222222222); // will be read from workflow/database once thats ready
-                    form = DatabaseManager.fetch(WorkflowManager.info(1));
+                    form = DatabaseManager.fetch(WorkflowManager.info(1));// grab next form in the workflow
                     if (form != null) {
-                        if (form.getMiddleName().equals(""))
+                        if (form.getMiddleName().equals(""))// display all the fields for the reviewer
                             in1.setText(form.getFirstName() + " " + form.getLastName());
                         else
                             in1.setText(form.getFirstName() + " " + form.getMiddleName() + " " + form.getLastName());
@@ -129,14 +129,14 @@ public class Review {
                             grid.getChildren().add(submit);
                             started = true;
                         }
-                        fullName.setText("");
+                        fullName.setText("");// reset text fields
                         PID.setText("");
                         DOB.setText("");
                         relation.setText("");
                         email.setText("");
                         DOD.setText("");
                         relatedPID.setText("");
-                    } else {
+                    } else {// if there is no next form, then wait for next form
                         in1.setText("waiting for new task");
                         in2.setText("waiting for new task");
                         in3.setText("waiting for new task");
@@ -149,13 +149,13 @@ public class Review {
                 }
             }
         });
-        submit.setOnAction(new EventHandler<ActionEvent>() {
+        submit.setOnAction(new EventHandler<ActionEvent>() {// submit button actions
             @Override
             public void handle(ActionEvent e) {
                 if (form != null) {
                     form.isValid();
                     // fullName.setStyle("-fx-background-color: red;");
-                    fullName.setStyle("-fx-background-color: white;");
+                    fullName.setStyle("-fx-background-color: white;");// reset field colors
                     PID.setStyle("-fx-background-color: white;");
                     DOB.setStyle("-fx-background-color: white;");
                     relation.setStyle("-fx-background-color: white;");
@@ -163,7 +163,7 @@ public class Review {
                     DOD.setStyle("-fx-background-color: white;");
                     relatedPID.setStyle("-fx-background-color: white;");
                     // System.out.println(fullName.getCharacters());
-                    if (fullName.getCharacters().length() != 0) {
+                    if (fullName.getCharacters().length() != 0) {// code to break down the full name
                         // System.out.println("char is: " + fullName.getCharacters());
                         String split[] = fullName.getCharacters().toString().split(" ");
                         switch (split.length) {
@@ -178,17 +178,18 @@ public class Review {
                                 form.setLastName(split[2]);
                                 break;
                             default:
-                                form.setFirstName("");
+                                form.setFirstName("");// if invalid input
                         }
                     }
-                    if (PID.getCharacters().length() != 0) {
+                    if (PID.getCharacters().length() != 0) {// set the pid, make it fail if the input is bad
                         try {
                             form.setPID(Long.parseLong(PID.getCharacters().toString()));
                         } catch (Exception e2) {
                             form.setPID(-1);
                         }
                     }
-                    if (DOB.getCharacters().length() != 0) {
+                    if (DOB.getCharacters().length() != 0) {// split up the date of birth, make it invalid if improperly
+                                                            // formatted
                         try {
                             String split2[] = DOB.getCharacters().toString().split("/");
                             Integer.valueOf(split2[0]);
@@ -199,13 +200,13 @@ public class Review {
                             form.setDOB("0/0/0000");
                         }
                     }
-                    if (relation.getCharacters().length() != 0) {
+                    if (relation.getCharacters().length() != 0) {// set relation
                         form.setRelation(relation.getCharacters().toString());
                     }
-                    if (email.getCharacters().length() != 0) {
+                    if (email.getCharacters().length() != 0) {// set email
                         form.setEmail(email.getCharacters().toString());
                     }
-                    if (DOD.getCharacters().length() != 0) {
+                    if (DOD.getCharacters().length() != 0) {// set the date of death
                         try {
                             String split2[] = DOD.getCharacters().toString().split("/");
                             Integer.valueOf(split2[0]);
@@ -216,7 +217,7 @@ public class Review {
                             form.setDOD("0/0/0000");
                         }
                     }
-                    if (relatedPID.getCharacters().length() != 0) {
+                    if (relatedPID.getCharacters().length() != 0) {// set the related pid
                         try {
                             form.setRelatedPID(Long.parseLong(relatedPID.getCharacters().toString()));
                         } catch (Exception e2) {
@@ -228,7 +229,8 @@ public class Review {
                     Boolean fails[] = form.getFail();// fail = [PID, DOB, relation, firstname, middlename, lastname,
                                                      // email,
                                                      // relatedPID, DOD]
-                    for (int i = 0; i < 9; i++) {
+                    for (int i = 0; i < 9; i++) {// if any of the fields are invalid, change the field background to red
+                                                 // to indicate that they need changed
                         switch (i) {
                             case 0:
                                 if (fails[i]) {
@@ -276,7 +278,7 @@ public class Review {
                                 break;
                         }
                     }
-                    if (!lock) {
+                    if (!lock) {// if everything is valid accept the form
                         in1.setText("Accepted!");
                         in2.setText("Accepted!");
                         in3.setText("Accepted!");
@@ -284,10 +286,10 @@ public class Review {
                         in5.setText("Accepted!");
                         in6.setText("Accepted!");
                         in7.setText("Accepted!");
-                        WorkflowManager.update(1, form.getFID());
-                        DatabaseManager.update(form);
+                        WorkflowManager.update(1, form.getFID());// push up in the workflow
+                        DatabaseManager.update(form);// save the changes to the form
                         // System.out.println(form.getFID());
-                        form = null;
+                        form = null;// prep for next form
 
                         // will check if the data is valid, then upload
                         // to the wf table/database
@@ -308,7 +310,7 @@ public class Review {
         // fullName.getText();
         // GridPane.setConstraints(fullName, 0, 1);
         // grid.getChildren().add(fullName);
-        secondStage.setScene(new Scene(grid, 500, 300));
+        secondStage.setScene(new Scene(grid, 500, 300));// make gui window
 
         secondStage.show();
     }
