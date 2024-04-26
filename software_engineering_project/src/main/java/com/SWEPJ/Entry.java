@@ -39,6 +39,12 @@ public class Entry {
 		Label pidLabel = new Label("PID: ");
 		TextField pidField = new TextField();
 
+		Label relationLabel = new Label("Relation: ");
+		TextField relationField = new TextField();
+
+		Label relationPIDLabel = new Label("RelationPID: ");
+		TextField relationPIDField = new TextField();
+	
 		Button submitButton = new Button("Submit");
 
 		//handling form submission
@@ -56,11 +62,13 @@ public class Entry {
 				String middleName = middleNameField.getText();
 				String lastName = lastNameField.getText();
 				String email = emailField.getText();
+				String relation = relationField.getText();
+				long relationPID = Long.parseLong(relationPIDField.getText());
 
 				
 				//TODO: add in basic validation, figure out what to do
 				//with placeholders 00000 and placeholder relation. these fields may get removed
-				Form submissionForm = new Form(pid, dob, dod, "placeholder relation", firstName, middleName, lastName, email, 0000000);
+				Form submissionForm = new Form(pid, dob, dod, relation, firstName, middleName, lastName, email, relationPID);
 				
 
 				//Adding new form to the database, method also sets submissionForm FID
@@ -79,7 +87,7 @@ public class Entry {
 
 		VBox entryBox = new VBox(4, new Label("Entry Window"));
 		entryBox.getChildren().addAll(firstNameLabel, firstNameField, middleNameLabel, middleNameField, lastNameLabel,
-				lastNameField, emailLabel, emailField, dobLabel, dobField, dodLabel, dodField, pidLabel, pidField, submitButton);
+				lastNameField, emailLabel, emailField, dobLabel, dobField, dodLabel, dodField, pidLabel, pidField, relationLabel, relationField, relationPIDLabel, relationPIDField, submitButton);
 
 		
 		//adding the layout to the screen and rendering
