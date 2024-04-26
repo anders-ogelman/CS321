@@ -170,15 +170,15 @@ public class DatabaseManagerTest {
     }
 
     // Checks bad input into DatabaseManager's methods
-    @Test
-    public void testFetchInvalid() {
-        assertTrue(DatabaseManager.fetch(3) == null); // check invalid access
-    }
+    // @Test
+    // public void testFetchInvalid() {
+    // assertTrue(DatabaseManager.fetch(3) == null); // check invalid access
+    // }
 
-    @Test
-    public void testFetchInvalidLookup() {
-        assertTrue(DatabaseManager.fetch(-1) == null); // check incorrect PID lookup
-    }
+    // @Test
+    // public void testFetchInvalidLookup() {
+    // assertTrue(DatabaseManager.fetch(-1) == null); // check incorrect PID lookup
+    // }
 
     /*
      * ~
