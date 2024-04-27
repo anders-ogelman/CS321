@@ -86,7 +86,6 @@ public class Form {
         this.isValid();
         if (!fail[1])
             return true;
-        // this.DOB = temp;
         return false;
     }
 
@@ -96,7 +95,6 @@ public class Form {
         this.isValid();
         if (!fail[3])
             return true;
-        // this.firstName = temp;
         return false;
     }
 
@@ -106,7 +104,6 @@ public class Form {
         this.isValid();
         if (!fail[5])
             return true;
-        // this.lastName = temp;
         return false;
     }
 
@@ -116,7 +113,6 @@ public class Form {
         this.isValid();
         if (!fail[8])
             return true;
-        // this.DOD = temp;
         return false;
     }
 
@@ -126,7 +122,6 @@ public class Form {
         this.isValid();
         if (!fail[4])
             return true;
-        // this.middleName = temp;
         return false;
     }
 

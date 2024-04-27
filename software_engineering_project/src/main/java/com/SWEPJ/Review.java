@@ -164,7 +164,7 @@ public class Review {
                         switch (split.length) {
                             case 2:
                                 form.setFirstName(split[0]);
-                                form.setLastName("");
+                                form.setMiddleName("");
                                 form.setLastName(split[1]);
                                 break;
                             case 3:
@@ -180,7 +180,7 @@ public class Review {
                         switch (split.length) {
                             case 2:
                                 form.setFirstName(split[0]);
-                                form.setLastName("");
+                                form.setMiddleName("");
                                 form.setLastName(split[1]);
                                 break;
                             case 3:
