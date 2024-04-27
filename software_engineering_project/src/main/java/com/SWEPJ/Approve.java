@@ -38,7 +38,7 @@ public class Approve {
     	//DOB
     	Label lblDOB = new Label("DOB:");
     	TextField txfDOB = new TextField();
-    	txfDOB = new TextField();
+    	txfDOB.setEditable(false);
     	//DOD
     	Label lblDOD = new Label("DOD:");
     	TextField txfDOD = new TextField();
@@ -50,13 +50,14 @@ public class Approve {
     	VBox boxForm = new VBox(4, lblHdr1);
     	boxForm.setPadding(new Insets(25, 25, 25, 25));
     	boxForm.setAlignment(Pos.CENTER);
-    	boxForm.getChildren().addAll(lblNF, txfNF,lblNM,txfNM,lblNL,txfNL, lblDOB,txfDOB, lblDOD, txfDOD);
+    	boxForm.getChildren().addAll(lblNF, txfNF,lblNM,txfNM,lblNL,txfNL, lblEmail,txfEmail, lblDOB,txfDOB, lblDOD, txfDOD);
     	//End Fields
     	
     	//Buttons
     	
     	Button butDeny = new Button("Deny");
     	butDeny.setOnAction(new EventHandler<ActionEvent>() {
+    		//DENY
     		public void handle(ActionEvent e) {
     			System.out.println("Denied something!!");
     		}
@@ -66,8 +67,17 @@ public class Approve {
     	Button butLoadNext = new Button("Load Next");
     	//butLoadNext.setDisable(true); //look into this
     	butLoadNext.setOnAction(new EventHandler<ActionEvent>() {
+    		//LOAD NEXT
     		public void handle(ActionEvent e) {
-    			System.out.println("Wanted to Load something!!");
+    			form = DatabaseManager.fetch(WorkflowManager.info(2));
+    			if(form != null) {
+    				txfNF.setText(form.getFirstName());
+    				txfNM.setText(form.getMiddleName());
+    				txfNL.setText(form.getLastName());
+    				txfDOB.setText(form.getDOB());
+    				txfDOD.setText(form.getDOD());
+    				txfEmail.setText(form.getEmail());
+    			}
     		}
     	});
     	
