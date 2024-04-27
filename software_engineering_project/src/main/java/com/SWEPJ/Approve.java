@@ -59,7 +59,16 @@ public class Approve {
     	butDeny.setOnAction(new EventHandler<ActionEvent>() {
     		//DENY
     		public void handle(ActionEvent e) {
-    			System.out.println("Denied something!!");
+    			if(form != null) {
+	    			WorkflowManager.update(2, form.getFID());
+	    			form = null;
+	    			txfNF.setText("");
+	    			txfNM.setText("");
+	    			txfNL.setText("");
+	    			txfDOB.setText("");
+	    			txfDOD.setText("");
+	    			txfEmail.setText("");
+    			}
     		}
     	});
     	
@@ -85,6 +94,14 @@ public class Approve {
     	butApprove.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent e) {
     			System.out.println("Approved something!!");
+    			//TODO "add email functionality"
+    			form = null;
+    			txfNF.setText("");
+    			txfNM.setText("");
+    			txfNL.setText("");
+    			txfDOB.setText("");
+    			txfDOD.setText("");
+    			txfEmail.setText("");
     		}
     	});
     	
