@@ -47,6 +47,9 @@ public class Approve {
     	Label lblHdr1 = new Label("Incoming Form");
     	lblHdr1.setAlignment(Pos.TOP_CENTER);
     	
+    	Label lblHdr2 = new Label("Control");
+    	lblHdr1.setAlignment(Pos.TOP_CENTER);
+    	
     	VBox boxForm = new VBox(4, lblHdr1);
     	boxForm.setPadding(new Insets(25, 25, 25, 25));
     	boxForm.setAlignment(Pos.CENTER);
@@ -61,6 +64,7 @@ public class Approve {
     		public void handle(ActionEvent e) {
     			if(form != null) {
 	    			WorkflowManager.update(2, form.getFID());
+	    			lblHdr2.setText("Denied!");
 	    			form = null;
 	    			txfNF.setText("");
 	    			txfNM.setText("");
@@ -80,6 +84,7 @@ public class Approve {
     		public void handle(ActionEvent e) {
     			form = DatabaseManager.fetch(WorkflowManager.info(2));
     			if(form != null) {
+    				lblHdr2.setText("Control");
     				txfNF.setText(form.getFirstName());
     				txfNM.setText(form.getMiddleName());
     				txfNL.setText(form.getLastName());
@@ -93,19 +98,22 @@ public class Approve {
     	Button butApprove = new Button("Approve");
     	butApprove.setOnAction(new EventHandler<ActionEvent>() {
     		public void handle(ActionEvent e) {
-    			System.out.println("Approved something!!");
-    			//TODO "add email functionality"
-    			form = null;
-    			txfNF.setText("");
-    			txfNM.setText("");
-    			txfNL.setText("");
-    			txfDOB.setText("");
-    			txfDOD.setText("");
-    			txfEmail.setText("");
+    			if(form != null) {
+	    			System.out.println("Approved something!!");
+	    			//TODO "add email functionality"
+	    			form = null;
+	    			txfNF.setText("");
+	    			txfNM.setText("");
+	    			txfNL.setText("");
+	    			txfDOB.setText("");
+	    			txfDOD.setText("");
+	    			txfEmail.setText("");
+	    			lblHdr2.setText("Approved!");
+    			}
     		}
     	});
     	
-    	VBox boxButtons = new VBox(5, new Label("Control"));
+    	VBox boxButtons = new VBox(5, lblHdr2);
     	boxButtons.setPadding(new Insets(25, 25, 25, 25));
     	boxButtons.setAlignment(Pos.CENTER);
     	boxButtons.getChildren().addAll(butDeny,butLoadNext,butApprove);
